@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AccuNumbo Adventures</title>
+<style>
+:root{
+ --navy:#061a33; --navy2:#0b2848; --gold:#ffc21a; --gold2:#ff9f1c;
+ --blue:#1d5fd1; --teal:#118f79; --purple:#7047c9; --cream:#fffaf0;
+ --ink:#10213d; --muted:#667085; --white:#fff; --line:#e7eaf0;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#f7f8fb}
+button,a{font:inherit} a{text-decoration:none;color:inherit}
+.topbar{height:82px;background:linear-gradient(100deg,#06172d,#0a2949);color:#fff;display:flex;align-items:center;padding:0 3.5%;gap:25px;position:sticky;top:0;z-index:50;box-shadow:0 5px 22px #061a3320}
+.brand{display:flex;align-items:center;gap:10px;min-width:330px}.botlogo{font-size:46px;filter:drop-shadow(0 4px 5px #0004)}
+.brandname{font-weight:1000;font-size:25px;line-height:.9;letter-spacing:-1px}.brandname span{color:#19d7d2}.stars{color:#20c9b4;font-size:12px;letter-spacing:3px}.tagline{font-size:11px;color:#fff;opacity:.9;margin-top:5px}
+.nav{display:flex;align-items:center;gap:24px;flex:1;justify-content:center}.nav a{font-size:13px;font-weight:900;opacity:.95;padding:30px 4px;border-bottom:3px solid transparent}.nav a:hover,.nav a.active{color:var(--gold);border-color:var(--gold)}
+.auth{display:flex;gap:12px}.login,.signup{border-radius:11px;padding:11px 22px;font-weight:950;cursor:pointer}.login{background:transparent;color:#fff;border:1px solid #ffffff70}.signup{background:linear-gradient(180deg,#ffd43b,#ffb800);border:0;color:#111c2e}
+.hero{position:relative;min-height:455px;overflow:hidden;background:
+ radial-gradient(circle at 77% 20%,#fff 0 5%,transparent 17%),
+ linear-gradient(100deg,#e9f8ff 0%,#d8f4ff 42%,#b8e5d2 100%)}
+.hero:before{content:"";position:absolute;inset:0;background:
+ radial-gradient(ellipse at 10% 105%,#75b85b 0 19%,transparent 20%),
+ radial-gradient(ellipse at 50% 105%,#63a64f 0 24%,transparent 25%),
+ radial-gradient(ellipse at 94% 108%,#78b95e 0 26%,transparent 27%),
+ linear-gradient(180deg,transparent 55%,#6fae5b 56%,#6fae5b 100%);opacity:.9}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:155px;background:
+ radial-gradient(circle at 20% 40%,#fff 0 2%,transparent 2.5%),
+ radial-gradient(circle at 38% 20%,#fff 0 2%,transparent 2.5%),
+ radial-gradient(circle at 68% 32%,#fff 0 2%,transparent 2.5%);opacity:.8}
+.hero-inner{position:relative;z-index:2;max-width:1450px;margin:auto;min-height:455px;padding:48px 7%;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:25px}
+.hero-copy h1{font-size:clamp(43px,4.5vw,70px);line-height:.98;margin:0 0 12px;font-weight:1000;letter-spacing:-2.5px}.hero-copy h1 span{color:#137c67}.hero-copy .sub{font-size:20px;font-weight:900}.hero-copy .sub b{color:#f47b12}.hero-copy p{font-size:15px;line-height:1.55;max-width:500px;margin:12px 0 20px}
+.cta{display:flex;gap:15px;flex-wrap:wrap}.btn{padding:14px 25px;border-radius:14px;border:0;font-weight:1000;cursor:pointer}.btn.gold{background:linear-gradient(180deg,#ffd83e,#ffb000);box-shadow:0 9px 18px #d88c0028}.btn.white{background:#fff;border:2px solid #d9e2e7}
+.hero-character{height:390px;position:relative;display:flex;align-items:center;justify-content:center}.accubot{font-size:220px;filter:drop-shadow(0 22px 12px #1233);animation:float 3.5s ease-in-out infinite}.bubble{position:absolute;right:2%;top:25px;background:#fff;padding:18px 22px;border-radius:26px;box-shadow:0 12px 35px #1232;font-weight:950;font-size:16px;max-width:190px}.bubble:after{content:"";position:absolute;bottom:12px;left:-14px;border-width:10px 15px 10px 0;border-style:solid;border-color:transparent #fff transparent transparent}.floatcoin{position:absolute;font-size:42px;animation:float 2.5s ease-in-out infinite}.coin1{left:10%;top:40px}.coin2{right:12%;bottom:75px}.coin3{left:20%;bottom:45px}
+@keyframes float{50%{transform:translateY(-10px)}}
+.pillstrip{max-width:1370px;margin:-2px auto 0;background:#fff;border-radius:0 0 18px 18px;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 8px 30px #14213d12;position:relative;z-index:5}.pill{display:flex;align-items:center;gap:14px;padding:20px 26px;border-right:1px solid #e8e3d9}.pill:last-child{border:0}.pill .i{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:29px;background:#ffbf1a}.pill:nth-child(2) .i{background:#7bc33f}.pill:nth-child(3) .i{background:#3978ca}.pill:nth-child(4) .i{background:#8051c8}.pill strong{display:block;font-size:16px}.pill small{color:#586174;line-height:1.35}
+.container{max-width:1370px;margin:auto;padding:25px 0}.grid2{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}.card{background:#fff;border:1px solid #e8eaf0;border-radius:18px;box-shadow:0 8px 28px #14213d0b}.cardhead{display:flex;align-items:center;justify-content:space-between;padding:18px 21px 8px}.cardhead h2{font-size:17px;margin:0}.cardhead p{margin:4px 0;color:#6c7483;font-size:12px}.compass{font-size:30px}
+.map{padding:8px 20px 22px}.route{display:flex;align-items:flex-start;justify-content:space-between;gap:5px;position:relative;padding:12px 8px}.route:before{content:"";position:absolute;left:10%;right:10%;top:77px;border-top:5px dotted #cbd1d8}.node{position:relative;z-index:2;text-align:center;width:20%}.island{width:100px;height:100px;margin:auto;border-radius:28px;background:linear-gradient(145deg,#e5e7eb,#aeb4bd);display:grid;place-items:center;font-size:55px;box-shadow:0 8px 0 #8e959e;border:4px solid #fff}.node.active .island{background:linear-gradient(145deg,#a8db65,#4e9c44);box-shadow:0 8px 0 #31733c}.node h3{font-size:14px;margin:13px 0 3px}.node p{font-size:11px;color:#70798a;margin:0}.badgeNum{position:absolute;top:78px;left:50%;transform:translateX(-50%);background:#ffd21e;border:3px solid #fff;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;font-weight:1000}.viewall{display:block;margin:12px auto 0;background:#071d36;color:#fff;border:0;border-radius:10px;padding:10px 35px;font-weight:950}
+.mission{padding:18px 20px;min-height:285px;background:linear-gradient(135deg,#fffdf5,#fff)}.mission h3{font-size:23px;margin:7px 0}.mission .capital{display:inline-block;background:#09203c;color:#fff;padding:7px 12px;border-radius:8px;font-size:12px;font-weight:900}.mission p{line-height:1.45;color:#5f6879;font-size:13px}.play{background:#138b77;color:#fff;border:0;padding:10px 19px;border-radius:10px;font-weight:950}
+.choices{padding:15px}.choice{display:flex;align-items:center;justify-content:space-between;border-radius:13px;padding:13px 14px;margin-bottom:10px;border:1px solid #dfe6d8;background:#f2fae9}.choice:nth-child(2){background:#edf5ff;border-color:#d7e6ff}.choice:nth-child(3){background:#f5efff;border-color:#e4d9ff}.choice b{font-size:14px}.choice span{font-size:23px}
+.progress-card{margin-top:18px;padding:16px}.progress-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.stat{background:#f9fafc;border:1px solid #e7e9ef;border-radius:12px;padding:12px;text-align:center}.stat .big{font-size:25px;font-weight:1000}.stat small{display:block;color:#677083;font-size:11px}.levelbar{height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin-top:8px}.levelbar span{display:block;width:66%;height:100%;background:#f5b800}
+.lower{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.daily{padding:22px;background:linear-gradient(110deg,#071d36,#143d67);color:#fff;display:flex;justify-content:space-between;align-items:center;border-radius:18px}.daily h3{margin:0 0 6px}.daily p{font-size:12px;color:#d9e5f3}.daily .gift{font-size:64px}.review{padding:20px}.stars5{color:#ffb700;letter-spacing:3px}.review p{font-size:13px;line-height:1.5;color:#5d6677}
+.statsbar{background:#fff;margin-top:18px;padding:18px;display:grid;grid-template-columns:repeat(4,1fr);text-align:center;border-radius:16px;border:1px solid #e7eaf0}.statsbar strong{font-size:24px}.statsbar small{display:block;color:#6c7483}
+footer{background:#061a33;color:#d8e2ef;margin-top:35px;padding:35px 5%;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px}.footerbrand{font-size:22px;font-weight:1000;color:#fff}.footerbrand span{color:#16cfc6}.footercol h4{color:#fff;margin:0 0 12px}.footercol a{display:block;font-size:12px;margin:8px 0;color:#c7d2e2}.copyright{background:#041326;color:#aab7c8;text-align:center;padding:12px;font-size:11px}
+@media(max-width:1050px){.nav{gap:10px}.brand{min-width:270px}.grid2{grid-template-columns:1fr}.hero-inner{grid-template-columns:1fr}.hero-character{display:none}.pillstrip{grid-template-columns:1fr 1fr}.progress-grid{grid-template-columns:repeat(3,1fr)}footer{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.topbar{height:auto;padding:12px 4%;flex-wrap:wrap}.brand{min-width:auto}.nav{order:3;overflow:auto;justify-content:flex-start;width:100%}.nav a{padding:9px 2px}.auth{margin-left:auto}.login{display:none}.pillstrip{grid-template-columns:1fr}.pill{border-right:0;border-bottom:1px solid #eee}.route{overflow-x:auto;justify-content:flex-start;min-width:650px}.map{overflow:auto}.progress-grid{grid-template-columns:1fr 1fr}.lower{grid-template-columns:1fr}.statsbar{grid-template-columns:1fr 1fr}footer{grid-template-columns:1fr}}
+
+.brandmark{width:46px;height:46px;border-radius:13px;background:linear-gradient(145deg,#1b6eaf,#13b89c);display:grid;place-items:center;box-shadow:0 7px 16px #0004;flex:0 0 auto}
+.brandmark-face{width:30px;height:25px;border-radius:8px;background:#fff;position:relative;display:flex;align-items:center;justify-content:center;gap:7px}
+.brandmark-face:before,.brandmark-face:after{content:"";position:absolute;top:-8px;width:3px;height:9px;background:#fff;border-radius:3px}
+.brandmark-face:before{left:7px}.brandmark-face:after{right:7px}
+.brandmark-face span{width:5px;height:5px;border-radius:50%;background:#0b2848}
+.brandmark-face b{position:absolute;bottom:-10px;right:-8px;width:16px;height:16px;border-radius:50%;background:#ffc21a;color:#061a33;font-size:11px;display:grid;place-items:center;line-height:1}
+
+.hero-board{width:min(470px,92%);height:305px;border-radius:28px;background:linear-gradient(145deg,#fff,#eef7ff);border:8px solid #0a2949;box-shadow:0 25px 45px #1234,0 9px 0 #ffc21a;position:relative;padding:20px 24px;transform:rotate(2deg)}
+.board-top{display:flex;justify-content:space-between;color:#52708f;font-size:10px;font-weight:1000;letter-spacing:1.5px}
+.board-title{font-size:36px;line-height:.95;font-weight:1000;letter-spacing:-1px;margin-top:26px;color:#071d36}
+.board-title b{color:#118f79}
+.board-cards{display:flex;gap:10px;margin-top:22px}
+.board-cards div{flex:1;background:#f5f8fc;border:1px solid #dce5ee;border-radius:14px;padding:12px;text-align:center}
+.board-cards strong{display:block;font-size:25px;color:#118f79}
+.board-cards small{font-size:9px;font-weight:900;color:#667085}
+.board-path{display:flex;gap:9px;margin-top:22px}
+.board-path i{width:25px;height:25px;border-radius:50%;background:#ffc21a;border:4px solid #fff;box-shadow:0 2px 0 #b78b00}
+.board-path i:nth-child(2){background:#7bc33f}.board-path i:nth-child(3){background:#3978ca}.board-path i:nth-child(4){background:#8051c8}.board-path i:nth-child(5){background:#118f79}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#">
+    <div class="brandmark" aria-label="AccuNumbo logo">
+      <div class="brandmark-face"><span></span><span></span><b>+</b></div>
+    </div>
+    <div>
+      <div class="brandname">Accu<span>Numbo</span></div>
+      <div class="stars">✦ ✦ ADVENTURES ✦ ✦</div>
+      <div class="tagline">Experience First. Explanation Second.</div>
+    </div>
+  </a>
+  <nav class="nav">
+    <a class="active" href="#">⌂ HOME</a><a href="#adventures">🗺️ ADVENTURES</a><a href="#games">🎮 GAMES</a><a href="#simulations">🏪 SIMULATIONS</a><a href="#teachers">👨‍🏫 FOR TEACHERS</a><a href="#about">ⓘ ABOUT</a>
+  </nav>
+  <div class="auth"><button class="login">LOGIN</button><button class="signup">👤 SIGN UP FREE</button></div>
+</header>
+
+<section class="hero">
+ <div class="hero-inner">
+  <div class="hero-copy">
+   <h1>Accounting isn't<br>a chapter.<br><span>It's an experience.</span></h1>
+   <div class="sub">Experience First. <b>Explanation Second.</b></div>
+   <p>Step into real-life business situations, make decisions, solve challenges and understand accounting through real-life adventures!</p>
+   <div class="cta"><a class="btn gold" href="#adventures">🎮 START YOUR ADVENTURE　›</a><a class="btn white" href="#about">◉ EXPLORE ACCUNUMBO</a></div>
+  </div>
+  <div class="hero-character">
+   <div class="floatcoin coin1">🪙</div><div class="floatcoin coin2">⭐</div><div class="floatcoin coin3">➕</div>
+   <div class="hero-board">
+     <div class="board-top"><span>ACCUNUMBO</span><span>ADVENTURE 01</span></div>
+     <div class="board-title">ACCOUNTING<br><b>ADVENTURE</b></div>
+     <div class="board-cards">
+       <div><strong>₹</strong><small>CAPITAL</small></div>
+       <div><strong>+</strong><small>TRANSACTIONS</small></div>
+       <div><strong>✓</strong><small>DECISIONS</small></div>
+     </div>
+     <div class="board-path"><i></i><i></i><i></i><i></i><i></i></div>
+   </div>
+   <div class="bubble">Hi Explorer!<br><br>Ready for your next accounting adventure? 🚀</div>
+  </div>
+ </div>
+</section>
+
+<div class="pillstrip">
+ <div class="pill"><div class="i">🎮</div><div><strong>Learn by Doing</strong><small>Experience real business situations and learn naturally.</small></div></div>
+ <div class="pill"><div class="i">💡</div><div><strong>Think & Decide</strong><small>Analyze, think and make decisions like a real business owner.</small></div></div>
+ <div class="pill"><div class="i">📖</div><div><strong>Understand Deeply</strong><small>Get clear explanations and connect concepts with everyday life.</small></div></div>
+ <div class="pill"><div class="i">🏆</div><div><strong>Earn & Grow</strong><small>Collect XP, coins and badges as you progress.</small></div></div>
+</div>
+
+<main class="container" id="adventures">
+ <div class="grid2">
+  <section class="card" style="padding:0">
+   <div class="cardhead"><div><h2>🧭 ADVENTURE MAP</h2><p>Your learning journey through the world of accounting!</p></div><div class="compass">🧭</div></div>
+   <div class="map">
+    <div class="route">
+     <div class="node active"><div class="island">🏠</div><div class="badgeNum">01</div><h3>Accounting<br>Village</h3><p>START HERE</p></div>
+     <div class="node"><div class="island">🏪</div><div class="badgeNum" style="background:#e5e7eb">02</div><h3>Build Your<br>Business</h3><p>LOCKED</p></div>
+     <div class="node"><div class="island">🔍</div><div class="badgeNum" style="background:#e5e7eb">03</div><h3>Transaction<br>Trail</h3><p>LOCKED</p></div>
+     <div class="node"><div class="island">🕵️</div><div class="badgeNum" style="background:#e5e7eb">04</div><h3>Accounting<br>Detective</h3><p>LOCKED</p></div>
+     <div class="node"><div class="island">📖</div><div class="badgeNum" style="background:#e5e7eb">05</div><h3>Debit & Credit<br>Arena</h3><p>LOCKED</p></div>
+    </div>
+    <button class="viewall" onclick="alert('Adventure catalogue coming next!')">VIEW ALL ADVENTURES</button>
+   </div>
+  </section>
+
+  <section class="card mission">
+   <div style="font-size:13px;font-weight:1000">🎮 FEATURED MISSION</div>
+   <h3>Your First Business ⭐</h3>
+   <div class="capital">Starting Capital: ₹50,000</div>
+   <p><b>Mission 01</b></p><p>What happens when you invest your own money into the business? Choose the right accounting treatment and keep your business journey moving.</p>
+   <button class="play" onclick="startAdventure()">PLAY MISSION　›</button>
+   <div style="float:right;font-size:72px;margin-top:-45px">🏪</div>
+  </section>
+ </div>
+
+ <div class="grid2" style="margin-top:18px">
+  <section class="card" id="games">
+   <div class="cardhead"><div><h2>🏳️ CHOOSE YOUR ADVENTURE</h2><p>Pick the challenge level that suits you.</p></div></div>
+   <div class="choices">
+    <div class="choice"><div><b style="color:#15705f">🌱 ACCOUNTING EXPLORER</b><br><small>I'm completely new to accounting.</small></div><span>›</span></div>
+    <div class="choice"><div><b style="color:#144eaa">🚀 BUSINESS CHALLENGER</b><br><small>I know the basics. Give me a challenge.</small></div><span>›</span></div>
+    <div class="choice"><div><b style="color:#5d31a9">👑 BUSINESS MASTER</b><br><small>I'm ready for real-world accounting.</small></div><span>›</span></div>
+   </div>
+  </section>
+
+  <section class="card" id="simulations">
+   <div class="cardhead"><div><h2>🏪 BUSINESS SIMULATIONS</h2><p>Learn accounting by running a virtual business.</p></div></div>
+   <div style="padding:12px 18px 20px">
+    <div style="background:linear-gradient(135deg,#eef9ee,#fff);padding:18px;border-radius:14px">
+     <div style="font-size:32px">🏬</div><h3 style="margin:8px 0">Run Your First Store</h3><p style="font-size:13px;color:#657083;line-height:1.5">Manage capital, purchases, sales, expenses and cash while seeing accounting decisions come alive.</p>
+     <button class="play" onclick="alert('Simulation module will connect here.')">ENTER SIMULATION ›</button>
+    </div>
+   </div>
+  </section>
+ </div>
+
+ <section class="card progress-card">
+  <div class="cardhead" style="padding:0 0 13px"><div><h2>📊 YOUR ADVENTURE. YOUR PROGRESS.</h2></div></div>
+  <div class="progress-grid">
+   <div class="stat"><div class="big">⭐ 2,450</div><small>XP Points</small></div>
+   <div class="stat"><div class="big">🪙 520</div><small>Coins</small></div>
+   <div class="stat"><div class="big">🏆 12</div><small>Badges</small></div>
+   <div class="stat"><div class="big">🔥 7</div><small>Day Streak</small></div>
+   <div class="stat"><div class="big">👑 Level 8</div><small>Business Rookie</small><div class="levelbar"><span></span></div></div>
+  </div>
+ </section>
+
+ <div class="lower">
+  <section class="daily"><div><div style="font-size:12px;font-weight:1000">🎁 DAILY CHALLENGE</div><h3>Complete today's challenge</h3><p>Earn bonus XP and keep your learning streak alive.</p><button class="btn gold" onclick="alert('Daily challenge will be connected here.')">TAKE CHALLENGE ›</button></div><div class="gift">🎁</div></section>
+  <section class="card review"><div style="font-size:12px;font-weight:1000">💬 LOVED BY LEARNERS!</div><p>“AccuNumbo makes accounting so easy and fun. I actually enjoy learning now!”</p><div class="stars5">★★★★★</div><small>— Priya S., Student</small></section>
+ </div>
+
+ <div class="statsbar">
+  <div><strong>10,000+</strong><small>Adventurers</small></div><div><strong>50+</strong><small>Challenges</small></div><div><strong>100+</strong><small>Badges to Earn</small></div><div><strong>∞</strong><small>Endless Learning Fun!</small></div>
+ </div>
+</main>
+
+<section id="teachers" style="background:#eef5ff;padding:45px 6%;text-align:center">
+ <div style="max-width:850px;margin:auto"><div style="font-size:35px">👨‍🏫</div><h2>Built for Educators. Loved by Learners.</h2><p style="color:#64748b;line-height:1.6">Teachers will be able to assign adventures, monitor student progress, review performance and bring experiential accounting into the classroom.</p><button class="btn" style="background:#071d36;color:#fff" onclick="alert('Teacher dashboard will be built in the next phase.')">EXPLORE TEACHER TOOLS ›</button></div>
+</section>
+
+<footer id="about">
+ <div><div class="footerbrand">🤖 Accu<span>Numbo</span> ✦ ADVENTURES</div><p style="font-size:12px">Experience First. Explanation Second.</p></div>
+ <div class="footercol"><h4>QUICK LINKS</h4><a href="#">Home</a><a href="#adventures">Adventures</a><a href="#games">Games</a><a href="#simulations">Simulations</a></div>
+ <div class="footercol"><h4>FOR EDUCATORS</h4><a href="#teachers">Resources</a><a href="#teachers">Classroom Activities</a><a href="#teachers">Teacher Dashboard</a></div>
+ <div class="footercol"><h4>ABOUT US</h4><a href="#about">Our Story</a><a href="#about">How It Works</a><a href="#about">Contact Us</a></div>
+</footer>
+<div class="copyright">© 2026 AccuNumbo Adventures. All rights reserved.</div>
+
+<script>
+function startAdventure(){alert("Adventure 1 — Accounting Village is ready! In the full site this button will open the 10-task adventure.");}
+</script>
+</body>
+</html>
