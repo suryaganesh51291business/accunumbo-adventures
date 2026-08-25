@@ -127,7 +127,7 @@ app.post("/api/feedback",(req,res)=>{
 
 app.get("/api/health",(req,res)=>res.json({ok:true,site:"accunumbo.com"}));
 
-app.get("*",(req,res)=>{
+app.get("/{*splat}",(req,res)=>{
   if(req.path.startsWith("/api/")) return res.status(404).json({error:"API route not found"});
   res.sendFile(path.join(__dirname,"index.html"));
 });
