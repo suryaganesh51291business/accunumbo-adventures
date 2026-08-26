@@ -1,0 +1,13 @@
+{
+  "name": "accunumbo-adventures-v4",
+  "version": "4.0.0",
+  "description": "AccuNumbo Adventures - experiential accounting learning platform",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.10.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
