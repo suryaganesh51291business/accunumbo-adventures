@@ -151,7 +151,7 @@ app.get("/api/badge",(req,res)=>{
   });
 });
 
-pp.use((req, res) => {
+app.use((req, res) => {
   if (req.path.startsWith("/api/")) {
     return res.status(404).json({
       error: "API route not found."
