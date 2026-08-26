@@ -1,17 +1,990 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Login — AccuNumbo Adventures</title><link rel="stylesheet" href="styles.css"></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login – AccuNumbo Adventures</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .auth-card {
+      max-width: 620px;
+      margin: 40px auto;
+    }
+
+    .auth-logo {
+      display: block;
+      width: 190px;
+      max-height: 90px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .auth-tabs button {
+      flex: 1;
+      padding: 13px;
+      border: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 800;
+      background: #eef3ff;
+      color: #071a3a;
+    }
+
+    .auth-tabs button.active {
+      background: #ffc400;
+      color: #071a3a;
+    }
+
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    .auth-form label {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 7px;
+      font-weight: 800;
+    }
+
+    .auth-form input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px 15px;
+      border: 2px solid #dce5f5;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .auth-form input:focus {
+      border-color: #2563eb;
+    }
+
+    .password-wrap {
+      position: relative;
+    }
+
+    .password-wrap input {
+      padding-right: 90px;
+    }
+
+    .show-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font-weight: 800;
+      color: #174ea6;
+    }
+
+    .forgot-link {
+      display: block;
+      margin-top: 10px;
+      text-align: right;
+      color: #174ea6;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .auth-buttons button {
+      flex: 1;
+      min-width: 150px;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: #ffc400;
+      color: #071a3a;
+    }
+
+    .btn-secondary {
+      background: #071a3a;
+      color: white;
+    }
+
+    .btn-back {
+      background: #edf2f7;
+      color: #071a3a;
+    }
+
+    .message {
+      display: none;
+      padding: 14px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .message.error {
+      background: #ffe3e3;
+      color: #b42318;
+    }
+
+    .message.success {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .form-note {
+      margin-top: 14px;
+      color: #64748b;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      color: #174ea6;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .back-home:hover {
+      text-decoration: underline;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .welcome h1 {
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #64748b;
+    }
+  </style>
+</head>
+
 <body>
+
 <header class="nav">
-<a class="brand" href="index.html"><img src="accunumbo-logo.png" alt="AccuNumbo logo"><span class="brand-text">Accu<span>Numbo</span><small>✦ ADVENTURES ✦</small></span></a>
-<nav class="navlinks"><a href="index.html">⌂ HOME</a><a href="adventures.html">🗺 ADVENTURES</a><a href="leaderboard.html">🏆 LEADERBOARD</a><a href="teachers.html">👨‍🏫 FOR TEACHERS</a><a href="feedback.html">💬 FEEDBACK</a></nav>
-<div class="actions"><a class="btn outline" href="login.html">LOGIN</a><a class="btn gold" href="login.html">SIGN UP FREE</a></div>
-</header><main class="container"><div class="card form"><span class="pill">🔐 EXPLORER ACCOUNT</span><h1>Welcome back!</h1><p class="hint">Login first to save XP, coins, badges and leaderboard performance.</p><div id="msg" class="msg"></div><div class="field"><label>Name (only needed for sign up)</label><input id="name" autocomplete="name" placeholder="Your name"></div><div class="field"><label>Email</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn gold" onclick="login()">LOGIN</button><button class="btn dark" onclick="signup()">CREATE ACCOUNT</button></div><p class="hint" style="margin-top:18px">Your account is stored in the SQLite database. Use a strong JWT_SECRET before production.</p></div></main>
-<footer class="footer"><div class="container footer-inner"><div><img src="assets/accunumbo-logo.png"><div>Experience First. Explanation Second.</div></div><div>© 2026 AccuNumbo Adventures</div></div></footer>
+
+  <a class="brand" href="index.html">
+    <img
+      src="accunumbo-logo.png"
+      alt="AccuNumbo Adventures logo"
+      style="width:180px;max-height:75px;object-fit:contain;"
+    >
+  </a>
+
+  <nav class="navlinks">
+    <a href="index.html">🏠 HOME</a>
+    <a href="adventures.html">🗺️ ADVENTURES</a>
+    <a href="leaderboard.html">🏆 LEADERBOARD</a>
+    <a href="teachers.html">👩‍🏫 FOR TEACHERS</a>
+    <a href="feedback.html">💬 FEEDBACK</a>
+  </nav>
+
+  <div class="actions">
+    <a class="btn outline" href="login.html">LOGIN</a>
+    <a class="btn gold" href="login.html">SIGN UP FREE</a>
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <div class="card auth-card">
+
+    <img
+      class="auth-logo"
+      src="accunumbo-logo.png"
+      alt="AccuNumbo Adventures"
+    >
+
+    <div class="welcome">
+      <span class="pill">🎮 EXPLORER ACCOUNT</span>
+      <h1>Welcome to AccuNumbo!</h1>
+      <p>
+        Login to save your XP, coins, badges and leaderboard performance.
+      </p>
+    </div>
+
+
+    <div id="msg" class="message"></div>
+
+
+    <!-- TABS -->
+
+    <div class="auth-tabs">
+
+      <button
+        id="loginTab"
+        class="active"
+        type="button"
+        onclick="showForm('login')"
+      >
+        🔐 LOGIN
+      </button>
+
+      <button
+        id="signupTab"
+        type="button"
+        onclick="showForm('signup')"
+      >
+        🆕 CREATE ACCOUNT
+      </button>
+
+    </div>
+
+
+    <!-- LOGIN FORM -->
+
+    <form
+      id="loginForm"
+      class="auth-form active"
+      onsubmit="login(event)"
+    >
+
+      <label for="loginEmail">
+        Email
+      </label>
+
+      <input
+        id="loginEmail"
+        type="email"
+        placeholder="Enter your registered email"
+        autocomplete="email"
+        required
+      >
+
+
+      <label for="loginPassword">
+        Password
+      </label>
+
+      <div class="password-wrap">
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button
+          type="button"
+          class="show-password"
+          onclick="togglePassword('loginPassword', this)"
+        >
+          SHOW
+        </button>
+
+      </div>
+
+
+      <a
+        class="forgot-link"
+        href="#"
+        onclick="showForm('forgot'); return false;"
+      >
+        Forgot Password?
+      </a>
+
+
+      <div class="auth-buttons">
+
+        <button
+          class="btn-primary"
+          type="submit"
+        >
+          LOGIN
+        </button>
+
+        <button
+          class="btn-back"
+          type="button"
+          onclick="window.location.href='index.html'"
+        >
+          HOME
+        </button>
+
+      </div>
+
+    </form>
+
+
+    <!-- SIGNUP FORM -->
+
+    <form
+      id="signupForm"
+      class="auth-form"
+      onsubmit="signup(event)"
+    >
+
+      <label for="signupName">
+        Name
+      </label>
+
+      <input
+        id="signupName"
+        type="text"
+        placeholder="Enter your name"
+        autocomplete="name"
+        required
+      >
+
+
+      <label for="signupEmail">
+        Email
+      </label>
+
+      <input
+        id="signupEmail"
+        type="email"
+        placeholder="Enter your email"
+        autocomplete="email"
+        required
+      >
+
+
+      <label for="signupPassword">
+        Password
+      </label>
+
+      <div class="password-wrap">
+
+        <input
+          id="signupPassword"
+          type="password"
+          placeholder="At least 6 characters"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        >
+
+        <button
+          type="button"
+          class="show-password"
+          onclick="togglePassword('signupPassword', this)"
+        >
+          SHOW
+        </button>
+
+      </div>
+
+
+      <label for="signupConfirm">
+        Confirm Password
+      </label>
+
+      <div class="password-wrap">
+
+        <input
+          id="signupConfirm"
+          type="password"
+          placeholder="Re-enter your password"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        >
+
+        <button
+          type="button"
+          class="show-password"
+          onclick="togglePassword('signupConfirm', this)"
+        >
+          SHOW
+        </button>
+
+      </div>
+
+
+      <div class="auth-buttons">
+
+        <button
+          class="btn-primary"
+          type="submit"
+        >
+          CREATE ACCOUNT
+        </button>
+
+        <button
+          class="btn-back"
+          type="button"
+          onclick="showForm('login')"
+        >
+          BACK TO LOGIN
+        </button>
+
+      </div>
+
+    </form>
+
+
+    <!-- FORGOT PASSWORD FORM -->
+
+    <form
+      id="forgotForm"
+      class="auth-form"
+      onsubmit="resetPassword(event)"
+    >
+
+      <div style="text-align:center;margin-bottom:20px;">
+
+        <div style="font-size:45px;">
+          🔐
+        </div>
+
+        <h2>
+          Reset Your Password
+        </h2>
+
+        <p class="form-note">
+          Enter the email address registered with your AccuNumbo account
+          and choose a new password.
+        </p>
+
+      </div>
+
+
+      <label for="forgotEmail">
+        Registered Email
+      </label>
+
+      <input
+        id="forgotEmail"
+        type="email"
+        placeholder="Enter your registered email"
+        autocomplete="email"
+        required
+      >
+
+
+      <label for="newPassword">
+        New Password
+      </label>
+
+      <div class="password-wrap">
+
+        <input
+          id="newPassword"
+          type="password"
+          placeholder="At least 6 characters"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        >
+
+        <button
+          type="button"
+          class="show-password"
+          onclick="togglePassword('newPassword', this)"
+        >
+          SHOW
+        </button>
+
+      </div>
+
+
+      <label for="confirmNewPassword">
+        Confirm New Password
+      </label>
+
+      <div class="password-wrap">
+
+        <input
+          id="confirmNewPassword"
+          type="password"
+          placeholder="Re-enter your new password"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        >
+
+        <button
+          type="button"
+          class="show-password"
+          onclick="togglePassword('confirmNewPassword', this)"
+        >
+          SHOW
+        </button>
+
+      </div>
+
+
+      <div class="auth-buttons">
+
+        <button
+          class="btn-primary"
+          type="submit"
+        >
+          🔑 RESET PASSWORD
+        </button>
+
+        <button
+          class="btn-back"
+          type="button"
+          onclick="showForm('login')"
+        >
+          ↩️ BACK TO LOGIN
+        </button>
+
+      </div>
+
+
+      <p class="form-note">
+        Your new password must contain at least 6 characters.
+      </p>
+
+    </form>
+
+
+    <a
+      class="back-home"
+      href="index.html"
+    >
+      ← Back to AccuNumbo Adventures
+    </a>
+
+  </div>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="container footer-inner">
+
+    <div>
+      <strong>AccuNumbo Adventures</strong>
+      <p>
+        Accounting isn't a chapter. It's an experience.
+      </p>
+    </div>
+
+    <div>
+      © 2026 AccuNumbo Adventures
+    </div>
+
+  </div>
+
+</footer>
+
+
 <script>
-const $=id=>document.getElementById(id);
-function show(t,c){const m=$("msg");m.textContent=t;m.className="msg show "+c}
-async function call(url,body){const r=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw new Error(d.error||"Request failed");return d}
-async function signup(){try{const d=await call("/api/auth/signup",{name:$("name").value.trim(),email:$("email").value.trim(),password:$("password").value});localStorage.setItem("accu_token",d.token);show("Account created. Opening your dashboard…","success");setTimeout(()=>location.href="dashboard.html",400)}catch(e){show(e.message,"error")}}
-async function login(){try{const d=await call("/api/auth/login",{email:$("email").value.trim(),password:$("password").value});localStorage.setItem("accu_token",d.token);show("Login successful. Opening your dashboard…","success");setTimeout(()=>location.href="dashboard.html",400)}catch(e){show(e.message,"error")}}
-</script></body></html>
+
+  const msg = document.getElementById("msg");
+
+
+  function showMessage(text, type = "error") {
+
+    msg.textContent = text;
+
+    msg.className = "message show " + type;
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
+  function clearMessage() {
+
+    msg.textContent = "";
+
+    msg.className = "message";
+
+  }
+
+
+  function showForm(formName) {
+
+    clearMessage();
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const signupForm =
+      document.getElementById("signupForm");
+
+    const forgotForm =
+      document.getElementById("forgotForm");
+
+    const loginTab =
+      document.getElementById("loginTab");
+
+    const signupTab =
+      document.getElementById("signupTab");
+
+
+    loginForm.classList.remove("active");
+    signupForm.classList.remove("active");
+    forgotForm.classList.remove("active");
+
+    loginTab.classList.remove("active");
+    signupTab.classList.remove("active");
+
+
+    if (formName === "login") {
+
+      loginForm.classList.add("active");
+      loginTab.classList.add("active");
+
+    }
+
+
+    if (formName === "signup") {
+
+      signupForm.classList.add("active");
+      signupTab.classList.add("active");
+
+    }
+
+
+    if (formName === "forgot") {
+
+      forgotForm.classList.add("active");
+
+    }
+
+  }
+
+
+  function togglePassword(id, button) {
+
+    const input =
+      document.getElementById(id);
+
+    if (input.type === "password") {
+
+      input.type = "text";
+
+      button.textContent = "HIDE";
+
+    } else {
+
+      input.type = "password";
+
+      button.textContent = "SHOW";
+
+    }
+
+  }
+
+
+  async function callApi(url, body) {
+
+    const response = await fetch(url, {
+
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify(body)
+
+    });
+
+
+    let data = {};
+
+    try {
+
+      data = await response.json();
+
+    } catch {
+
+      data = {};
+
+    }
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        data.error || "Request failed."
+      );
+
+    }
+
+
+    return data;
+
+  }
+
+
+  async function signup(event) {
+
+    event.preventDefault();
+
+    clearMessage();
+
+
+    const name =
+      document.getElementById("signupName").value.trim();
+
+    const email =
+      document.getElementById("signupEmail").value.trim();
+
+    const password =
+      document.getElementById("signupPassword").value;
+
+    const confirm =
+      document.getElementById("signupConfirm").value;
+
+
+    if (password !== confirm) {
+
+      showMessage(
+        "Passwords do not match."
+      );
+
+      return;
+
+    }
+
+
+    if (password.length < 6) {
+
+      showMessage(
+        "Password must contain at least 6 characters."
+      );
+
+      return;
+
+    }
+
+
+    try {
+
+      const data = await callApi(
+        "/api/auth/signup",
+        {
+          name,
+          email,
+          password
+        }
+      );
+
+
+      if (data.token) {
+
+        localStorage.setItem(
+          "accu_token",
+          data.token
+        );
+
+      }
+
+
+      showMessage(
+        "Account created successfully! Opening your dashboard...",
+        "success"
+      );
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          "dashboard.html";
+
+      }, 800);
+
+
+    } catch (error) {
+
+      showMessage(
+        error.message
+      );
+
+    }
+
+  }
+
+
+  async function login(event) {
+
+    event.preventDefault();
+
+    clearMessage();
+
+
+    const email =
+      document.getElementById("loginEmail").value.trim();
+
+    const password =
+      document.getElementById("loginPassword").value;
+
+
+    try {
+
+      const data = await callApi(
+        "/api/auth/login",
+        {
+          email,
+          password
+        }
+      );
+
+
+      if (data.token) {
+
+        localStorage.setItem(
+          "accu_token",
+          data.token
+        );
+
+      }
+
+
+      showMessage(
+        "Login successful! Opening your dashboard...",
+        "success"
+      );
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          "dashboard.html";
+
+      }, 700);
+
+
+    } catch (error) {
+
+      showMessage(
+        error.message
+      );
+
+    }
+
+  }
+
+
+  async function resetPassword(event) {
+
+    event.preventDefault();
+
+    clearMessage();
+
+
+    const email =
+      document.getElementById("forgotEmail").value.trim();
+
+    const newPassword =
+      document.getElementById("newPassword").value;
+
+    const confirmPassword =
+      document.getElementById("confirmNewPassword").value;
+
+
+    if (newPassword !== confirmPassword) {
+
+      showMessage(
+        "New passwords do not match."
+      );
+
+      return;
+
+    }
+
+
+    if (newPassword.length < 6) {
+
+      showMessage(
+        "Password must contain at least 6 characters."
+      );
+
+      return;
+
+    }
+
+
+    try {
+
+      const data = await callApi(
+        "/api/auth/forgot-password",
+        {
+          email,
+          newPassword
+        }
+      );
+
+
+      showMessage(
+        data.message ||
+        "Password reset successfully. Please login.",
+        "success"
+      );
+
+
+      document.getElementById(
+        "loginEmail"
+      ).value = email;
+
+
+      document.getElementById(
+        "newPassword"
+      ).value = "";
+
+      document.getElementById(
+        "confirmNewPassword"
+      ).value = "";
+
+
+      setTimeout(() => {
+
+        showForm("login");
+
+      }, 1500);
+
+
+    } catch (error) {
+
+      showMessage(
+        error.message
+      );
+
+    }
+
+  }
+
+</script>
+
+</body>
+</html>
