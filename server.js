@@ -156,8 +156,7 @@ if(req.path.startsWith("/api/")) return res.status(404).json({error:"API route n
 res.sendFile(path.join(__dirname,"public","index.html"));
 });
 
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+
 
 
 app.listen(PORT,()=>console.log(`AccuNumbo Adventures running on port ${PORT}`));
