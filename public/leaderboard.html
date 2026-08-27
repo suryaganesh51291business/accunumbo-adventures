@@ -1,13 +1,370 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Leaderboard — AccuNumbo Adventures</title><link rel="stylesheet" href="styles.css"></head>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Leaderboard — AccuNumbo Adventures</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.leader-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leader-table th,
+.leader-table td {
+  padding: 14px 12px;
+  text-align: center;
+  border-bottom: 1px solid #dbe4ef;
+}
+
+.leader-table th {
+  color: #08204a;
+  font-weight: 900;
+}
+
+.leader-table td {
+  color: #17365f;
+  font-weight: 700;
+}
+
+.leader-table tr:first-child td {
+  font-weight: 900;
+}
+
+.rank {
+  font-size: 20px;
+}
+
+.loading {
+  padding: 30px !important;
+  text-align: center;
+  color: #64748b;
+}
+
+.error-message {
+  padding: 25px !important;
+  text-align: center;
+  color: #b91c1c;
+  background: #fff1f2;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.empty-message {
+  padding: 30px !important;
+  text-align: center;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.my-row {
+  font-weight: 900;
+}
+
+@media (max-width: 700px) {
+  .leader-table th,
+  .leader-table td {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+}
+</style>
+</head>
+
 <body>
+
 <header class="nav">
-<a class="brand" href="index.html"><img src="assets/accunumbo-logo.png" alt="AccuNumbo logo"><span class="brand-text">Accu<span>Numbo</span><small>✦ ADVENTURES ✦</small></span></a>
-<nav class="navlinks"><a href="index.html">⌂ HOME</a><a href="adventures.html">🗺 ADVENTURES</a><a href="leaderboard.html">🏆 LEADERBOARD</a><a href="teachers.html">👨‍🏫 FOR TEACHERS</a><a href="feedback.html">💬 FEEDBACK</a></nav>
-<div class="actions"><a class="btn outline" href="login.html">LOGIN</a><a class="btn gold" href="login.html">SIGN UP FREE</a></div>
-</header><main class="container section"><div class="section-title"><span class="pill">🏆 TOP 10</span><h1>AccuNumbo Leaderboard</h1><p>Every participant who plays contributes to the learning leaderboard.</p></div><div class="card" style="margin-top:25px;overflow:auto"><table class="leader-table"><thead><tr><th>Rank</th><th>Explorer</th><th>Score</th><th>Coins</th><th>Badge</th></tr></thead><tbody id="rows"></tbody></table></div><div class="card" style="margin-top:18px"><h3>🏅 Badge Rules</h3><p>🥈 Silver: <b>500+</b> XP &nbsp; • &nbsp; 🥇 Golden: <b>1000+</b> XP &nbsp; • &nbsp; 💎 Platinum: <b>2000+</b> XP</p></div></main>
-<footer class="footer"><div class="container footer-inner"><div><img src="assets/accunumbo-logo.png"><div>Experience First. Explanation Second.</div></div><div>© 2026 AccuNumbo Adventures</div></div></footer>
+
+  <a class="brand" href="index.html">
+    <img src="accunumbo-logo.png" alt="AccuNumbo logo">
+
+    <span class="brand-text">
+      Accu<span>Numbo</span>
+      <small>✦ ADVENTURES ✦</small>
+    </span>
+  </a>
+
+  <nav class="navlinks">
+    <a href="index.html">⌂ HOME</a>
+    <a href="adventures.html">🗺 ADVENTURES</a>
+    <a href="leaderboard.html">🏆 LEADERBOARD</a>
+    <a href="teachers.html">👨‍🏫 FOR TEACHERS</a>
+    <a href="feedback.html">💬 FEEDBACK</a>
+  </nav>
+
+  <div class="actions">
+    <a class="btn outline" href="login.html">LOGIN</a>
+    <a class="btn gold" href="login.html">SIGN UP FREE</a>
+  </div>
+
+</header>
+
+
+<main class="container section">
+
+  <div class="section-title">
+
+    <span class="pill">🏆 TOP 10</span>
+
+    <h1>AccuNumbo Leaderboard</h1>
+
+    <p>
+      Every participant who plays contributes to the learning leaderboard.
+    </p>
+
+  </div>
+
+
+  <div class="card" style="margin-top:25px;overflow:auto">
+
+    <table class="leader-table">
+
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Explorer</th>
+          <th>Score</th>
+          <th>Coins</th>
+          <th>Badge</th>
+        </tr>
+      </thead>
+
+      <tbody id="rows">
+
+        <tr>
+          <td colspan="5" class="loading">
+            ⏳ Loading leaderboard...
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="card" style="margin-top:18px">
+
+    <h3>🏅 Badge Rules</h3>
+
+    <p>
+      🥈 Silver: <b>500+</b> XP
+      &nbsp; • &nbsp;
+      🥇 Golden: <b>1000+</b> XP
+      &nbsp; • &nbsp;
+      💎 Platinum: <b>2000+</b> XP
+    </p>
+
+  </div>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="container footer-inner">
+
+    <div>
+
+      <img src="accunumbo-logo.png" alt="AccuNumbo logo">
+
+      <div>
+        Experience First. Explanation Second.
+      </div>
+
+    </div>
+
+    <div>
+      © 2026 AccuNumbo Adventures
+    </div>
+
+  </div>
+
+</footer>
+
+
 <script>
-async function load(){const r=await fetch("/api/leaderboard");const d=await r.json();const b=document.getElementById("rows");b.innerHTML=d.leaders.length?d.leaders.map((x,i)=>`<tr><td class="rank">${i<3?["🥇","🥈","🥉"][i]:i+1}</td><td>${x.name}</td><td><b>${x.total_xp}</b> XP</td><td>${x.total_coins} 🪙</td><td>${x.total_xp>=2000?"💎 Platinum":x.total_xp>=1000?"🥇 Golden":x.total_xp>=500?"🥈 Silver":"🌱 Explorer"}</td></tr>`).join(""):`<tr><td colspan="5">No scores yet. Be the first Explorer!</td></tr>`)}load();
-</script></body></html>
+
+function escapeHTML(value) {
+
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+function getBadge(xp) {
+
+  xp = Number(xp) || 0;
+
+  if (xp >= 2000) {
+    return "💎 Platinum";
+  }
+
+  if (xp >= 1000) {
+    return "🥇 Golden";
+  }
+
+  if (xp >= 500) {
+    return "🥈 Silver";
+  }
+
+  return "🌱 Explorer";
+
+}
+
+
+async function loadLeaderboard() {
+
+  const rows = document.getElementById("rows");
+
+  rows.innerHTML = `
+    <tr>
+      <td colspan="5" class="loading">
+        ⏳ Loading leaderboard...
+      </td>
+    </tr>
+  `;
+
+
+  try {
+
+    const response = await fetch(
+      "/api/leaderboard?time=" + Date.now(),
+      {
+        method: "GET",
+        cache: "no-store"
+      }
+    );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Leaderboard request failed: " + response.status
+      );
+
+    }
+
+
+    const data = await response.json();
+
+
+    console.log("Leaderboard data:", data);
+
+
+    const leaders = Array.isArray(data.leaders)
+      ? data.leaders
+      : [];
+
+
+    if (leaders.length === 0) {
+
+      rows.innerHTML = `
+        <tr>
+          <td colspan="5" class="empty-message">
+            🌱 No scores yet. Be the first Explorer!
+          </td>
+        </tr>
+      `;
+
+      return;
+
+    }
+
+
+    rows.innerHTML = leaders.map((player, index) => {
+
+      const xp = Number(player.total_xp) || 0;
+
+      const coins = Number(player.total_coins) || 0;
+
+      let rankDisplay;
+
+      if (index === 0) {
+
+        rankDisplay = "🥇";
+
+      } else if (index === 1) {
+
+        rankDisplay = "🥈";
+
+      } else if (index === 2) {
+
+        rankDisplay = "🥉";
+
+      } else {
+
+        rankDisplay = index + 1;
+
+      }
+
+
+      return `
+        <tr>
+
+          <td class="rank">
+            ${rankDisplay}
+          </td>
+
+          <td>
+            ${escapeHTML(player.name)}
+          </td>
+
+          <td>
+            <b>${xp}</b> XP
+          </td>
+
+          <td>
+            ${coins} 🪙
+          </td>
+
+          <td>
+            ${getBadge(xp)}
+          </td>
+
+        </tr>
+      `;
+
+    }).join("");
+
+
+  } catch (error) {
+
+    console.error("Leaderboard error:", error);
+
+
+    rows.innerHTML = `
+      <tr>
+        <td colspan="5" class="error-message">
+
+          ❌ Unable to load the leaderboard.
+
+          <br><br>
+
+          Please refresh the page and try again.
+
+        </td>
+      </tr>
+    `;
+
+  }
+
+}
+
+
+loadLeaderboard();
+
+</script>
+
+</body>
+</html>
