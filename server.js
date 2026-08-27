@@ -6,8 +6,10 @@ const Jwt = require("jsonwebtoken");
 
 const app = express();
 const PORT = process.env.PORT || 10000;
+
 const JWT_SECRET =
-  process.env.JWT_SECRET || "accunumbo-development-secret-change-before-production";
+  process.env.JWT_SECRET ||
+  "accunumbo-development-secret-change-before-production";
 
 const db = new Database(path.join(__dirname, "accunumbo.db"));
 
@@ -47,6 +49,16 @@ CREATE TABLE IF NOT EXISTS task_results (
   created_at TEXT DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY(user_id) REFERENCES users(id)
 );
+
+CREATE TABLE IF NOT EXISTS feedback (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  adventure TEXT DEFAULT 'General',
+  rating INTEGER NOT NULL,
+  message TEXT NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
 `);
 
 app.use(express.json({ limit: "1mb" }));
@@ -55,9 +67,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 
+/* =========================
+   AUTHENTICATION
+========================= */
+
 function auth(req, res, next) {
+
   const h = req.headers.authorization || "";
-  const token = h.startsWith("Bearer ") ? h.slice(7) : null;
+
+  const token =
+    h.startsWith("Bearer ")
+      ? h.slice(7)
+      : null;
 
   if (!token) {
     return res.status(401).json({
@@ -66,17 +87,30 @@ function auth(req, res, next) {
   }
 
   try {
-    req.user = Jwt.verify(token, JWT_SECRET);
+
+    req.user = Jwt.verify(
+      token,
+      JWT_SECRET
+    );
+
     next();
+
   } catch {
+
     return res.status(401).json({
       error: "Session expired. Please login again."
     });
+
   }
 }
 
 
+/* =========================
+   SAFE USER
+========================= */
+
 function safeUser(u) {
+
   return {
     id: u.id,
     name: u.name,
@@ -85,14 +119,21 @@ function safeUser(u) {
     total_xp: u.total_xp,
     total_coins: u.total_coins
   };
+
 }
 
 
+/* =========================
+   HEALTH
+========================= */
+
 app.get("/api/health", (req, res) => {
+
   res.json({
     ok: true,
     app: "AccuNumbo Adventures"
   });
+
 });
 
 
@@ -101,60 +142,86 @@ app.get("/api/health", (req, res) => {
 ========================= */
 
 app.post("/api/auth/signup", async (req, res) => {
+
   try {
-    const { name, email, password } = req.body;
+
+    const {
+      name,
+      email,
+      password
+    } = req.body;
 
     if (!name || !email || !password) {
+
       return res.status(400).json({
         error: "Please fill all fields."
       });
+
     }
 
     if (password.length < 6) {
+
       return res.status(400).json({
-        error: "Password must contain at least 6 characters."
+        error:
+          "Password must contain at least 6 characters."
       });
+
     }
 
-    const cleanEmail = String(email).trim().toLowerCase();
+    const cleanEmail =
+      String(email)
+        .trim()
+        .toLowerCase();
 
-    const existing = db
-      .prepare("SELECT id FROM users WHERE email = ?")
-      .get(cleanEmail);
+    const existing =
+      db
+        .prepare(
+          "SELECT id FROM users WHERE email = ?"
+        )
+        .get(cleanEmail);
 
     if (existing) {
+
       return res.status(409).json({
-        error: "An account with this email already exists. Please login."
+        error:
+          "An account with this email already exists. Please login."
       });
+
     }
 
-    const hash = await bcrypt.hash(password, 10);
+    const hash =
+      await bcrypt.hash(password, 10);
 
-    const r = db
-      .prepare(
-        "INSERT INTO users (name,email,password) VALUES (?,?,?)"
-      )
-      .run(
-        String(name).trim(),
-        cleanEmail,
-        hash
+    const r =
+      db
+        .prepare(
+          "INSERT INTO users (name,email,password) VALUES (?,?,?)"
+        )
+        .run(
+          String(name).trim(),
+          cleanEmail,
+          hash
+        );
+
+    const user =
+      db
+        .prepare(
+          "SELECT * FROM users WHERE id = ?"
+        )
+        .get(r.lastInsertRowid);
+
+    const token =
+      Jwt.sign(
+        {
+          id: user.id,
+          email: user.email,
+          role: user.role
+        },
+        JWT_SECRET,
+        {
+          expiresIn: "7d"
+        }
       );
-
-    const user = db
-      .prepare("SELECT * FROM users WHERE id = ?")
-      .get(r.lastInsertRowid);
-
-    const token = Jwt.sign(
-      {
-        id: user.id,
-        email: user.email,
-        role: user.role
-      },
-      JWT_SECRET,
-      {
-        expiresIn: "7d"
-      }
-    );
 
     res.json({
       ok: true,
@@ -163,12 +230,15 @@ app.post("/api/auth/signup", async (req, res) => {
     });
 
   } catch (e) {
+
     console.error(e);
 
     res.status(500).json({
       error: "Registration failed."
     });
+
   }
+
 });
 
 
@@ -177,46 +247,71 @@ app.post("/api/auth/signup", async (req, res) => {
 ========================= */
 
 app.post("/api/auth/login", async (req, res) => {
+
   try {
-    const { email, password } = req.body;
+
+    const {
+      email,
+      password
+    } = req.body;
 
     if (!email || !password) {
+
       return res.status(400).json({
-        error: "Email and password are required."
+        error:
+          "Email and password are required."
       });
+
     }
 
-    const cleanEmail = String(email).trim().toLowerCase();
+    const cleanEmail =
+      String(email)
+        .trim()
+        .toLowerCase();
 
-    const user = db
-      .prepare("SELECT * FROM users WHERE email = ?")
-      .get(cleanEmail);
+    const user =
+      db
+        .prepare(
+          "SELECT * FROM users WHERE email = ?"
+        )
+        .get(cleanEmail);
 
     if (!user) {
+
       return res.status(401).json({
-        error: "Invalid email or password."
+        error:
+          "Invalid email or password."
       });
+
     }
 
-    const ok = await bcrypt.compare(password, user.password);
+    const ok =
+      await bcrypt.compare(
+        password,
+        user.password
+      );
 
     if (!ok) {
+
       return res.status(401).json({
-        error: "Invalid email or password."
+        error:
+          "Invalid email or password."
       });
+
     }
 
-    const token = Jwt.sign(
-      {
-        id: user.id,
-        email: user.email,
-        role: user.role
-      },
-      JWT_SECRET,
-      {
-        expiresIn: "7d"
-      }
-    );
+    const token =
+      Jwt.sign(
+        {
+          id: user.id,
+          email: user.email,
+          role: user.role
+        },
+        JWT_SECRET,
+        {
+          expiresIn: "7d"
+        }
+      );
 
     res.json({
       ok: true,
@@ -225,12 +320,15 @@ app.post("/api/auth/login", async (req, res) => {
     });
 
   } catch (e) {
+
     console.error(e);
 
     res.status(500).json({
       error: "Login failed."
     });
+
   }
+
 });
 
 
@@ -238,54 +336,90 @@ app.post("/api/auth/login", async (req, res) => {
    FORGOT PASSWORD
 ========================= */
 
-app.post("/api/auth/forgot-password", async (req, res) => {
-  try {
-    const { email, newPassword } = req.body;
+app.post(
+  "/api/auth/forgot-password",
+  async (req, res) => {
 
-    if (!email || !newPassword) {
-      return res.status(400).json({
-        error: "Email and new password are required."
+    try {
+
+      const {
+        email,
+        newPassword
+      } = req.body;
+
+      if (!email || !newPassword) {
+
+        return res.status(400).json({
+          error:
+            "Email and new password are required."
+        });
+
+      }
+
+      if (newPassword.length < 6) {
+
+        return res.status(400).json({
+          error:
+            "Password must contain at least 6 characters."
+        });
+
+      }
+
+      const cleanEmail =
+        String(email)
+          .trim()
+          .toLowerCase();
+
+      const user =
+        db
+          .prepare(
+            "SELECT id FROM users WHERE email = ?"
+          )
+          .get(cleanEmail);
+
+      if (!user) {
+
+        return res.status(404).json({
+          error:
+            "No account found with this email."
+        });
+
+      }
+
+      const hash =
+        await bcrypt.hash(
+          newPassword,
+          10
+        );
+
+      db
+        .prepare(
+          "UPDATE users SET password = ? WHERE id = ?"
+        )
+        .run(
+          hash,
+          user.id
+        );
+
+      res.json({
+        ok: true,
+        message:
+          "Password reset successfully. Please login with your new password."
       });
+
+    } catch (e) {
+
+      console.error(e);
+
+      res.status(500).json({
+        error:
+          "Password reset failed."
+      });
+
     }
 
-    if (newPassword.length < 6) {
-      return res.status(400).json({
-        error: "Password must contain at least 6 characters."
-      });
-    }
-
-    const cleanEmail = String(email).trim().toLowerCase();
-
-    const user = db
-      .prepare("SELECT id FROM users WHERE email = ?")
-      .get(cleanEmail);
-
-    if (!user) {
-      return res.status(404).json({
-        error: "No account found with this email."
-      });
-    }
-
-    const hash = await bcrypt.hash(newPassword, 10);
-
-    db.prepare(
-      "UPDATE users SET password = ? WHERE id = ?"
-    ).run(hash, user.id);
-
-    res.json({
-      ok: true,
-      message:
-        "Password reset successfully. Please login with your new password."
-    });
-
-  } catch (e) {
-    console.error(e);
-
-    res.status(500).json({
-      error: "Password reset failed."
-    });
   }
-});
+);
 
 
 /* =========================
@@ -293,33 +427,42 @@ app.post("/api/auth/forgot-password", async (req, res) => {
 ========================= */
 
 app.get("/api/me", auth, (req, res) => {
-  const user = db
-    .prepare("SELECT * FROM users WHERE id = ?")
-    .get(req.user.id);
+
+  const user =
+    db
+      .prepare(
+        "SELECT * FROM users WHERE id = ?"
+      )
+      .get(req.user.id);
 
   if (!user) {
+
     return res.status(404).json({
-      error: "User not found."
+      error:
+        "User not found."
     });
+
   }
 
-  const progress = db
-    .prepare(`
-      SELECT
-        adventure,
-        SUM(xp) AS xp,
-        SUM(coins) AS coins,
-        COUNT(DISTINCT task_no) AS completed_tasks
-      FROM task_results
-      WHERE user_id = ?
-      GROUP BY adventure
-    `)
-    .all(user.id);
+  const progress =
+    db
+      .prepare(`
+        SELECT
+          adventure,
+          SUM(xp) AS xp,
+          SUM(coins) AS coins,
+          COUNT(DISTINCT task_no) AS completed_tasks
+        FROM task_results
+        WHERE user_id = ?
+        GROUP BY adventure
+      `)
+      .all(user.id);
 
   res.json({
     user: safeUser(user),
     progress
   });
+
 });
 
 
@@ -327,161 +470,366 @@ app.get("/api/me", auth, (req, res) => {
    TASK PROGRESS
 ========================= */
 
-app.post("/api/progress/task", auth, (req, res) => {
-  const {
-    adventure = 1,
-    taskNo,
-    attempt,
-    xp = 0,
-    coins = 0
-  } = req.body;
+app.post(
+  "/api/progress/task",
+  auth,
+  (req, res) => {
 
-  if (!taskNo || !attempt) {
-    return res.status(400).json({
-      error: "Task details are required."
-    });
-  }
-
-  const r = db
-    .prepare(`
-      INSERT INTO task_results
-      (user_id, adventure, task_no, attempt, xp, coins)
-      VALUES (?,?,?,?,?,?)
-    `)
-    .run(
-      req.user.id,
-      adventure,
+    const {
+      adventure = 1,
       taskNo,
       attempt,
-      xp,
-      coins
-    );
+      xp = 0,
+      coins = 0
+    } = req.body;
 
-  db.prepare(`
-    UPDATE users
-    SET
-      total_xp = total_xp + ?,
-      total_coins = total_coins + ?
-    WHERE id = ?
-  `).run(
-    xp,
-    coins,
-    req.user.id
-  );
+    if (!taskNo || !attempt) {
 
-  res.json({
-    ok: true,
-    id: r.lastInsertRowid
-  });
-});
+      return res.status(400).json({
+        error:
+          "Task details are required."
+      });
+
+    }
+
+    const r =
+      db
+        .prepare(`
+          INSERT INTO task_results
+          (user_id, adventure, task_no, attempt, xp, coins)
+          VALUES (?,?,?,?,?,?)
+        `)
+        .run(
+          req.user.id,
+          adventure,
+          taskNo,
+          attempt,
+          xp,
+          coins
+        );
+
+    db
+      .prepare(`
+        UPDATE users
+        SET
+          total_xp = total_xp + ?,
+          total_coins = total_coins + ?
+        WHERE id = ?
+      `)
+      .run(
+        xp,
+        coins,
+        req.user.id
+      );
+
+    res.json({
+      ok: true,
+      id: r.lastInsertRowid
+    });
+
+  }
+);
 
 
 /* =========================
    ADVENTURE PROGRESS
 ========================= */
 
-app.post("/api/progress/adventure", auth, (req, res) => {
-  const {
-    adventure = 1,
-    xp = 0,
-    coins = 0,
-    completedTasks = 10
-  } = req.body;
+app.post(
+  "/api/progress/adventure",
+  auth,
+  (req, res) => {
 
-  const r = db
-    .prepare(`
-      INSERT INTO adventure_results
-      (user_id, adventure, xp, coins, completed_tasks)
-      VALUES (?,?,?,?,?)
-    `)
-    .run(
-      req.user.id,
-      adventure,
-      xp,
-      coins,
-      completedTasks
-    );
+    const {
+      adventure = 1,
+      xp = 0,
+      coins = 0,
+      completedTasks = 10
+    } = req.body;
 
-  res.json({
-    ok: true,
-    id: r.lastInsertRowid
-  });
-});
+    const r =
+      db
+        .prepare(`
+          INSERT INTO adventure_results
+          (user_id, adventure, xp, coins, completed_tasks)
+          VALUES (?,?,?,?,?)
+        `)
+        .run(
+          req.user.id,
+          adventure,
+          xp,
+          coins,
+          completedTasks
+        );
+
+    res.json({
+      ok: true,
+      id: r.lastInsertRowid
+    });
+
+  }
+);
 
 
 /* =========================
    LEADERBOARD
 ========================= */
 
-app.get("/api/leaderboard", (req, res) => {
-  const rows = db
-    .prepare(`
-      SELECT
-        name,
-        total_xp,
-        total_coins
-      FROM users
-      ORDER BY total_xp DESC, total_coins DESC, name ASC
-      LIMIT 10
-    `)
-    .all();
+app.get(
+  "/api/leaderboard",
+  (req, res) => {
 
-  res.json({
-    leaders: rows
-  });
-});
+    const rows =
+      db
+        .prepare(`
+          SELECT
+            name,
+            total_xp,
+            total_coins
+          FROM users
+          ORDER BY
+            total_xp DESC,
+            total_coins DESC,
+            name ASC
+          LIMIT 10
+        `)
+        .all();
+
+    res.json({
+      leaders: rows
+    });
+
+  }
+);
 
 
 /* =========================
    BADGES
 ========================= */
 
-app.get("/api/badge", (req, res) => {
-  res.json({
-    rules: [
-      {
-        name: "Silver Badge",
-        min: 500,
-        icon: "🥈"
-      },
-      {
-        name: "Golden Badge",
-        min: 1000,
-        icon: "🥇"
-      },
-      {
-        name: "Platinum Badge",
-        min: 2000,
-        icon: "💎"
+app.get(
+  "/api/badge",
+  (req, res) => {
+
+    res.json({
+
+      rules: [
+
+        {
+          name: "Silver Badge",
+          min: 500,
+          icon: "🥈"
+        },
+
+        {
+          name: "Golden Badge",
+          min: 1000,
+          icon: "🥇"
+        },
+
+        {
+          name: "Platinum Badge",
+          min: 2000,
+          icon: "💎"
+        }
+
+      ]
+
+    });
+
+  }
+);
+
+
+/* =========================
+   FEEDBACK
+========================= */
+
+app.post(
+  "/api/feedback",
+  (req, res) => {
+
+    try {
+
+      const {
+        name,
+        email,
+        adventure = "General",
+        rating,
+        message
+      } = req.body;
+
+
+      /* -------------------------
+         REQUIRED FIELDS
+      ------------------------- */
+
+      if (
+        !name ||
+        !email ||
+        !rating ||
+        !message
+      ) {
+
+        return res.status(400).json({
+          error:
+            "Please fill all required fields."
+        });
+
       }
-    ]
-  });
-});
+
+
+      /* -------------------------
+         CLEAN INPUT
+      ------------------------- */
+
+      const cleanName =
+        String(name).trim();
+
+      const cleanEmail =
+        String(email)
+          .trim()
+          .toLowerCase();
+
+      const cleanAdventure =
+        String(adventure).trim() ||
+        "General";
+
+      const cleanMessage =
+        String(message).trim();
+
+      const cleanRating =
+        Number(rating);
+
+
+      /* -------------------------
+         VALIDATION
+      ------------------------- */
+
+      if (
+        !cleanName ||
+        !cleanEmail ||
+        !cleanMessage
+      ) {
+
+        return res.status(400).json({
+          error:
+            "Please complete all required fields."
+        });
+
+      }
+
+
+      if (
+        !Number.isInteger(cleanRating) ||
+        cleanRating < 1 ||
+        cleanRating > 5
+      ) {
+
+        return res.status(400).json({
+          error:
+            "Rating must be between 1 and 5 stars."
+        });
+
+      }
+
+
+      /* -------------------------
+         SAVE FEEDBACK
+      ------------------------- */
+
+      const result =
+        db
+          .prepare(`
+            INSERT INTO feedback
+            (name, email, adventure, rating, message)
+            VALUES (?, ?, ?, ?, ?)
+          `)
+          .run(
+            cleanName,
+            cleanEmail,
+            cleanAdventure,
+            cleanRating,
+            cleanMessage
+          );
+
+
+      /* -------------------------
+         SUCCESS
+      ------------------------- */
+
+      res.json({
+
+        ok: true,
+
+        id:
+          result.lastInsertRowid,
+
+        message:
+          "Thank you for your feedback!"
+
+      });
+
+    } catch (e) {
+
+      console.error(
+        "Feedback error:",
+        e
+      );
+
+      res.status(500).json({
+        error:
+          "Unable to save feedback."
+      });
+
+    }
+
+  }
+);
 
 
 /* =========================
    PAGE FALLBACK
 ========================= */
 
-app.get("/*splat", (req, res) => {
-  if (req.path.startsWith("/api/")) {
-    return res.status(404).json({
-      error: "API route not found."
-    });
-  }
+app.get(
+  "/*splat",
+  (req, res) => {
 
-  res.sendFile(
-    path.join(__dirname, "public", "index.html")
-  );
-});
+    if (
+      req.path.startsWith("/api/")
+    ) {
+
+      return res.status(404).json({
+        error:
+          "API route not found."
+      });
+
+    }
+
+    res.sendFile(
+      path.join(
+        __dirname,
+        "public",
+        "index.html"
+      )
+    );
+
+  }
+);
 
 
 /* =========================
    START SERVER
 ========================= */
 
-app.listen(PORT, () => {
-  console.log(
-    `AccuNumbo Adventures running on port ${PORT}`
-  );
-});
+app.listen(
+  PORT,
+  () => {
+
+    console.log(
+      `AccuNumbo Adventures running on port ${PORT}`
+    );
+
+  }
+);
