@@ -1,515 +1,921 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AccuNumbo Adventures</title>
+  <title>AccuNumbo Adventures</title>
 
-    <!-- IMPORTANT: Your actual CSS filename -->
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
 
-<header class="nav">
+  <header class="nav">
 
-    <a class="brand" href="index.html">
-        <img src="accunumbo-logo.png" alt="AccuNumbo Adventures Logo">
+    <a href="index.html" class="brand">
+      <img src="accunumbo-logo.png" alt="AccuNumbo Adventures Logo">
     </a>
 
     <nav class="navlinks">
 
-        <a href="index.html">HOME</a>
-
-        <a href="adventures.html">ADVENTURES</a>
-
-        <a href="leaderboard.html">LEADERBOARD</a>
-
-        <a href="teachers.html">FOR TEACHERS</a>
-
-        <a href="feedback.html">FEEDBACK</a>
+      <a href="index.html">🏠 HOME</a>
+      <a href="adventures.html">📖 ADVENTURES</a>
+      <a href="leaderboard.html">🏆 LEADERBOARD</a>
+      <a href="#">🛡️ BADGES</a>
+      <a href="teachers.html">🎓 FOR TEACHERS</a>
+      <a href="feedback.html">💬 FEEDBACK</a>
+      <a href="login.html">🔐 LOGIN</a>
 
     </nav>
 
     <div class="actions">
-
-        <a class="btn outline" href="login.html">
-            LOGIN
-        </a>
-
-        <a class="btn gold" href="login.html">
-            SIGN UP FREE
-        </a>
-
+      <a href="login.html" class="btn gold">
+        👤 SIGN UP FREE
+      </a>
     </div>
 
-</header>
+  </header>
 
 
-<!-- =====================================================
-     HERO SECTION
-===================================================== -->
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
 
-<section class="hero">
+  <main>
 
-    <div class="hero-inner">
+    <section class="hero">
+
+      <div class="hero-inner">
 
         <div class="hero-copy">
 
-            <span class="pill">
-                🎮 EXPERIENTIAL ACCOUNTING LEARNING PLATFORM
-            </span>
+          <div class="pill">
+            ⭐ EXPERIENTIAL ACCOUNTING LEARNING PLATFORM
+          </div>
 
-            <h1>
-                Accounting isn't a chapter.
-                <br>
-                <span>It's an experience.</span>
-            </h1>
+          <h1>
+            Accounting<br>
+            isn’t a chapter.<br>
+            It’s an <span>experience.</span>
+          </h1>
 
-            <p>
-                <b>Experience First. Explanation Second.</b>
-                <br><br>
+          <p>
+            Where <strong>Adventure</strong> Turns
+            <strong>Accounting</strong> into
+            <strong>Understanding.</strong>
+          </p>
 
-                Step into real-life business situations,
-                make decisions, solve challenges and
-                understand accounting through interactive
-                adventures.
-            </p>
+          <div class="hero-buttons">
 
-            <div class="hero-buttons">
+            <a href="adventure1.html" class="btn gold">
+              🚀 START YOUR ADVENTURE
+            </a>
 
-                <a class="btn gold" href="adventures.html">
-                    START YOUR ADVENTURE →
-                </a>
+            <a href="adventures.html" class="btn blue">
+              ▶ EXPLORE ACCUNUMBO
+            </a>
 
-                <a class="btn"
-                   style="border:2px solid #d8e4f1;background:#fff"
-                   href="#explore">
-                    EXPLORE ACCUNUMBO
-                </a>
-
-            </div>
+          </div>
 
         </div>
 
-
-        <!--
-            No hero.png here because that file does not
-            currently exist in your GitHub public folder.
-
-            We will add your actual blueprint adventure
-            artwork later without breaking the page.
-        -->
 
         <div class="hero-art">
 
-            <div class="hero-placeholder">
+          <!-- Existing logo is used safely here instead of a
+               missing hero.png file -->
 
-                <div class="adventure-symbol">✦</div>
-
-                <h3>YOUR ADVENTURE STARTS HERE</h3>
-
-                <p>
-                    Learn accounting through
-                    exciting business experiences.
-                </p>
-
-            </div>
+          <img
+            src="accunumbo-logo.png"
+            alt="AccuNumbo Adventures"
+          >
 
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
 
-<!-- =====================================================
-     FEATURE BAR
-===================================================== -->
+    <!-- =====================================================
+         FEATURE BAR
+    ====================================================== -->
 
-<main class="container">
+    <section class="container">
 
-    <div class="featurebar">
-
-        <div class="feature">
-
-            <div class="ico">🎮</div>
-
-            <div>
-                <b>Learn by Doing</b>
-                <small>Real business situations</small>
-            </div>
-
-        </div>
-
+      <div class="featurebar">
 
         <div class="feature">
 
-            <div class="ico">💡</div>
+          <div class="ico">🎮</div>
 
-            <div>
-                <b>Think & Decide</b>
-                <small>Apply accounting concepts</small>
-            </div>
+          <div>
+            <b>Learn by Doing</b>
+            <small>
+              Experience real business situations and learn
+              accounting naturally.
+            </small>
+          </div>
 
         </div>
 
 
         <div class="feature">
 
-            <div class="ico">📖</div>
+          <div class="ico">💡</div>
 
-            <div>
-                <b>Understand Deeply</b>
-                <small>Explanations after action</small>
-            </div>
+          <div>
+            <b>Think &amp; Decide</b>
+            <small>
+              Analyze, think and make decisions like a real
+              business owner.
+            </small>
+          </div>
 
         </div>
 
 
         <div class="feature">
 
-            <div class="ico">🏆</div>
+          <div class="ico">📖</div>
 
-            <div>
-                <b>Earn & Grow</b>
-                <small>XP, coins and badges</small>
-            </div>
+          <div>
+            <b>Understand Deeply</b>
+            <small>
+              Get clear explanations and connect concepts with
+              everyday life.
+            </small>
+          </div>
 
         </div>
 
-    </div>
+
+        <div class="feature">
+
+          <div class="ico">🏆</div>
+
+          <div>
+            <b>Earn &amp; Grow</b>
+            <small>
+              Collect XP, coins and badges as you progress
+              through your adventures.
+            </small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
-<!-- =====================================================
-     LEARNING JOURNEY
-===================================================== -->
+    <!-- =====================================================
+         WHAT IS ACCUNUMBO
+    ====================================================== -->
 
-<section class="section" id="explore">
+    <section class="section">
 
-    <div class="section-title">
+      <div class="container">
 
-        <h2>
-            🗺️ Your Learning Journey
-        </h2>
+        <div class="adventure-grid">
 
-        <p>
-            Start with Accounting Village and progress
-            through practical business adventures.
-        </p>
+          <div class="card">
 
-    </div>
+            <div class="section-title">
+
+              <h2>
+                ⏱️ WHAT IS ACCUNUMBO ADVENTURES?
+              </h2>
+
+            </div>
+
+            <p>
+              AccuNumbo Adventures transforms traditional
+              accounting learning into an interactive adventure.
+            </p>
+
+            <p>
+              Instead of simply reading concepts and memorising
+              rules, learners enter practical business situations,
+              make decisions, solve challenges and learn from
+              their experiences.
+            </p>
+
+            <p>
+              Learners can explore adventures, complete quests,
+              earn XP and coins, unlock badges and track their
+              progress while developing a deeper understanding
+              of accounting.
+            </p>
+
+          </div>
 
 
-    <div class="adventure-grid">
+          <!-- =================================================
+               YOUR PROGRESS
+          ================================================== -->
+
+          <div class="card">
+
+            <div class="section-title">
+
+              <h2>⭐ YOUR PROGRESS</h2>
+
+            </div>
+
+            <h3>AccuAdventurer</h3>
+
+            <p>
+              Level 3 Adventurer
+            </p>
+
+            <div style="
+              background:#dce6f3;
+              height:14px;
+              border-radius:20px;
+              overflow:hidden;
+              margin:15px 0;
+            ">
+
+              <div style="
+                width:62%;
+                height:100%;
+                background:linear-gradient(
+                  90deg,
+                  #31b35a,
+                  #10b9d7
+                );
+              "></div>
+
+            </div>
+
+            <p>
+              <strong>740 / 1200 XP</strong>
+            </p>
+
+            <div class="stats">
+
+              <div class="stat">
+                <span style="font-size:30px">🪙</span>
+                <strong>520</strong>
+                <small>Coins</small>
+              </div>
+
+              <div class="stat">
+                <span style="font-size:30px">🛡️</span>
+                <strong>12</strong>
+                <small>Badges</small>
+              </div>
+
+              <div class="stat">
+                <span style="font-size:30px">🔥</span>
+                <strong>7</strong>
+                <small>Day Streak</small>
+              </div>
+
+            </div>
+
+            <br>
+
+            <a href="dashboard.html" class="btn green"
+               style="width:100%">
+              CONTINUE ADVENTURE →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
-        <!-- ADVENTURE MAP -->
+    <!-- =====================================================
+         LEARNING JOURNEY
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>📖 YOUR LEARNING JOURNEY</h2>
+
+          <p>
+            Progress through exciting worlds and build your
+            accounting knowledge.
+          </p>
+
+        </div>
+
 
         <div class="card map">
 
-            <h3>
-                🧭 ADVENTURE MAP
-            </h3>
+          <h3>ADVENTURE MAP</h3>
 
-            <p class="hint">
-                Your learning journey through accounting.
-            </p>
+          <p>
+            Your learning journey through accounting.
+          </p>
 
 
-            <div class="map-path">
+          <div class="map-path">
 
 
-                <div class="node">
+            <div class="node">
 
-                    <div class="circle">
-                        01
-                    </div>
+              <div class="circle">
+                🏡
+              </div>
 
-                    <b>
-                        Accounting
-                        <br>
-                        Village
-                    </b>
+              <b>01</b>
 
-                </div>
-
-
-                <div class="node locked">
-
-                    <div class="circle">
-                        02
-                    </div>
-
-                    <b>
-                        Build Your
-                        <br>
-                        Business
-                    </b>
-
-                </div>
-
-
-                <div class="node locked">
-
-                    <div class="circle">
-                        03
-                    </div>
-
-                    <b>
-                        Transaction
-                        <br>
-                        Trail
-                    </b>
-
-                </div>
-
-
-                <div class="node locked">
-
-                    <div class="circle">
-                        04
-                    </div>
-
-                    <b>
-                        Accounting
-                        <br>
-                        Detective
-                    </b>
-
-                </div>
-
+              <strong>
+                Accounting<br>
+                Village
+              </strong>
 
             </div>
 
 
-            <div style="text-align:center">
+            <div style="
+              font-size:28px;
+              color:#31b35a;
+              font-weight:900;
+            ">
+              →
+            </div>
 
-                <a class="btn dark"
-                   href="adventures.html">
 
-                    VIEW ALL ADVENTURES
+            <div class="node">
 
-                </a>
+              <div class="circle">
+                🏠
+              </div>
+
+              <b>02</b>
+
+              <strong>
+                Build Your<br>
+                Business
+              </strong>
 
             </div>
+
+
+            <div style="
+              font-size:28px;
+              color:#ff8a00;
+              font-weight:900;
+            ">
+              →
+            </div>
+
+
+            <div class="node">
+
+              <div class="circle">
+                ⏱️
+              </div>
+
+              <b>03</b>
+
+              <strong>
+                Transaction<br>
+                Trail
+              </strong>
+
+            </div>
+
+
+            <div style="
+              font-size:28px;
+              color:#175ee8;
+              font-weight:900;
+            ">
+              →
+            </div>
+
+
+            <div class="node">
+
+              <div class="circle">
+                🔎
+              </div>
+
+              <b>04</b>
+
+              <strong>
+                Accounting<br>
+                Detective
+              </strong>
+
+            </div>
+
+
+            <div style="
+              font-size:28px;
+              color:#7b2fe2;
+              font-weight:900;
+            ">
+              →
+            </div>
+
+
+            <div class="node">
+
+              <div class="circle">
+                📚
+              </div>
+
+              <b>05</b>
+
+              <strong>
+                Debit &amp;<br>
+                Credit Arena
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FEATURED ADVENTURES
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>⭐ FEATURED ADVENTURES</h2>
+
+          <p>
+            Choose an adventure and begin learning through
+            real-world accounting situations.
+          </p>
 
         </div>
 
 
-        <!-- FEATURED MISSION -->
+        <div class="adventure-grid">
 
-        <div class="card mission">
 
-            <span class="pill">
-                🎮 FEATURED MISSION
-            </span>
-
-            <h3>
-                Your First Business ⭐
-            </h3>
-
-            <p>
-                You've just opened a small
-                stationery shop.
-            </p>
+          <div class="card mission">
 
             <span class="capital">
-                Starting Capital: ₹50,000
+              🏡 ADVENTURE 01
             </span>
 
+            <h3>Your First Business</h3>
+
             <p>
-
-                <b>Mission 01</b>
-
-                <br>
-
-                What happens when you move
-                your money into the business?
-
+              Start a business, understand capital and make
+              your first accounting decision.
             </p>
 
-            <a class="btn gold"
-               href="adventure1.html">
+            <p>
+              <strong>Starting Capital: ₹50,000</strong>
+            </p>
 
-                PLAY MISSION →
+            <h4>Mission 01</h4>
 
+            <p>
+              What happens when you move your money into the
+              business?
+            </p>
+
+            <a href="adventure1.html" class="btn gold">
+              PLAY MISSION →
             </a>
 
+          </div>
+
+
+          <div class="card mission">
+
+            <span class="capital">
+              📖 ADVENTURE 02
+            </span>
+
+            <h3>The Ledger Expedition</h3>
+
+            <p>
+              Explore transactions and discover how they travel
+              through the accounting system.
+            </p>
+
+            <br>
+
+            <a href="adventures.html" class="btn blue">
+              EXPLORE QUEST →
+            </a>
+
+          </div>
+
         </div>
 
-    </div>
+      </div>
 
-</section>
-
-
-<!-- =====================================================
-     EARN & GROW
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-title">
-
-        <h2>
-            🌟 Earn & Grow
-        </h2>
-
-        <p>
-            Your score becomes part of your
-            learning profile.
-        </p>
-
-    </div>
+    </section>
 
 
-    <div class="stats">
+    <!-- =====================================================
+         REWARDS
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>🎁 YOUR PROGRESS, YOUR REWARDS</h2>
+
+          <p>
+            Learn, complete challenges and earn rewards.
+          </p>
+
+        </div>
 
 
-        <div class="stat">
+        <div class="stats">
 
-            ⭐
+          <div class="stat">
 
-            <strong>
-                XP
-            </strong>
+            <span style="font-size:38px">⭐</span>
+
+            <strong>XP</strong>
 
             <small>
-                20 / 10 / 5 per successful task
+              Earn experience from successful tasks.
             </small>
 
-        </div>
+          </div>
 
 
-        <div class="stat">
+          <div class="stat">
 
-            🪙
+            <span style="font-size:38px">🪙</span>
 
-            <strong>
-                Coins
-            </strong>
+            <strong>Coins</strong>
 
             <small>
-                Earn alongside XP
+              Collect coins throughout your journey.
             </small>
 
-        </div>
+          </div>
 
 
-        <div class="stat">
+          <div class="stat">
 
-            🥈
+            <span style="font-size:38px">🥈</span>
 
-            <strong>
-                500+
-            </strong>
+            <strong>Silver</strong>
 
             <small>
-                Silver Badge
+              500+ XP
             </small>
 
-        </div>
+          </div>
 
 
-        <div class="stat">
+          <div class="stat">
 
-            🥇
+            <span style="font-size:38px">🥇</span>
 
-            <strong>
-                1000+
-            </strong>
+            <strong>Golden</strong>
 
             <small>
-                Golden Badge
+              1000+ XP
             </small>
 
-        </div>
+          </div>
 
 
-        <div class="stat">
+          <div class="stat">
 
-            💎
+            <span style="font-size:38px">💎</span>
 
-            <strong>
-                2000+
-            </strong>
+            <strong>Platinum</strong>
 
             <small>
-                Platinum Badge
+              2000+ XP
             </small>
+
+          </div>
 
         </div>
 
+      </div>
 
-    </div>
-
-</section>
-
-</main>
+    </section>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+    <!-- =====================================================
+         LEADERBOARD
+    ====================================================== -->
 
-<footer class="footer">
+    <section class="section">
+
+      <div class="container">
+
+        <div class="card">
+
+          <div class="section-title">
+
+            <h2>
+              🏆 WHO WILL BECOME THE TOP EXPLORER?
+            </h2>
+
+            <p>
+              Complete quests, earn XP and climb the
+              AccuNumbo leaderboard.
+            </p>
+
+          </div>
+
+
+          <table class="leader-table">
+
+            <thead>
+
+              <tr>
+                <th>Rank</th>
+                <th>Explorer</th>
+                <th>XP</th>
+                <th>Coins</th>
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              <tr>
+                <td class="rank">🥇</td>
+                <td>Top Explorer</td>
+                <td>1000 XP</td>
+                <td>500</td>
+              </tr>
+
+              <tr>
+                <td class="rank">🥈</td>
+                <td>Rising Explorer</td>
+                <td>850 XP</td>
+                <td>420</td>
+              </tr>
+
+              <tr>
+                <td class="rank">🥉</td>
+                <td>Accounting Adventurer</td>
+                <td>720 XP</td>
+                <td>350</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+
+          <br>
+
+          <a href="leaderboard.html" class="btn blue">
+            ⭐ VIEW FULL LEADERBOARD →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TEACHERS
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="card">
+
+          <div class="section-title">
+
+            <h2>🎓 FOR TEACHERS</h2>
+
+            <p>
+              Turn learning data into meaningful insights.
+            </p>
+
+          </div>
+
+
+          <div class="featurebar">
+
+            <div class="feature">
+
+              <div class="ico">👥</div>
+
+              <div>
+                <b>Students</b>
+                <small>
+                  View participating learners.
+                </small>
+              </div>
+
+            </div>
+
+
+            <div class="feature">
+
+              <div class="ico">📊</div>
+
+              <div>
+                <b>Progress</b>
+                <small>
+                  Track adventure completion.
+                </small>
+              </div>
+
+            </div>
+
+
+            <div class="feature">
+
+              <div class="ico">🎯</div>
+
+              <div>
+                <b>Attempts</b>
+                <small>
+                  Understand task performance.
+                </small>
+              </div>
+
+            </div>
+
+
+            <div class="feature">
+
+              <div class="ico">📈</div>
+
+              <div>
+                <b>Insights</b>
+                <small>
+                  Understand student learning.
+                </small>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <br>
+
+          <a href="teachers.html" class="btn gold">
+            🔎 EXPLORE TEACHER TOOLS →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CALL TO ACTION
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="card">
+
+          <div class="section-title">
+
+            <h2>
+              Ready to Begin Your Adventure?
+            </h2>
+
+            <p>
+              Step into the world of AccuNumbo and discover
+              a new way to understand accounting.
+            </p>
+
+          </div>
+
+
+          <div class="hero-buttons"
+               style="justify-content:center">
+
+            <a href="adventure1.html" class="btn gold">
+              🚀 START YOUR ADVENTURE
+            </a>
+
+            <a href="login.html" class="btn blue">
+              👤 CREATE YOUR ACCOUNT
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer">
 
     <div class="container footer-inner">
 
-        <div>
+      <div class="footer-logo">
 
-            <img
-                src="accunumbo-logo.png"
-                alt="AccuNumbo Adventures Logo"
-            >
+        <img
+          src="accunumbo-logo.png"
+          alt="AccuNumbo Adventures Logo"
+        >
 
-            <div>
-                Experience First. Explanation Second.
-            </div>
+      </div>
+
+
+      <div>
+
+        <strong>10,000+</strong>
+        <small>Adventurers</small>
+
+      </div>
+
+
+      <div>
+
+        <strong>50+</strong>
+        <small>Challenges</small>
+
+      </div>
+
+
+      <div>
+
+        <strong>100+</strong>
+        <small>Badges to Earn</small>
+
+      </div>
+
+
+      <div>
+
+        <strong>⭐</strong>
+        <small>Endless Learning Fun!</small>
+
+      </div>
+
+
+      <div>
+
+        <strong>FOLLOW US</strong>
+
+        <div style="margin-top:10px">
+
+          <a href="#">🔵</a>
+          &nbsp;
+          <a href="#">🟣</a>
+          &nbsp;
+          <a href="#">🔴</a>
+          &nbsp;
+          <a href="#">🔵</a>
 
         </div>
 
-
-        <div>
-
-            <strong>
-                AccuNumbo Adventures
-            </strong>
-
-            <br>
-
-            <a
-                href="mailto:hello@accunumbo.com"
-                style="color:#fff"
-            >
-                hello@accunumbo.com
-            </a>
-
-            <br>
-
-            <a
-                href="https://www.instagram.com/accunumbo.adventures/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style="color:#fff"
-            >
-                Instagram
-            </a>
-
-            <br><br>
-
-            © 2026 AccuNumbo Adventures
-
-        </div>
+      </div>
 
     </div>
 
-</footer>
+  </footer>
 
 
 </body>
