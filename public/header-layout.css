@@ -1,0 +1,74 @@
+/* Header layout: keep the logo fully inside the dark header and prevent overlap with the hero. */
+@media (min-width: 1101px) {
+  .nav {
+    height: 220px !important;
+    min-height: 220px !important;
+    padding: 10px 18px !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+
+  .brand {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 200px !important;
+    height: 200px !important;
+    min-width: 200px !important;
+    flex: 0 0 200px !important;
+    z-index: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .brand img {
+    width: 200px !important;
+    height: 200px !important;
+    object-fit: contain !important;
+  }
+
+  .navlinks {
+    height: 100% !important;
+    flex: 1 1 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .navlinks a {
+    padding: 12px 10px !important;
+    min-width: 86px !important;
+  }
+
+  .actions {
+    margin-left: auto !important;
+    align-self: center !important;
+  }
+
+  .hero-copy {
+    padding-left: 245px !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+  .nav {
+    height: 190px !important;
+    min-height: 190px !important;
+    padding: 8px 15px !important;
+  }
+
+  .brand {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 165px !important;
+    height: 165px !important;
+    min-width: 165px !important;
+    flex: 0 0 165px !important;
+  }
+
+  .brand img {
+    width: 165px !important;
+    height: 165px !important;
+  }
+}
