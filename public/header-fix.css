@@ -1,11 +1,11 @@
-/* AccuNumbo — final header + hero layout polish */
-.nav{height:150px!important;min-height:150px!important;padding:0 18px 0 270px!important;align-items:center!important;position:sticky!important;top:0!important;z-index:50!important}
-.brand{position:absolute!important;left:18px!important;top:8px!important;width:225px!important;height:134px!important;z-index:55!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important}
-.brand img{width:225px!important;height:134px!important;object-fit:contain!important;filter:drop-shadow(0 6px 8px #000b)!important}
+/* AccuNumbo — header logo visibility + clean header layout */
+.nav{height:160px!important;min-height:160px!important;padding:0 18px 0 285px!important;align-items:center!important;position:sticky!important;top:0!important;z-index:50!important}
+.brand{position:absolute!important;left:18px!important;top:8px!important;width:245px!important;height:144px!important;z-index:100!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:visible!important;background:url('accunumbo-logo.png') center center/contain no-repeat!important;filter:drop-shadow(0 6px 8px #000b)!important}
+.brand img{opacity:0!important;width:245px!important;height:144px!important;object-fit:contain!important}
 .navlinks{gap:2px!important}.navlinks a{padding:12px 10px!important;min-width:86px!important}
-.hero-copy{padding-left:270px!important}
+.hero-copy{padding-left:285px!important}
 .hero-side-menu{left:26px!important;bottom:22px!important;gap:8px!important}.hero-side-menu a{width:230px!important;min-height:54px!important;padding:10px 18px!important;border-radius:12px!important;font-size:16px!important;display:flex!important;align-items:center!important;box-shadow:0 5px 12px #000b!important}.hero-side-menu span{width:34px!important;height:34px!important;background-size:24px!important;margin-right:12px!important}
 .hero-art{background-position:center center!important;background-size:cover!important}
 @media(min-width:1101px){.hero-inner{grid-template-columns:42% 58%!important}}
-@media(max-width:1100px){.nav{height:125px!important;min-height:125px!important;padding-left:225px!important}.brand{left:15px!important;top:8px!important;width:195px!important;height:109px!important}.brand img{width:195px!important;height:109px!important}.hero-copy{padding-left:225px!important}.hero-side-menu a{width:185px!important;min-height:48px!important;font-size:13px!important}}
+@media(max-width:1100px){.nav{height:130px!important;min-height:130px!important;padding-left:225px!important}.brand{left:15px!important;top:8px!important;width:200px!important;height:112px!important}.brand img{width:200px!important;height:112px!important}.hero-copy{padding-left:225px!important}.hero-side-menu a{width:185px!important;min-height:48px!important;font-size:13px!important}}
 @media(max-width:700px){.nav{height:82px!important;min-height:82px!important;padding:0 10px 0 105px!important}.brand{left:5px!important;top:5px!important;width:92px!important;height:70px!important}.brand img{width:92px!important;height:70px!important}.hero-copy{padding-left:20px!important}.hero-side-menu{display:none!important}}
