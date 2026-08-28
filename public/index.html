@@ -1,27 +1,1566 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Home — AccuNumbo Adventures</title><link rel="stylesheet" href="styles.css"></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AccuNumbo Adventures — Where Adventure Turns Accounting into Understanding</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* =====================================================
+       ACCUNUMBO ADVENTURES — NEW HOME PAGE
+    ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbff;
+      color: #172b4d;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 4%;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid #e3edf7;
+      box-shadow: 0 4px 18px rgba(22, 55, 90, 0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      font-size: 20px;
+      font-weight: 900;
+      color: #163a63;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      color: #f3a900;
+    }
+
+    .brand-text small {
+      display: block;
+      margin-top: 5px;
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: #5b7695;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    .navlinks a {
+      color: #28496b;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+      padding: 9px 4px;
+    }
+
+    .navlinks a:hover {
+      color: #e49a00;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      font-weight: 900;
+      font-size: 12px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.gold {
+      background: #f5ad18;
+      color: #172b4d;
+      box-shadow: 0 7px 16px rgba(245, 173, 24, 0.25);
+    }
+
+    .btn.outline {
+      background: white;
+      color: #244c72;
+      border-color: #cbdbea;
+    }
+
+    .btn.blue {
+      background: #1769aa;
+      color: white;
+    }
+
+    .btn.dark {
+      background: #183d64;
+      color: white;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .home-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(
+          120deg,
+          #dff5ff 0%,
+          #edf9ff 48%,
+          #fff7df 100%
+        );
+    }
+
+    .home-hero::before {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: rgba(255, 196, 54, 0.20);
+      top: -220px;
+      right: -120px;
+    }
+
+    .home-hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(45, 174, 219, 0.14);
+      bottom: -150px;
+      left: -80px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1200px, 92%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 30px;
+      align-items: center;
+      padding: 65px 0;
+    }
+
+    .hero-copy {
+      padding: 20px 0;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      background: #ffffff;
+      border: 1px solid #d6e8f5;
+      color: #1769aa;
+      padding: 10px 15px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 18px rgba(26, 79, 119, 0.08);
+    }
+
+    .hero-copy h1 {
+      margin: 20px 0 14px;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.02;
+      color: #153c63;
+      letter-spacing: -2px;
+    }
+
+    .hero-copy h1 span {
+      color: #efa500;
+    }
+
+    .hero-slogan {
+      font-size: 21px;
+      line-height: 1.45;
+      font-weight: 900;
+      color: #1769aa;
+      max-width: 600px;
+    }
+
+    .hero-description {
+      max-width: 610px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #526b85;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .hero-buttons .btn {
+      padding: 15px 22px;
+    }
+
+    .hero-logo-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 430px;
+    }
+
+    .hero-logo-card img {
+      width: min(520px, 100%);
+      max-height: 480px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 25px rgba(25, 62, 95, 0.18));
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .home-section {
+      width: min(1180px, 92%);
+      margin: auto;
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading .label {
+      display: inline-block;
+      padding: 8px 13px;
+      border-radius: 30px;
+      background: #e9f6ff;
+      color: #1769aa;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .section-heading h2 {
+      margin: 12px 0;
+      font-size: clamp(30px, 4vw, 45px);
+      color: #173d63;
+    }
+
+    .section-heading p {
+      color: #60768e;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: 0 10px 35px rgba(33, 71, 105, 0.09);
+      border: 1px solid #e4edf5;
+      text-align: center;
+    }
+
+    .info-card p {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+      color: #526b85;
+      font-size: 17px;
+    }
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .steps-section {
+      background: #eef8ff;
+    }
+
+    .steps-grid {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding-bottom: 75px;
+    }
+
+    .step-card {
+      background: white;
+      border-radius: 22px;
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid #dceaf5;
+      box-shadow: 0 8px 22px rgba(27, 74, 111, 0.07);
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 26px;
+      background: #fff1c9;
+    }
+
+    .step-card h3 {
+      margin: 16px 0 8px;
+      color: #1b466e;
+    }
+
+    .step-card p {
+      color: #71849a;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    /* =========================
+       ADVENTURE MAP
+    ========================= */
+
+    .map-section {
+      background: #fffdf7;
+    }
+
+    .map-board {
+      width: min(1180px, 92%);
+      margin: auto;
+      padding: 45px 25px;
+      border-radius: 30px;
+      background:
+        linear-gradient(
+          135deg,
+          #fff9e7,
+          #edf9ff
+        );
+      border: 2px solid #e7dfc7;
+      box-shadow: 0 12px 35px rgba(64, 79, 91, 0.08);
+    }
+
+    .map-line {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      align-items: start;
+    }
+
+    .map-node {
+      position: relative;
+      text-align: center;
+    }
+
+    .map-node::after {
+      content: "➜";
+      position: absolute;
+      top: 35px;
+      right: -15px;
+      font-size: 22px;
+      color: #d6a12d;
+    }
+
+    .map-node:last-child::after {
+      display: none;
+    }
+
+    .map-icon {
+      width: 74px;
+      height: 74px;
+      margin: auto;
+      border-radius: 50%;
+      background: white;
+      border: 4px solid #f0b32b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 31px;
+      box-shadow: 0 8px 18px rgba(87, 85, 62, 0.12);
+    }
+
+    .map-node h3 {
+      color: #254c70;
+      margin: 14px 0 5px;
+    }
+
+    .map-node p {
+      color: #708298;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       FEATURED ADVENTURES
+    ========================= */
+
+    .adventure-cards {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .adventure-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      border: 1px solid #dfebf4;
+      box-shadow: 0 10px 28px rgba(31, 75, 111, 0.08);
+      transition: 0.2s ease;
+    }
+
+    .adventure-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .adventure-banner {
+      min-height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 58px;
+      background: linear-gradient(135deg, #dff5ff, #fff1c9);
+    }
+
+    .adventure-content {
+      padding: 24px;
+    }
+
+    .adventure-content h3 {
+      color: #1b456d;
+      margin: 0 0 8px;
+    }
+
+    .adventure-content p {
+      color: #6c8095;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .adventure-content .btn {
+      margin-top: 8px;
+    }
+
+    /* =========================
+       REWARDS
+    ========================= */
+
+    .reward-section {
+      background: #eef8ff;
+    }
+
+    .reward-grid {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      padding-bottom: 75px;
+    }
+
+    .reward-card {
+      background: white;
+      padding: 25px 15px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid #dceaf4;
+    }
+
+    .reward-card .emoji {
+      font-size: 34px;
+    }
+
+    .reward-card strong {
+      display: block;
+      margin-top: 10px;
+      color: #214a70;
+      font-size: 18px;
+    }
+
+    .reward-card small {
+      display: block;
+      margin-top: 5px;
+      color: #75889d;
+    }
+
+    /* =========================
+       LEADERBOARD
+    ========================= */
+
+    .leader-preview {
+      width: min(900px, 92%);
+      margin: auto;
+      background: white;
+      border-radius: 25px;
+      padding: 10px;
+      border: 1px solid #e0ebf3;
+      box-shadow: 0 10px 30px rgba(29, 68, 101, 0.08);
+    }
+
+    .leader-row {
+      display: grid;
+      grid-template-columns: 70px 1fr 130px 130px;
+      gap: 10px;
+      padding: 17px 20px;
+      border-bottom: 1px solid #edf2f6;
+      align-items: center;
+    }
+
+    .leader-row:last-child {
+      border-bottom: 0;
+    }
+
+    .rank {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .student-name {
+      font-weight: 900;
+      color: #244b70;
+    }
+
+    .xp {
+      font-weight: 900;
+      color: #1769aa;
+    }
+
+    /* =========================
+       TEACHER
+    ========================= */
+
+    .teacher-section {
+      background: linear-gradient(135deg, #173d63, #1769aa);
+      color: white;
+    }
+
+    .teacher-box {
+      width: min(1180px, 92%);
+      margin: auto;
+      padding: 70px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .teacher-box h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 0 0 15px;
+    }
+
+    .teacher-box p {
+      line-height: 1.75;
+      color: #dcecf9;
+      font-size: 16px;
+    }
+
+    .teacher-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .teacher-feature {
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 17px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .teacher-feature strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .teacher-feature small {
+      color: #d7e8f5;
+    }
+
+    /* =========================
+       FINAL CTA
+    ========================= */
+
+    .final-cta {
+      width: min(1050px, 92%);
+      margin: 70px auto;
+      padding: 60px 30px;
+      text-align: center;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #fff1c9, #e2f6ff);
+      border: 1px solid #e3e6df;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      color: #173d63;
+      margin: 0 0 12px;
+    }
+
+    .final-cta p {
+      color: #61758b;
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      background: #122f4d;
+      color: #dceaf6;
+      padding: 45px 0 20px;
+    }
+
+    .footer-inner {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 30px;
+      padding-bottom: 30px;
+    }
+
+    .footer-brand img {
+      width: 150px;
+      max-height: 150px;
+      object-fit: contain;
+    }
+
+    .footer-brand p {
+      color: #b8cbdd;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .footer-column h3 {
+      color: white;
+      margin-top: 0;
+      font-size: 15px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #c3d5e5;
+      margin: 9px 0;
+      font-size: 13px;
+    }
+
+    .footer-column a:hover {
+      color: #f6b326;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      color: #9db4c9;
+      font-size: 12px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 950px) {
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .navlinks {
+        order: 3;
+        width: 100%;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-logo-card {
+        min-height: 300px;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .adventure-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .reward-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .teacher-box {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .brand-text {
+        display: none;
+      }
+
+      .actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .navlinks {
+        gap: 7px;
+      }
+
+      .navlinks a {
+        font-size: 10px;
+      }
+
+      .hero-copy h1 {
+        font-size: 42px;
+      }
+
+      .steps-grid,
+      .reward-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .map-line {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .map-node::after {
+        content: "↓";
+        top: auto;
+        right: auto;
+        bottom: -25px;
+        left: 50%;
+      }
+
+      .map-node:last-child::after {
+        display: none;
+      }
+
+      .leader-row {
+        grid-template-columns: 50px 1fr 80px;
+      }
+
+      .leader-row .coins {
+        display: none;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
 <body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <header class="nav">
-<a class="brand" href="index.html"><img src="accunumbo-logo.png" alt="AccuNumbo logo"><span class="brand-text">Accu<span>Numbo</span><small>✦ ADVENTURES ✦</small></span></a>
-<nav class="navlinks"><a href="index.html">⌂ HOME</a><a href="adventures.html">🗺 ADVENTURES</a><a href="leaderboard.html">🏆 LEADERBOARD</a><a href="teachers.html">👨‍🏫 FOR TEACHERS</a><a href="feedback.html">💬 FEEDBACK</a></nav>
-<div class="actions"><a class="btn outline" href="login.html">LOGIN</a><a class="btn gold" href="login.html">SIGN UP FREE</a></div>
+
+  <a class="brand" href="index.html">
+    <img src="accunumbo-logo.png" alt="AccuNumbo Adventures logo">
+
+    <span class="brand-text">
+      Accu<span>Numbo</span>
+      <small>✦ ADVENTURES ✦</small>
+    </span>
+  </a>
+
+  <nav class="navlinks">
+
+    <a href="index.html">🏠 HOME</a>
+
+    <a href="about.html">ℹ️ ABOUT US</a>
+
+    <a href="adventures.html">🗺️ ADVENTURES</a>
+
+    <a href="leaderboard.html">🏆 LEADERBOARD</a>
+
+    <a href="badges.html">🎖️ BADGES</a>
+
+    <a href="teachers.html">👨‍🏫 FOR TEACHERS</a>
+
+    <a href="feedback.html">💬 FEEDBACK</a>
+
+    <a href="login.html">🔐 LOGIN</a>
+
+  </nav>
+
+  <div class="actions">
+    <a class="btn gold" href="login.html">SIGN UP FREE</a>
+  </div>
+
 </header>
-<section class="hero"><div class="hero-inner">
-<div class="hero-copy"><span class="pill">🎮 EXPERIENTIAL ACCOUNTING LEARNING PLATFORM</span>
-<h1>Accounting isn't a chapter.<br><span>It's an experience.</span></h1>
-<p><b>Experience First. Explanation Second.</b><br>Step into real-life business situations, make decisions, solve challenges and understand accounting through interactive adventures.</p>
-<div class="hero-buttons"><a class="btn gold" href="adventures.html">🎮 START YOUR ADVENTURE →</a><a class="btn" style="border:2px solid #d8e4f1;background:#fff" href="#explore">◉ EXPLORE ACCUNUMBO</a></div>
-</div><div class="hero-art"><img src="accunumbo-logo.png" alt="AccuNumbo mascot logo"></div>
-</div></section>
-<main class="container">
-<div class="featurebar"><div class="feature"><div class="ico">🎮</div><div><b>Learn by Doing</b><small>Real business situations</small></div></div><div class="feature"><div class="ico">💡</div><div><b>Think & Decide</b><small>Apply accounting concepts</small></div></div><div class="feature"><div class="ico">📖</div><div><b>Understand Deeply</b><small>Explanations after action</small></div></div><div class="feature"><div class="ico">🏆</div><div><b>Earn & Grow</b><small>XP, coins and badges</small></div></div></div>
-<section class="section" id="explore"><div class="section-title"><h2>🗺️ Your Learning Journey</h2><p>Start with Accounting Village and progress through practical business adventures.</p></div>
-<div class="adventure-grid"><div class="card map"><h3>🧭 ADVENTURE MAP</h3><p class="hint">Your learning journey through accounting.</p><div class="map-path">
-<div class="node"><div class="circle">01</div><b>Accounting<br>Village</b></div><div class="node locked"><div class="circle">02</div><b>Build Your<br>Business</b></div><div class="node locked"><div class="circle">03</div><b>Transaction<br>Trail</b></div><div class="node locked"><div class="circle">04</div><b>Accounting<br>Detective</b></div></div><div style="text-align:center"><a class="btn dark" href="adventures.html">VIEW ALL ADVENTURES</a></div></div>
-<div class="card mission"><span class="pill">🎮 FEATURED MISSION</span><h3>Your First Business ⭐</h3><p>You've just opened a small stationery shop.</p><span class="capital">Starting Capital: ₹50,000</span><p><b>Mission 01</b><br>What happens when you move your money into the business?</p><a class="btn gold" href="adventure1.html">PLAY MISSION →</a></div></div></section>
-<section class="section"><div class="section-title"><h2>🌟 Earn & Grow</h2><p>Your score becomes part of your learning profile.</p></div><div class="stats">
-<div class="stat">⭐<strong>XP</strong><small>20 / 10 / 5 per successful task</small></div><div class="stat">🪙<strong>Coins</strong><small>Earn alongside XP</small></div><div class="stat">🥈<strong>500+</strong><small>Silver Badge</small></div><div class="stat">🥇<strong>1000+</strong><small>Golden Badge</small></div><div class="stat">💎<strong>2000+</strong><small>Platinum Badge</small></div></div></section>
-</main>
-<footer class="footer"><div class="container footer-inner"><div><img src="accunumbo-logo.png" alt="AccuNumbo mascot logo">><div>Experience First. Explanation Second.</div></div><div>© 2026 AccuNumbo Adventures</div></div></footer>
-<script></script></body></html>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="home-hero">
+
+  <div class="hero-inner">
+
+    <div class="hero-copy">
+
+      <span class="hero-pill">
+        🎮 EXPERIENTIAL ACCOUNTING LEARNING PLATFORM
+      </span>
+
+      <h1>
+        Accounting isn't a chapter.
+        <span>It's an Adventure.</span>
+      </h1>
+
+      <div class="hero-slogan">
+        Where Adventure Turns Accounting into Understanding.
+      </div>
+
+      <p class="hero-description">
+        Welcome to AccuNumbo Adventures — an interactive learning
+        platform where accounting concepts come alive through
+        quests, challenges, real-life business situations and
+        rewarding experiences.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a class="btn gold" href="adventures.html">
+          🚀 START YOUR ADVENTURE
+        </a>
+
+        <a class="btn outline" href="#about-platform">
+          🔎 EXPLORE ACCUNUMBO
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-logo-card">
+
+      <img
+        src="accunumbo-logo.png"
+        alt="AccuNumbo Adventures educational mascot"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHAT IS ACCUNUMBO?
+===================================================== -->
+
+<section class="home-section" id="about-platform">
+
+  <div class="section-heading">
+
+    <span class="label">
+      🌟 DISCOVER ACCUNUMBO
+    </span>
+
+    <h2>
+      What is AccuNumbo Adventures?
+    </h2>
+
+    <p>
+      A new way to experience accounting learning.
+    </p>
+
+  </div>
+
+  <div class="info-card">
+
+    <p>
+      <strong>AccuNumbo Adventures</strong> transforms traditional
+      accounting learning into an interactive adventure.
+      Instead of simply reading concepts and memorising rules,
+      learners enter practical business situations, make
+      decisions, solve accounting challenges and learn from
+      their experiences.
+    </p>
+
+    <br>
+
+    <p>
+      Learners can explore adventures, complete quests,
+      earn XP and coins, unlock badges and track their progress
+      while developing a deeper understanding of accounting.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section class="steps-section">
+
+  <div class="home-section">
+
+    <div class="section-heading">
+
+      <span class="label">
+        🎮 HOW IT WORKS
+      </span>
+
+      <h2>
+        Explore. Experience. Understand. Master.
+      </h2>
+
+      <p>
+        Your accounting learning journey is built around action,
+        discovery and achievement.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="steps-grid">
+
+    <div class="step-card">
+      <div class="step-number">🗺️</div>
+      <h3>Explore</h3>
+      <p>
+        Choose an adventure and enter a new accounting world.
+      </p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">🎯</div>
+      <h3>Experience</h3>
+      <p>
+        Solve real-life business situations and make decisions.
+      </p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">💡</div>
+      <h3>Understand</h3>
+      <p>
+        Discover why your decision works through clear explanations.
+      </p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">🏆</div>
+      <h3>Master</h3>
+      <p>
+        Earn XP, coins and badges as your accounting skills grow.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     ADVENTURE MAP
+===================================================== -->
+
+<section class="map-section">
+
+  <div class="home-section">
+
+    <div class="section-heading">
+
+      <span class="label">
+        🗺️ ADVENTURE MAP
+      </span>
+
+      <h2>
+        Your Learning Journey
+      </h2>
+
+      <p>
+        Progress through exciting worlds and build your accounting
+        knowledge one adventure at a time.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="map-board">
+
+    <div class="map-line">
+
+      <div class="map-node">
+
+        <div class="map-icon">🏘️</div>
+
+        <h3>Accounting Village</h3>
+
+        <p>
+          Start your journey and discover the foundations of accounting.
+        </p>
+
+      </div>
+
+
+      <div class="map-node">
+
+        <div class="map-icon">🏪</div>
+
+        <h3>Build Your Business</h3>
+
+        <p>
+          Run a business and experience accounting decisions.
+        </p>
+
+      </div>
+
+
+      <div class="map-node">
+
+        <div class="map-icon">🧭</div>
+
+        <h3>Transaction Trail</h3>
+
+        <p>
+          Follow transactions and discover where every number goes.
+        </p>
+
+      </div>
+
+
+      <div class="map-node">
+
+        <div class="map-icon">🔎</div>
+
+        <h3>Accounting Detective</h3>
+
+        <p>
+          Investigate accounting mysteries and solve the challenge.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+
+      <a class="btn dark" href="adventures.html">
+        VIEW ALL ADVENTURES →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURED ADVENTURES
+===================================================== -->
+
+<section class="home-section">
+
+  <div class="section-heading">
+
+    <span class="label">
+      🎯 FEATURED ADVENTURES
+    </span>
+
+    <h2>
+      Choose Your Next Quest
+    </h2>
+
+    <p>
+      Every adventure is designed to turn accounting concepts
+      into experiences.
+    </p>
+
+  </div>
+
+
+  <div class="adventure-cards">
+
+    <div class="adventure-card">
+
+      <div class="adventure-banner">
+        🏪
+      </div>
+
+      <div class="adventure-content">
+
+        <h3>
+          Your First Business
+        </h3>
+
+        <p>
+          Start a business, understand capital and make your
+          first accounting decisions.
+        </p>
+
+        <a class="btn gold" href="adventure1.html">
+          PLAY MISSION
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="adventure-card">
+
+      <div class="adventure-banner">
+        📒
+      </div>
+
+      <div class="adventure-content">
+
+        <h3>
+          The Ledger Expedition
+        </h3>
+
+        <p>
+          Explore transactions and discover how they travel
+          through the accounting system.
+        </p>
+
+        <a class="btn blue" href="adventures.html">
+          EXPLORE QUEST
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="adventure-card">
+
+      <div class="adventure-banner">
+        🕵️
+      </div>
+
+      <div class="adventure-content">
+
+        <h3>
+          Accounting Detective
+        </h3>
+
+        <p>
+          Investigate accounting clues, identify mistakes and
+          solve financial mysteries.
+        </p>
+
+        <a class="btn blue" href="adventures.html">
+          EXPLORE QUEST
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     REWARDS
+===================================================== -->
+
+<section class="reward-section">
+
+  <div class="home-section">
+
+    <div class="section-heading">
+
+      <span class="label">
+        🏆 LEARN & EARN
+      </span>
+
+      <h2>
+        Your Progress. Your Rewards.
+      </h2>
+
+      <p>
+        Every challenge brings you closer to becoming an
+        Accounting Explorer.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="reward-grid">
+
+    <div class="reward-card">
+      <div class="emoji">⭐</div>
+      <strong>XP</strong>
+      <small>Earn experience from successful tasks.</small>
+    </div>
+
+    <div class="reward-card">
+      <div class="emoji">🪙</div>
+      <strong>Coins</strong>
+      <small>Collect coins throughout your journey.</small>
+    </div>
+
+    <div class="reward-card">
+      <div class="emoji">🥈</div>
+      <strong>Silver</strong>
+      <small>500+ XP</small>
+    </div>
+
+    <div class="reward-card">
+      <div class="emoji">🥇</div>
+      <strong>Golden</strong>
+      <small>1000+ XP</small>
+    </div>
+
+    <div class="reward-card">
+      <div class="emoji">💎</div>
+      <strong>Platinum</strong>
+      <small>2000+ XP</small>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     LEADERBOARD PREVIEW
+===================================================== -->
+
+<section class="home-section">
+
+  <div class="section-heading">
+
+    <span class="label">
+      🏆 LEADERBOARD
+    </span>
+
+    <h2>
+      Who Will Become the Top Explorer?
+    </h2>
+
+    <p>
+      Complete quests, earn XP and climb the AccuNumbo leaderboard.
+    </p>
+
+  </div>
+
+
+  <div class="leader-preview">
+
+    <div class="leader-row">
+      <div class="rank">🥇</div>
+      <div class="student-name">Top Explorer</div>
+      <div class="xp">1000 XP</div>
+      <div class="coins">🪙 500</div>
+    </div>
+
+    <div class="leader-row">
+      <div class="rank">🥈</div>
+      <div class="student-name">Rising Explorer</div>
+      <div class="xp">850 XP</div>
+      <div class="coins">🪙 420</div>
+    </div>
+
+    <div class="leader-row">
+      <div class="rank">🥉</div>
+      <div class="student-name">Accounting Adventurer</div>
+      <div class="xp">720 XP</div>
+      <div class="coins">🪙 350</div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:25px;">
+
+    <a class="btn dark" href="leaderboard.html">
+      VIEW FULL LEADERBOARD →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOR TEACHERS
+===================================================== -->
+
+<section class="teacher-section">
+
+  <div class="teacher-box">
+
+    <div>
+
+      <span class="hero-pill">
+        👨‍🏫 FOR TEACHERS
+      </span>
+
+      <h2>
+        Turn Learning Data into Meaningful Insights.
+      </h2>
+
+      <p>
+        Teachers can use AccuNumbo to understand student
+        participation, monitor progress, review task attempts
+        and celebrate learning achievements.
+      </p>
+
+      <a class="btn gold" href="teachers.html">
+        EXPLORE TEACHER TOOLS →
+      </a>
+
+    </div>
+
+
+    <div class="teacher-features">
+
+      <div class="teacher-feature">
+        <strong>👨‍🎓 Students</strong>
+        <small>View participating learners.</small>
+      </div>
+
+      <div class="teacher-feature">
+        <strong>📊 Progress</strong>
+        <small>Track adventure completion.</small>
+      </div>
+
+      <div class="teacher-feature">
+        <strong>🎯 Attempts</strong>
+        <small>Understand task performance.</small>
+      </div>
+
+      <div class="teacher-feature">
+        <strong>🏆 Performance</strong>
+        <small>Monitor XP, coins and badges.</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="final-cta">
+
+  <h2>
+    Ready to Begin Your Adventure?
+  </h2>
+
+  <p>
+    Step into the world of AccuNumbo and discover a new way
+    to understand accounting.
+  </p>
+
+  <a class="btn gold" href="adventures.html">
+    🚀 START YOUR ADVENTURE
+  </a>
+
+  <a
+    class="btn outline"
+    href="login.html"
+    style="margin-left:8px;"
+  >
+    CREATE YOUR ACCOUNT
+  </a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <img
+          src="accunumbo-logo.png"
+          alt="AccuNumbo Adventures logo"
+        >
+
+        <p>
+          <strong>Where Adventure Turns Accounting into Understanding.</strong>
+        </p>
+
+        <p>
+          Experience accounting through adventures,
+          quests, challenges and meaningful learning.
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>EXPLORE</h3>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="adventures.html">Adventures</a>
+        <a href="leaderboard.html">Leaderboard</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>LEARN</h3>
+
+        <a href="badges.html">Badges</a>
+        <a href="teachers.html">For Teachers</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="login.html">Login</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>CONNECT WITH US</h3>
+
+        <a href="mailto:hello@accunumbo.com">
+          📧 hello@accunumbo.com
+        </a>
+
+        <a
+          href="https://www.instagram.com/accunumbo.adventures/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📸 Instagram — @accunumbo.adventures
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div>
+        © 2026 AccuNumbo Adventures. All rights reserved.
+      </div>
+
+      <div>
+        Learn • Explore • Experience • Understand • Master
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+</body>
+</html>
