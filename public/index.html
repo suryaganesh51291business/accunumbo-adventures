@@ -1,75 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AccuNumbo Adventures</title>
 
+    <!-- IMPORTANT: Your actual CSS filename -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <!-- =====================================================
-     HEADER / NAVIGATION
+     NAVIGATION
 ===================================================== -->
 
 <header class="nav">
 
-    <!-- COMPLETE LOGO - TOP LEFT -->
-    <a href="index.html" class="brand">
-        <img src="accunumbo-logo.png"
-             alt="AccuNumbo Adventures Logo">
+    <a class="brand" href="index.html">
+        <img src="accunumbo-logo.png" alt="AccuNumbo Adventures Logo">
     </a>
 
-    <!-- NAVIGATION -->
     <nav class="navlinks">
 
-        <a href="index.html">
-            <img src="assets/images/home-icon.png" alt="">
-            HOME
-        </a>
+        <a href="index.html">HOME</a>
 
-        <a href="#about">
-            <img src="assets/images/about-icon.png" alt="">
-            ABOUT US
-        </a>
+        <a href="adventures.html">ADVENTURES</a>
 
-        <a href="#adventures">
-            <img src="assets/images/adventures-icon.png" alt="">
-            ADVENTURES
-        </a>
+        <a href="leaderboard.html">LEADERBOARD</a>
 
-        <a href="#leaderboard">
-            <img src="assets/images/leaderboard-icon.png" alt="">
-            LEADERBOARD
-        </a>
+        <a href="teachers.html">FOR TEACHERS</a>
 
-        <a href="#badges">
-            <img src="assets/images/badges-icon.png" alt="">
-            BADGES
-        </a>
-
-        <a href="#teachers">
-            <img src="assets/images/teachers-icon.png" alt="">
-            FOR TEACHERS
-        </a>
-
-        <a href="#feedback">
-            <img src="assets/images/feedback-icon.png" alt="">
-            FEEDBACK
-        </a>
-
-        <a href="login.html">
-            <img src="assets/images/login-icon.png" alt="">
-            LOGIN
-        </a>
+        <a href="feedback.html">FEEDBACK</a>
 
     </nav>
 
     <div class="actions">
+
+        <a class="btn outline" href="login.html">
+            LOGIN
+        </a>
 
         <a class="btn gold" href="login.html">
             SIGN UP FREE
@@ -91,20 +62,19 @@
         <div class="hero-copy">
 
             <span class="pill">
-                EXPERIENTIAL ACCOUNTING LEARNING PLATFORM
+                🎮 EXPERIENTIAL ACCOUNTING LEARNING PLATFORM
             </span>
 
             <h1>
-                Accounting<br>
-                isn’t a chapter.<br>
-                <span>It’s an experience.</span>
+                Accounting isn't a chapter.
+                <br>
+                <span>It's an experience.</span>
             </h1>
 
             <p>
-                <b>Where Adventure Turns Accounting into Understanding.</b>
-            </p>
+                <b>Experience First. Explanation Second.</b>
+                <br><br>
 
-            <p>
                 Step into real-life business situations,
                 make decisions, solve challenges and
                 understand accounting through interactive
@@ -119,7 +89,7 @@
 
                 <a class="btn"
                    style="border:2px solid #d8e4f1;background:#fff"
-                   href="#about">
+                   href="#explore">
                     EXPLORE ACCUNUMBO
                 </a>
 
@@ -128,12 +98,28 @@
         </div>
 
 
-        <!-- BOY + GIRL + ADVENTURE ARTWORK -->
+        <!--
+            No hero.png here because that file does not
+            currently exist in your GitHub public folder.
+
+            We will add your actual blueprint adventure
+            artwork later without breaking the page.
+        -->
 
         <div class="hero-art">
 
-            <img src="assets/images/hero-adventure.png"
-                 alt="AccuNumbo Adventures">
+            <div class="hero-placeholder">
+
+                <div class="adventure-symbol">✦</div>
+
+                <h3>YOUR ADVENTURE STARTS HERE</h3>
+
+                <p>
+                    Learn accounting through
+                    exciting business experiences.
+                </p>
+
+            </div>
 
         </div>
 
@@ -143,19 +129,16 @@
 
 
 <!-- =====================================================
-     LEARNING FEATURES
+     FEATURE BAR
 ===================================================== -->
 
 <main class="container">
 
-    <section class="featurebar">
+    <div class="featurebar">
 
         <div class="feature">
 
-            <div class="ico">
-                <img src="assets/images/learn-by-doing.png"
-                     alt="Learn by Doing">
-            </div>
+            <div class="ico">🎮</div>
 
             <div>
                 <b>Learn by Doing</b>
@@ -167,13 +150,10 @@
 
         <div class="feature">
 
-            <div class="ico">
-                <img src="assets/images/think-decide.png"
-                     alt="Think and Decide">
-            </div>
+            <div class="ico">💡</div>
 
             <div>
-                <b>Think &amp; Decide</b>
+                <b>Think & Decide</b>
                 <small>Apply accounting concepts</small>
             </div>
 
@@ -182,14 +162,11 @@
 
         <div class="feature">
 
-            <div class="ico">
-                <img src="assets/images/understand-deeply.png"
-                     alt="Understand Deeply">
-            </div>
+            <div class="ico">📖</div>
 
             <div>
                 <b>Understand Deeply</b>
-                <small>Connect concepts with everyday life</small>
+                <small>Explanations after action</small>
             </div>
 
         </div>
@@ -197,85 +174,33 @@
 
         <div class="feature">
 
-            <div class="ico">
-                <img src="assets/images/earn-grow.png"
-                     alt="Earn and Grow">
-            </div>
+            <div class="ico">🏆</div>
 
             <div>
-                <b>Earn &amp; Grow</b>
-                <small>Collect XP, coins and badges</small>
+                <b>Earn & Grow</b>
+                <small>XP, coins and badges</small>
             </div>
 
         </div>
 
-    </section>
-
-
-<!-- =====================================================
-     ABOUT ACCUNUMBO
-===================================================== -->
-
-<section class="section" id="about">
-
-    <div class="section-title">
-
-        <h2>
-            WHAT IS ACCUNUMBO ADVENTURES?
-        </h2>
-
     </div>
-
-
-    <div class="card about-card">
-
-        <div>
-
-            <p>
-                AccuNumbo Adventures transforms traditional
-                accounting learning into an interactive adventure.
-            </p>
-
-            <p>
-                Instead of simply reading concepts and memorising
-                rules, learners enter practical business situations,
-                make decisions, solve challenges and learn from
-                their experience.
-            </p>
-
-            <p>
-                Learners can explore adventures, complete quests,
-                earn XP and coins, unlock badges and track their
-                progress while developing a deeper understanding
-                of accounting.
-            </p>
-
-        </div>
-
-
-        <img src="assets/images/about-adventure.png"
-             alt="AccuNumbo Adventure">
-
-    </div>
-
-</section>
 
 
 <!-- =====================================================
      LEARNING JOURNEY
 ===================================================== -->
 
-<section class="section" id="adventures">
+<section class="section" id="explore">
 
     <div class="section-title">
 
         <h2>
-            YOUR LEARNING JOURNEY
+            🗺️ Your Learning Journey
         </h2>
 
         <p>
-            Progress through exciting worlds and build your
-            accounting knowledge.
+            Start with Accounting Village and progress
+            through practical business adventures.
         </p>
 
     </div>
@@ -283,12 +208,13 @@
 
     <div class="adventure-grid">
 
+
         <!-- ADVENTURE MAP -->
 
         <div class="card map">
 
             <h3>
-                ADVENTURE MAP
+                🧭 ADVENTURE MAP
             </h3>
 
             <p class="hint">
@@ -298,17 +224,16 @@
 
             <div class="map-path">
 
-                <div class="node">
 
-                    <img src="assets/images/accounting-village.png"
-                         alt="Accounting Village">
+                <div class="node">
 
                     <div class="circle">
                         01
                     </div>
 
                     <b>
-                        Accounting<br>
+                        Accounting
+                        <br>
                         Village
                     </b>
 
@@ -317,15 +242,13 @@
 
                 <div class="node locked">
 
-                    <img src="assets/images/build-business.png"
-                         alt="Build Your Business">
-
                     <div class="circle">
                         02
                     </div>
 
                     <b>
-                        Build Your<br>
+                        Build Your
+                        <br>
                         Business
                     </b>
 
@@ -334,15 +257,13 @@
 
                 <div class="node locked">
 
-                    <img src="assets/images/transaction-trail.png"
-                         alt="Transaction Trail">
-
                     <div class="circle">
                         03
                     </div>
 
                     <b>
-                        Transaction<br>
+                        Transaction
+                        <br>
                         Trail
                     </b>
 
@@ -351,19 +272,18 @@
 
                 <div class="node locked">
 
-                    <img src="assets/images/accounting-detective.png"
-                         alt="Accounting Detective">
-
                     <div class="circle">
                         04
                     </div>
 
                     <b>
-                        Accounting<br>
+                        Accounting
+                        <br>
                         Detective
                     </b>
 
                 </div>
+
 
             </div>
 
@@ -372,7 +292,9 @@
 
                 <a class="btn dark"
                    href="adventures.html">
+
                     VIEW ALL ADVENTURES
+
                 </a>
 
             </div>
@@ -385,19 +307,16 @@
         <div class="card mission">
 
             <span class="pill">
-                FEATURED MISSION
+                🎮 FEATURED MISSION
             </span>
 
-            <img src="assets/images/first-business.png"
-                 alt="Your First Business"
-                 class="mission-image">
-
             <h3>
-                Your First Business
+                Your First Business ⭐
             </h3>
 
             <p>
-                You've just opened a small stationery shop.
+                You've just opened a small
+                stationery shop.
             </p>
 
             <span class="capital">
@@ -405,15 +324,21 @@
             </span>
 
             <p>
-                <b>Mission 01</b><br>
 
-                What happens when you move your money
-                into the business?
+                <b>Mission 01</b>
+
+                <br>
+
+                What happens when you move
+                your money into the business?
+
             </p>
 
             <a class="btn gold"
                href="adventure1.html">
+
                 PLAY MISSION →
+
             </a>
 
         </div>
@@ -424,7 +349,7 @@
 
 
 <!-- =====================================================
-     YOUR PROGRESS
+     EARN & GROW
 ===================================================== -->
 
 <section class="section">
@@ -432,137 +357,12 @@
     <div class="section-title">
 
         <h2>
-            YOUR PROGRESS
-        </h2>
-
-    </div>
-
-
-    <div class="card progress-card">
-
-        <div class="profile">
-
-            <img src="assets/images/student-avatar.png"
-                 alt="Student">
-
-            <div>
-
-                <h3>
-                    AccuAdventurer
-                </h3>
-
-                <p>
-                    Level 3 Adventurer
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="xp-section">
-
-            <div class="xp-heading">
-
-                <b>
-                    XP Progress
-                </b>
-
-                <span>
-                    740 / 1200 XP
-                </span>
-
-            </div>
-
-            <div class="xp-bar">
-
-                <div class="xp-value"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="progress-stats">
-
-            <div>
-
-                <img src="assets/images/coins.png"
-                     alt="Coins">
-
-                <b>
-                    520
-                </b>
-
-                <small>
-                    Coins
-                </small>
-
-            </div>
-
-
-            <div>
-
-                <img src="assets/images/badges.png"
-                     alt="Badges">
-
-                <b>
-                    12
-                </b>
-
-                <small>
-                    Badges
-                </small>
-
-            </div>
-
-
-            <div>
-
-                <img src="assets/images/streak.png"
-                     alt="Streak">
-
-                <b>
-                    7 Days
-                </b>
-
-                <small>
-                    Streak
-                </small>
-
-            </div>
-
-        </div>
-
-
-        <div style="text-align:center">
-
-            <a class="btn gold"
-               href="adventures.html">
-                CONTINUE ADVENTURE →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     REWARDS
-===================================================== -->
-
-<section class="section" id="badges">
-
-    <div class="section-title">
-
-        <h2>
-            YOUR PROGRESS, YOUR REWARDS.
+            🌟 Earn & Grow
         </h2>
 
         <p>
-            Earn XP, collect coins and unlock exciting badges.
+            Your score becomes part of your
+            learning profile.
         </p>
 
     </div>
@@ -570,17 +370,17 @@
 
     <div class="stats">
 
+
         <div class="stat">
 
-            <img src="assets/images/xp-icon.png"
-                 alt="XP">
+            ⭐
 
             <strong>
                 XP
             </strong>
 
             <small>
-                Earn experience from successful tasks
+                20 / 10 / 5 per successful task
             </small>
 
         </div>
@@ -588,8 +388,7 @@
 
         <div class="stat">
 
-            <img src="assets/images/coins.png"
-                 alt="Coins">
+            🪙
 
             <strong>
                 Coins
@@ -604,8 +403,7 @@
 
         <div class="stat">
 
-            <img src="assets/images/silver-badge.png"
-                 alt="Silver Badge">
+            🥈
 
             <strong>
                 500+
@@ -620,8 +418,7 @@
 
         <div class="stat">
 
-            <img src="assets/images/gold-badge.png"
-                 alt="Golden Badge">
+            🥇
 
             <strong>
                 1000+
@@ -636,8 +433,7 @@
 
         <div class="stat">
 
-            <img src="assets/images/platinum-badge.png"
-                 alt="Platinum Badge">
+            💎
 
             <strong>
                 2000+
@@ -649,366 +445,6 @@
 
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     LEADERBOARD
-===================================================== -->
-
-<section class="section" id="leaderboard">
-
-    <div class="section-title">
-
-        <h2>
-            WHO WILL BECOME THE TOP EXPLORER?
-        </h2>
-
-        <p>
-            Complete quests, earn XP and climb the
-            AccuNumbo leaderboard.
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <table class="leader-table">
-
-            <thead>
-
-                <tr>
-
-                    <th>
-                        RANK
-                    </th>
-
-                    <th>
-                        EXPLORER
-                    </th>
-
-                    <th>
-                        XP
-                    </th>
-
-                    <th>
-                        COINS
-                    </th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-                <tr>
-
-                    <td class="rank">
-                        1
-                    </td>
-
-                    <td>
-                        Top Explorer
-                    </td>
-
-                    <td>
-                        1000 XP
-                    </td>
-
-                    <td>
-                        500
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td class="rank">
-                        2
-                    </td>
-
-                    <td>
-                        Rising Explorer
-                    </td>
-
-                    <td>
-                        850 XP
-                    </td>
-
-                    <td>
-                        420
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td class="rank">
-                        3
-                    </td>
-
-                    <td>
-                        Accounting Adventurer
-                    </td>
-
-                    <td>
-                        740 XP
-                    </td>
-
-                    <td>
-                        350
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-
-
-        <div style="text-align:center;margin-top:20px">
-
-            <a class="btn dark"
-               href="leaderboard.html">
-                VIEW FULL LEADERBOARD →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FEATURED ADVENTURES
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-title">
-
-        <h2>
-            FEATURED ADVENTURES
-        </h2>
-
-    </div>
-
-
-    <div class="adventure-grid">
-
-        <div class="card">
-
-            <img src="assets/images/first-business.png"
-                 alt="Your First Business">
-
-            <h3>
-                Your First Business
-            </h3>
-
-            <p>
-                Start a business, understand capital
-                and make your first accounting decision.
-            </p>
-
-            <a class="btn gold"
-               href="adventure1.html">
-                PLAY MISSION →
-            </a>
-
-        </div>
-
-
-        <div class="card">
-
-            <img src="assets/images/ledger-expedition.png"
-                 alt="Ledger Expedition">
-
-            <h3>
-                The Ledger Expedition
-            </h3>
-
-            <p>
-                Explore transactions and discover how
-                they travel through the accounting system.
-            </p>
-
-            <a class="btn blue"
-               href="adventures.html">
-                EXPLORE QUEST →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FOR TEACHERS
-===================================================== -->
-
-<section class="section" id="teachers">
-
-    <div class="card teachers-card">
-
-        <div>
-
-            <span class="pill">
-                FOR TEACHERS
-            </span>
-
-            <h2>
-                Turn Learning Data into
-                Meaningful Insights.
-            </h2>
-
-            <p>
-                Track student participation, understand
-                student progress and celebrate learning
-                achievements.
-            </p>
-
-            <a class="btn gold"
-               href="teachers.html">
-                EXPLORE TEACHER TOOLS →
-            </a>
-
-        </div>
-
-
-        <img src="assets/images/teacher-illustration.png"
-             alt="For Teachers">
-
-    </div>
-
-
-    <div class="stats">
-
-        <div class="stat">
-
-            <img src="assets/images/students-icon.png"
-                 alt="Students">
-
-            <strong>
-                Students
-            </strong>
-
-            <small>
-                View participating learners
-            </small>
-
-        </div>
-
-
-        <div class="stat">
-
-            <img src="assets/images/progress-icon.png"
-                 alt="Progress">
-
-            <strong>
-                Progress
-            </strong>
-
-            <small>
-                Track adventure completion
-            </small>
-
-        </div>
-
-
-        <div class="stat">
-
-            <img src="assets/images/attempts-icon.png"
-                 alt="Attempts">
-
-            <strong>
-                Attempts
-            </strong>
-
-            <small>
-                Understand task performance
-            </small>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FEEDBACK
-===================================================== -->
-
-<section class="section" id="feedback">
-
-    <div class="section-title">
-
-        <h2>
-            WE'D LOVE TO HEAR FROM YOU
-        </h2>
-
-        <p>
-            Help us make AccuNumbo Adventures better.
-        </p>
-
-    </div>
-
-
-    <div class="card"
-         style="text-align:center">
-
-        <a class="btn gold"
-           href="feedback.html">
-            SHARE YOUR FEEDBACK →
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FINAL CALL TO ACTION
-===================================================== -->
-
-<section class="section">
-
-    <div class="card final-cta">
-
-        <img src="assets/images/adventure-backpack.png"
-             alt="Adventure">
-
-        <div>
-
-            <h2>
-                Ready to Begin Your Adventure?
-            </h2>
-
-            <p>
-                Step into the world of AccuNumbo and
-                discover a new way to understand accounting.
-            </p>
-
-            <a class="btn gold"
-               href="adventures.html">
-                START YOUR ADVENTURE
-            </a>
-
-            <a class="btn dark"
-               href="login.html">
-                CREATE YOUR ACCOUNT
-            </a>
-
-        </div>
 
     </div>
 
@@ -1025,155 +461,56 @@
 
     <div class="container footer-inner">
 
-
-        <!-- COMPLETE LOGO - BOTTOM LEFT -->
-
         <div>
 
-            <a href="index.html"
-               class="footer-logo">
+            <img
+                src="accunumbo-logo.png"
+                alt="AccuNumbo Adventures Logo"
+            >
 
-                <img src="accunumbo-logo.png"
-                     alt="AccuNumbo Adventures Logo">
-
-            </a>
-
-            <p>
+            <div>
                 Experience First. Explanation Second.
-            </p>
+            </div>
 
-            <p>
+        </div>
+
+
+        <div>
+
+            <strong>
+                AccuNumbo Adventures
+            </strong>
+
+            <br>
+
+            <a
+                href="mailto:hello@accunumbo.com"
+                style="color:#fff"
+            >
                 hello@accunumbo.com
-            </p>
-
-        </div>
-
-
-        <!-- QUICK LINKS -->
-
-        <div>
-
-            <h3>
-                QUICK LINKS
-            </h3>
-
-            <a href="index.html">
-                Home
             </a>
 
-            <a href="#about">
-                About Us
-            </a>
+            <br>
 
-            <a href="#adventures">
-                Adventures
-            </a>
-
-            <a href="#leaderboard">
-                Leaderboard
-            </a>
-
-        </div>
-
-
-        <!-- RESOURCES -->
-
-        <div>
-
-            <h3>
-                RESOURCES
-            </h3>
-
-            <a href="#badges">
-                Badges
-            </a>
-
-            <a href="#teachers">
-                For Teachers
-            </a>
-
-            <a href="feedback.html">
-                Feedback
-            </a>
-
-            <a href="login.html">
-                Login
-            </a>
-
-        </div>
-
-
-        <!-- FOOTER STATS -->
-
-        <div>
-
-            <strong>
-                10,000+
-            </strong>
-
-            <small>
-                Adventurers
-            </small>
-
-        </div>
-
-
-        <div>
-
-            <strong>
-                50+
-            </strong>
-
-            <small>
-                Challenges
-            </small>
-
-        </div>
-
-
-        <div>
-
-            <strong>
-                100+
-            </strong>
-
-            <small>
-                Badges to Earn
-            </small>
-
-        </div>
-
-
-        <!-- SOCIAL -->
-
-        <div>
-
-            <h3>
-                FOLLOW US
-            </h3>
-
-            <a href="https://www.instagram.com/accunumbo.adventures"
-               target="_blank"
-               rel="noopener">
+            <a
+                href="https://www.instagram.com/accunumbo.adventures/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color:#fff"
+            >
                 Instagram
             </a>
 
+            <br><br>
+
+            © 2026 AccuNumbo Adventures
+
         </div>
-
-    </div>
-
-
-    <div class="container"
-         style="margin-top:25px;text-align:center;border-top:1px solid #ffffff22;padding-top:18px">
-
-        © 2026 AccuNumbo Adventures
 
     </div>
 
 </footer>
 
-
-<script src="script.js"></script>
 
 </body>
 </html>
