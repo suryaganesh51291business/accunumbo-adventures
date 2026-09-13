@@ -28,13 +28,79 @@
   .hero-side-menu svg{width:24px;height:24px;flex-basis:24px;margin-right:6px}
 }
 
-/* Home blueprint refresh: make the adventure scene the hero, not a split image box */
-.hero{position:relative;overflow:hidden;background:#071634;min-height:720px}
-.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,11,34,.96) 0%,rgba(5,15,44,.78) 34%,rgba(11,18,57,.10) 70%,rgba(6,13,38,.34) 100%),url('assets/boy-girl-castle.webp') center/cover no-repeat;z-index:0}
-.hero-inner,.hero-side-menu{position:relative;z-index:1}
-.hero-inner{display:block;min-height:720px;padding:72px 8% 70px}
-.hero-copy{max-width:560px;margin-left:220px;padding-top:20px}
-.hero-art{display:none}
-.hero-side-menu{top:50%;transform:translateY(-50%);left:28px}
-.brand img{width:150px;height:88px;background:#fff;border-radius:10px;padding:2px}
-@media(max-width:900px){.hero-copy{margin-left:0;max-width:620px}.hero-side-menu{position:relative;top:auto;left:auto;transform:none;display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px}.hero-inner{min-height:600px;padding:48px 7%}.hero-side-menu a{width:150px}}
+/* Homepage hero fix: clean two-column composition, with a sharp artwork panel */
+.hero{
+  position:relative;
+  min-height:510px;
+  overflow:hidden;
+  background:linear-gradient(90deg,#041338 0%,#0b54ba 48%,#06204e 100%);
+}
+.hero:before{display:none}
+.hero:after{display:block}
+.hero-inner{
+  width:min(1500px,100%);
+  min-height:510px;
+  margin:auto;
+  padding:0;
+  display:grid;
+  grid-template-columns:43% 57%;
+  align-items:stretch;
+  position:relative;
+  z-index:1;
+}
+.hero-copy{
+  max-width:none;
+  margin:0;
+  padding:38px 24px 35px 250px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hero-art{
+  display:block;
+  height:510px;
+  min-width:0;
+  overflow:hidden;
+  background:#06204e;
+  box-shadow:none;
+}
+.hero-art-img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center center;
+  filter:none;
+}
+.hero-side-menu{
+  position:absolute;
+  left:18px;
+  bottom:22px;
+  top:auto;
+  transform:none;
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.brand img{
+  width:205px;
+  height:108px;
+  background:transparent;
+  border-radius:0;
+  padding:0;
+}
+@media(max-width:900px){
+  .hero{min-height:600px}
+  .hero-inner{min-height:600px;grid-template-columns:1fr}
+  .hero-copy{margin:0;max-width:none;padding:48px 7% 28px 145px}
+  .hero-art{height:280px}
+  .hero-side-menu{left:8px;bottom:15px}
+  .hero-side-menu a{width:110px}
+}
+@media(max-width:700px){
+  .hero{min-height:650px}
+  .hero-inner{min-height:650px}
+  .hero-copy{padding:35px 20px 20px 125px}
+  .hero-art{height:260px}
+}
