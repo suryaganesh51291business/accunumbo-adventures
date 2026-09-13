@@ -1,1 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 835 320" preserveAspectRatio="xMidYMid meet"><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyMAAAFA..." width="835" height="320" preserveAspectRatio="none"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-label="Two young accounting adventurers exploring a magical castle under the moon">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#08164d"/><stop offset=".55" stop-color="#3b287d"/><stop offset="1" stop-color="#f07a58"/></linearGradient>
+ <linearGradient id="ground" x2="0" y2="1"><stop stop-color="#153f45"/><stop offset="1" stop-color="#041a22"/></linearGradient>
+ <linearGradient id="path" x2="0" y2="1"><stop stop-color="#ffd36b"/><stop offset="1" stop-color="#9d6232"/></linearGradient>
+ <linearGradient id="castle" x2="0" y2="1"><stop stop-color="#6c7796"/><stop offset="1" stop-color="#2b3652"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="650" fill="url(#sky)"/>
+<circle cx="900" cy="105" r="48" fill="#dff6ff" filter="url(#glow)"/><circle cx="900" cy="105" r="40" fill="#b9e7f8"/>
+<g fill="#fff"><circle cx="70" cy="62" r="2"/><circle cx="180" cy="120" r="2"/><circle cx="300" cy="55" r="3"/><circle cx="455" cy="96" r="2"/><circle cx="590" cy="45" r="2"/><circle cx="720" cy="128" r="3"/><circle cx="1040" cy="62" r="2"/><circle cx="1135" cy="150" r="3"/></g>
+<path d="M0 300 Q140 240 270 315 T510 300 T760 315 T1200 270 V650 H0Z" fill="#1a3357" opacity=".9"/>
+<path d="M0 380 Q150 300 300 395 T610 365 T900 390 T1200 340 V650 H0Z" fill="url(#ground)"/>
+<path d="M770 650 Q835 540 915 490 Q1000 435 1005 360" stroke="url(#path)" stroke-width="48" fill="none" opacity=".95"/>
+<!-- castle -->
+<g transform="translate(820 135)">
+ <path d="M80 260V110h75v150M140 260V70h120v190M245 260V115h75v145" fill="url(#castle)" stroke="#17243f" stroke-width="8"/>
+ <path d="M55 110l62-92 62 92zM125 70l75-110 75 110zM235 115l48-80 48 80z" fill="#143a6a" stroke="#17243f" stroke-width="8"/>
+ <g fill="#ffc94f" filter="url(#glow)"><rect x="102" y="150" width="18" height="36" rx="4"/><rect x="178" y="115" width="20" height="42" rx="4"/><rect x="218" y="160" width="20" height="42" rx="4"/><rect x="270" y="165" width="18" height="35" rx="4"/></g>
+ <path d="M172 260v-62q28-34 56 0v62z" fill="#ffbf38" stroke="#1b2540" stroke-width="7"/>
+</g>
+<!-- boy backpack -->
+<g transform="translate(250 220)">
+ <ellipse cx="205" cy="430" rx="170" ry="22" fill="#000" opacity=".25"/>
+ <path d="M85 290q-58-8-70 52l12 120h82z" fill="#5b361f" stroke="#1b1520" stroke-width="10"/>
+ <path d="M80 295q58-34 145 4l-25 172H72z" fill="#092a63" stroke="#061634" stroke-width="11"/>
+ <path d="M105 110q38-54 105-42 55 9 69 67l-5 96q-70 51-160 0z" fill="#d98a48" stroke="#311c19" stroke-width="9"/>
+ <path d="M95 132q6-91 103-96 85 1 98 80l-42 42-23-39-23 21-35-17-31 37z" fill="#3b2119"/>
+ <ellipse cx="145" cy="153" rx="13" ry="19" fill="#17131c"/><ellipse cx="230" cy="153" rx="13" ry="19" fill="#17131c"/><circle cx="148" cy="149" r="4" fill="#fff"/><circle cx="233" cy="149" r="4" fill="#fff"/>
+ <path d="M164 205q35 28 69 0" fill="none" stroke="#8d3d2e" stroke-width="8" stroke-linecap="round"/>
+ <path d="M100 235q75 45 160 0l42 210H55z" fill="#0c3c88" stroke="#061634" stroke-width="11"/>
+ <!-- pointing arm -->
+ <path d="M105 270Q20 235-95 155" fill="none" stroke="#0c3c88" stroke-width="62" stroke-linecap="round"/>
+ <path d="M-115 137q-25-25-53-12l-36 22 18 18-30 8 10 22 31-9-18 25 25 12 23-35q22-18 30-51z" fill="#dc934d" stroke="#311c19" stroke-width="8"/>
+ <!-- map arms -->
+ <path d="M105 305q-42 35-34 90" fill="none" stroke="#d98a48" stroke-width="34" stroke-linecap="round"/>
+ <path d="M254 306q38 37 31 90" fill="none" stroke="#d98a48" stroke-width="34" stroke-linecap="round"/>
+ <path d="M80 330l150-28 32 118-145 34z" fill="#d9ad5c" stroke="#54351c" stroke-width="8"/>
+ <path d="M108 350q35 22 65 0t58 5" fill="none" stroke="#8a6a31" stroke-width="5" stroke-dasharray="8 7"/>
+</g>
+<!-- girl -->
+<g transform="translate(520 235)">
+ <ellipse cx="180" cy="410" rx="150" ry="22" fill="#000" opacity=".25"/>
+ <path d="M75 245q90-42 180 0l35 175H40z" fill="#b81e28" stroke="#45131b" stroke-width="11"/>
+ <path d="M95 100q25-60 105-56 82 7 94 92v96q-70 58-174 0z" fill="#dc9253" stroke="#351d1b" stroke-width="9"/>
+ <path d="M80 125q0-110 105-110 105 4 112 105l-42 36-18-58-35 27-38-23-35 54z" fill="#261a22"/>
+ <path d="M274 108q78 18 62 108l-35 47-20-76z" fill="#261a22"/>
+ <ellipse cx="145" cy="148" rx="13" ry="19" fill="#16131a"/><ellipse cx="232" cy="148" rx="13" ry="19" fill="#16131a"/><circle cx="148" cy="144" r="4" fill="#fff"/><circle cx="235" cy="144" r="4" fill="#fff"/>
+ <path d="M163 202q32 30 68 0" fill="none" stroke="#8d3d2e" stroke-width="8" stroke-linecap="round"/>
+ <path d="M92 260q85 42 170 0l42 170H50z" fill="#d4292d" stroke="#45131b" stroke-width="11"/>
+ <path d="M120 295q-30 45-20 100M245 295q30 45 20 100" fill="none" stroke="#dc9253" stroke-width="32" stroke-linecap="round"/>
+ <rect x="110" y="300" width="130" height="112" rx="7" fill="#0f5b45" stroke="#082e2a" stroke-width="9"/><text x="175" y="362" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffd85a">ACCOUNTS</text>
+</g>
+</svg>
