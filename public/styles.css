@@ -101,24 +101,9 @@ body {
   background: #ffd447;
 }
 
-.nav-icon {
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
-  display: block;
-}
-.nav-art {
-  background-image: url("/icons/nav-icons.webp?v=2");
-  background-repeat: no-repeat;
-  background-size: 600% 100%;
-  background-position-y: center;
-}
-.nav-art-home { background-position-x: 0%; }
-.nav-art-adventures { background-position-x: 20%; }
-.nav-art-leaderboard { background-position-x: 40%; }
-.nav-art-badges { background-position-x: 60%; }
-.nav-art-teachers { background-position-x: 80%; }
-.nav-art-feedback { background-position-x: 100%; }
+.nav-icon { width:42px;height:42px;flex:0 0 42px;display:block; }
+.nav-real { background-image:url("/icons/nav-icons-exact.webp?v=1");background-repeat:no-repeat;background-size:700% 100%;background-position-y:center; }
+.nav-home{background-position-x:0}.nav-adventures{background-position-x:16.6667%}.nav-leaderboard{background-position-x:33.3333%}.nav-badges{background-position-x:50%}.nav-teachers{background-position-x:66.6667%}.nav-feedback{background-position-x:83.3333%}
 
 .active .nav-icon {
   color: #ffd447;
