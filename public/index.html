@@ -7,49 +7,72 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="app-nav-shell">
-      <div class="app-nav-title">
-        <svg class="title-house" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 30 32 8l24 22v26H8z" fill="#fff"/><path d="M25 56V38h14v18" fill="#1687ee"/><path d="M16 31 32 16l16 15" fill="none" stroke="#dff7ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Home</span>
-      </div>
-      <nav class="app-nav-grid" aria-label="Main navigation">
-        <a class="app-nav-card nav-home-card active" href="#home"><span class="app-nav-icon"><img src="/icons/home.svg" alt=""></span><span>Home</span></a>
-        <a class="app-nav-card nav-explore-card" href="#adventures"><span class="app-nav-icon"><img src="/icons/adventures.svg" alt=""></span><span>Explore</span></a>
-        <a class="app-nav-card nav-achievements-card" href="#leaderboard"><span class="app-nav-icon"><img src="/icons/leaderboard.svg" alt=""></span><span>Achievements</span></a>
-        <a class="app-nav-card nav-rewards-card" href="#badges"><span class="app-nav-icon"><img src="/icons/badges.svg" alt=""></span><span>Rewards</span></a>
-        <a class="app-nav-card nav-learn-card" href="#teachers"><span class="app-nav-icon"><img src="/icons/teachers.svg" alt=""></span><span>Learn</span></a>
-        <a class="app-nav-card nav-chat-card" href="#feedback"><span class="app-nav-icon"><img src="/icons/feedback.svg" alt=""></span><span>Chat</span></a>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand-wrap"><a class="brand" href="#home"><img src="/accunumbo-logo.png" alt="AccuNumbo Adventures"></a><p>Where Adventure Turns<br>Accounting into <b>Understanding.</b></p></div>
+      <nav class="side-nav">
+        <a href="#adventures"><img src="/icons/adventures.svg" alt="">Explore</a>
+        <a href="#learn"><img src="/icons/teachers.svg" alt="">Learn</a>
+        <a href="#solve"><span>🔎</span>Solve</a>
+        <a href="#rewards"><span>🪙</span>Earn</a>
+        <a href="#master"><span>🏅</span>Master</a>
       </nav>
-    </div>
-  </header>
-  <main id="home" class="hero">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow">WELCOME TO ACCUNUMBO ADVENTURES</div>
-        <h1>Accounting isn’t a chapter.<br><span>It’s an experience.</span></h1>
-        <p class="hero-subtitle">Where Adventure Turns Accounting into Understanding.</p>
-        <div class="hero-actions">
-          <a class="primary-btn" href="#adventures">START YOUR ADVENTURE</a>
-          <a class="secondary-btn" href="#about">EXPLORE ACCUNUMBO</a>
-        </div>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="art-glow"></div>
-        <div class="adventure-card">
-          <div class="card-star">★</div>
-          <div class="card-title">LEARN • PLAY • PROGRESS</div>
-          <div class="card-sub">Turn accounting into an adventure.</div>
-        </div>
-      </div>
-    </div>
-  </main>
+      <div class="teacher-card"><h3>👥 &nbsp; FOR TEACHERS</h3><b>Turn Learning Data into Meaningful Insights.</b><p>Track student progress, understand strengths, identify improvement areas and celebrate achievements.</p><a href="#teachers">EXPLORE TEACHER TOOLS ➜</a></div>
+      <div class="robot"><div class="robot-face">◡‿◡</div><strong>LEARN • PLAY • GROW</strong></div>
+    </aside>
 
-  <section class="feature-strip" id="adventures">
-    <div><strong>LEARN BY DOING</strong><span>Hands-on accounting adventures</span></div>
-    <div><strong>THINK &amp; DECIDE</strong><span>Make smart financial choices</span></div>
-    <div><strong>UNDERSTAND DEEPLY</strong><span>Build real accounting confidence</span></div>
-    <div><strong>EARN &amp; GROW</strong><span>Unlock progress and rewards</span></div>
-  </section>
+    <div class="content">
+      <header class="topbar">
+        <nav>
+          <a class="active" href="#home">🏠<span>HOME</span></a>
+          <a href="#adventures">🗺️<span>ADVENTURES</span></a>
+          <a href="#leaderboard">🏆<span>LEADERBOARD</span></a>
+          <a href="#badges">🎖️<span>BADGES</span></a>
+          <a href="#teachers">🎓<span>FOR TEACHERS</span></a>
+          <a href="#feedback">💬<span>FEEDBACK</span></a>
+          <a href="#login">🔒<span>LOGIN</span></a>
+        </nav>
+        <a class="signup" href="#signup">👤 &nbsp; SIGN UP FREE</a>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="pill">⭐ &nbsp; EXPERIENTIAL ACCOUNTING LEARNING PLATFORM</div>
+            <h1>Accounting<br>isn’t a chapter.<br>It’s an <em>experience.</em></h1>
+            <p>Where <b>Adventure</b> Turns<br>Accounting into <b>Understanding.</b></p>
+            <div class="hero-actions"><a class="primary-btn" href="#adventures">🚀 &nbsp; START YOUR ADVENTURE</a><a class="secondary-btn" href="#about">▶ &nbsp; EXPLORE ACCUNUMBO</a></div>
+          </div>
+          <div class="hero-scene"><div class="moon">◯</div><div class="castle">🏰</div><div class="kids">🧑‍🚀 &nbsp; 👧</div><div class="path">〰︎〰︎〰︎</div></div>
+        </section>
+
+        <section class="learning-strip">
+          <article><span>🎓</span><div><b>Learn by Doing</b><small>Experience real business situations and learn accounting naturally.</small></div></article>
+          <article><span>💡</span><div><b>Think &amp; Decide</b><small>Analyze, think and make decisions like a real business owner.</small></div></article>
+          <article><span>📖</span><div><b>Understand Deeply</b><small>Get clear explanations and connect concepts with everyday life.</small></div></article>
+          <article><span>🏆</span><div><b>Earn &amp; Grow</b><small>Collect XP, coins and badges as you progress through adventures.</small></div></article>
+        </section>
+
+        <section class="journey-grid">
+          <div class="panel journey" id="adventures"><div class="ribbon">🧭 &nbsp; YOUR LEARNING JOURNEY</div><div class="steps">
+            <article><div class="step-icon">🏠</div><b>01<br>Accounting Village</b><small>Start your journey and discover the foundations of accounting.</small></article>
+            <i>➜</i><article><div class="step-icon">🏪</div><b>02<br>Build Your Business</b><small>Run a business and experience accounting decisions.</small></article>
+            <i>➜</i><article><div class="step-icon">🗺️</div><b>03<br>Transaction Trail</b><small>Follow transactions and discover where every number goes.</small></article>
+            <i>➜</i><article><div class="step-icon">🕵️</div><b>04<br>Accounting Detective</b><small>Investigate accounting mysteries and solve the challenge.</small></article>
+            <i>➜</i><article><div class="step-icon">🏛️</div><b>05<br>Debit &amp; Credit Arena</b><small>Master debit, credit and the accounting equation.</small></article>
+          </div></div>
+          <div class="panel progress"><div class="ribbon green">🏆 &nbsp; YOUR PROGRESS</div><div class="profile"><div class="avatar">🧑</div><div><h3>AccuAdventurer</h3><p>Level 3 Adventurer</p></div></div><div class="xp"><span>740 / 1200 XP</span><div><i></i></div></div><div class="stats"><span>🪙 <b>520</b><small>Coins</small></span><span>🎖️ <b>12</b><small>Badges</small></span><span>🔥 <b>7 Days</b><small>Streak</small></span></div><a class="continue" href="#adventures">CONTINUE ADVENTURE &nbsp; ➜</a></div>
+        </section>
+
+        <section class="lower-grid">
+          <div class="panel featured"><div class="ribbon red">🧭 &nbsp; FEATURED ADVENTURES</div><div class="cards"><article><span>🏪</span><b>Your First Business</b><small>Start a business, understand capital and manage your first accounting decisions.</small><a href="#play">PLAY MISSION ➜</a></article><article><span>📖</span><b>The Ledger Expedition</b><small>Explore transactions and discover how they travel through the accounting system.</small><a href="#quest">EXPLORE QUEST ➜</a></article><article><span>🕵️</span><b>Accounting Detective</b><small>Investigate accounting clues, identify mysteries and solve financial mysteries.</small><a href="#quest">EXPLORE QUEST ➜</a></article></div></div>
+          <div class="panel rewards" id="rewards"><div class="ribbon purple">🏅 &nbsp; YOUR PROGRESS, YOUR REWARDS</div><div class="reward-row"><span>⭐<small>Earn XP</small></span><span>🪙<small>Coins</small></span><span>🛡️<small>Silver<br>500+ XP</small></span><span>🏆<small>Golden<br>1000+ XP</small></span><span>💎<small>Platinum<br>2000+ XP</small></span></div></div>
+          <div class="panel leaderboard" id="leaderboard"><div class="ribbon purple">🏆 &nbsp; WHO WILL BECOME THE TOP EXPLORER?</div><p>Complete quests, earn XP and climb the AccuNumbo leaderboard.</p><ol><li><b>Top Explorer</b><span>1000 XP &nbsp; 🪙 500</span></li><li><b>Rising Explorer</b><span>850 XP &nbsp; 🪙 420</span></li><li><b>Accounting Adventurer</b><span>720 XP &nbsp; 🪙 350</span></li></ol><a class="small-btn" href="#leaderboard">🏆 VIEW FULL LEADERBOARD ➜</a></div>
+        </section>
+
+        <section class="bottom-stats"><div>👥 <b>10,000+</b><small>Adventurers</small></div><div>📋 <b>50+</b><small>Challenges</small></div><div>🏆 <b>100+</b><small>Badges to Earn</small></div><div>⭐ <b>Endless</b><small>Learning Fun!</small></div><aside><b>Ready to Begin Your Adventure?</b><small>Step into the world of AccuNumbo and discover a new way to understand accounting.</small><a href="#signup">🚀 START YOUR ADVENTURE ➜</a></aside></section>
+      </main>
+    </div>
+  </div>
 </body>
 </html>
