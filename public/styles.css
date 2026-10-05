@@ -69,10 +69,10 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 9px;
   color: rgba(255,255,255,.86);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: .01em;
   white-space: nowrap;
@@ -127,7 +127,7 @@ body {
   background: #ffd447;
   color: #08162d;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: .04em;
   box-shadow: 0 8px 20px rgba(255,212,71,.18);
