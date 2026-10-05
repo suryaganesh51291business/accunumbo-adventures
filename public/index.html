@@ -8,23 +8,21 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="/" aria-label="AccuNumbo Adventures home">
-        <img src="/accunumbo-logo.png" alt="AccuNumbo Adventures">
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a class="nav-link active" href="#home"><span class="nav-icon nav-real nav-home"></span><span>Home</span></a>
-        <a class="nav-link" href="#adventures"><span class="nav-icon nav-real nav-adventures"></span><span>Adventures</span></a>
-        <a class="nav-link" href="#leaderboard"><span class="nav-icon nav-real nav-leaderboard"></span><span>Leaderboard</span></a>
-        <a class="nav-link" href="#badges"><span class="nav-icon nav-real nav-badges"></span><span>Badges</span></a>
-        <a class="nav-link" href="#teachers"><span class="nav-icon nav-real nav-teachers"></span><span>For Teachers</span></a>
-        <a class="nav-link" href="#feedback"><span class="nav-icon nav-real nav-feedback"></span><span>Feedback</span></a>
-        <a class="nav-link login-link" href="#login">Login</a>
-        <a class="signup" href="#signup">SIGN UP FREE</a>
+    <div class="app-nav-shell">
+      <div class="app-nav-title">
+        <svg class="title-house" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 30 32 8l24 22v26H8z" fill="#fff"/><path d="M25 56V38h14v18" fill="#1687ee"/><path d="M16 31 32 16l16 15" fill="none" stroke="#dff7ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Home</span>
+      </div>
+      <nav class="app-nav-grid" aria-label="Main navigation">
+        <a class="app-nav-card nav-home-card active" href="#home"><span class="app-nav-icon"><img src="/icons/home.svg" alt=""></span><span>Home</span></a>
+        <a class="app-nav-card nav-explore-card" href="#adventures"><span class="app-nav-icon"><img src="/icons/adventures.svg" alt=""></span><span>Explore</span></a>
+        <a class="app-nav-card nav-achievements-card" href="#leaderboard"><span class="app-nav-icon"><img src="/icons/leaderboard.svg" alt=""></span><span>Achievements</span></a>
+        <a class="app-nav-card nav-rewards-card" href="#badges"><span class="app-nav-icon"><img src="/icons/badges.svg" alt=""></span><span>Rewards</span></a>
+        <a class="app-nav-card nav-learn-card" href="#teachers"><span class="app-nav-icon"><img src="/icons/teachers.svg" alt=""></span><span>Learn</span></a>
+        <a class="app-nav-card nav-chat-card" href="#feedback"><span class="app-nav-icon"><img src="/icons/feedback.svg" alt=""></span><span>Chat</span></a>
       </nav>
     </div>
   </header>
-
   <main id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-copy">
