@@ -102,10 +102,23 @@ body {
 }
 
 .nav-icon {
-  color: #6eb8ff;
-  font-size: 15px;
-  line-height: 1;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: block;
 }
+.nav-art {
+  background-image: url("/icons/nav-icons.webp?v=2");
+  background-repeat: no-repeat;
+  background-size: 600% 100%;
+  background-position-y: center;
+}
+.nav-art-home { background-position-x: 0%; }
+.nav-art-adventures { background-position-x: 20%; }
+.nav-art-leaderboard { background-position-x: 40%; }
+.nav-art-badges { background-position-x: 60%; }
+.nav-art-teachers { background-position-x: 80%; }
+.nav-art-feedback { background-position-x: 100%; }
 
 .active .nav-icon {
   color: #ffd447;
