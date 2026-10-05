@@ -2,8 +2,8 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-const root = path.join(__dirname, "public");
-const port = process.env.PORT || 3000;
+const root = path.resolve(__dirname, "public");
+const port = Number(process.env.PORT) || 3000;
 
 const mime = {
   ".html": "text/html; charset=utf-8",
@@ -12,16 +12,20 @@ const mime = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon"
 };
 
 const server = http.createServer((req, res) => {
-  let pathname = decodeURIComponent(req.url.split("?")[0]);
-  if (pathname === "/") pathname = "/index.html";
+  let pathname;
+  try { pathname = decodeURIComponent((req.url || "/").split("?")[0]); }
+  catch { res.writeHead(400); return res.end("Bad request"); }
 
-  const filePath = path.join(root, pathname);
-  if (!filePath.startsWith(root)) {
+  if (pathname === "/") pathname = "/index.html";
+  const filePath = path.resolve(root, "." + pathname);
+
+  if (filePath !== root && !filePath.startsWith(root + path.sep)) {
     res.writeHead(403);
     return res.end("Forbidden");
   }
@@ -33,10 +37,10 @@ const server = http.createServer((req, res) => {
     }
     res.writeHead(200, {
       "Content-Type": mime[path.extname(filePath).toLowerCase()] || "application/octet-stream",
-      "Cache-Control": "no-cache"
+      "Cache-Control": "no-cache, no-store, must-revalidate"
     });
     res.end(data);
   });
 });
 
-server.listen(port, () => console.log(`AccuNumbo running on port ${port}`));
+server.listen(port, "0.0.0.0", () => console.log(`AccuNumbo running on port ${port}`));
