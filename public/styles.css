@@ -46,3 +46,36 @@ body{font-size:16px}
  .steps b{font-size:13px}
  .steps small{font-size:12px}
 }
+
+/* Four-section blueprint home */
+.home-section{scroll-margin-top:90px}
+.section-learn,.section-adventures,.section-progress{padding:42px 28px;background:#03132d;border-bottom:1px solid #0e4f91}
+.section-adventures{background:linear-gradient(180deg,#041a38,#06102a)}
+.section-progress{background:linear-gradient(180deg,#06122f,#020d24)}
+.section-heading{text-align:center;max-width:850px;margin:0 auto 26px}
+.section-kicker{display:inline-block;color:#ffd21a;font-size:14px;font-weight:950;letter-spacing:.12em;margin-bottom:8px}
+.section-heading h2{margin:0;font-size:clamp(34px,4vw,54px);line-height:1.05}
+.section-heading h2 em{font-style:normal;color:#19cfff}
+.section-heading p{margin:12px auto 0;color:#c9dcf5;font-size:17px;line-height:1.5}
+.section-learn .learning-strip{padding:0;background:transparent;gap:14px}
+.section-learn .learning-strip article{min-height:145px;padding:20px}
+.section-learn .learning-strip article b{font-size:20px}
+.section-learn .learning-strip article small{font-size:14px}
+.learn-highlight{margin-top:16px;padding:22px 24px;border:1px solid #1764ad;border-radius:14px;background:linear-gradient(90deg,#09295a,#071a3c);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.learn-highlight b{display:block;font-size:21px}.learn-highlight span{display:block;color:#c7d9ef;margin-top:5px;font-size:14px}
+.learn-highlight .primary-btn{white-space:nowrap}
+.journey-panel{padding:34px 20px 20px;max-width:1200px;margin:auto}
+.journey-panel .steps{margin-top:0}
+.journey-panel .steps b{font-size:14px}.journey-panel .steps small{font-size:12px}
+.featured-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.featured-card{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:16px;border:1px solid #13538f;border-radius:12px;background:#071e43}
+.featured-card>span{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#123d70;font-size:38px}
+.featured-card b{font-size:16px}.featured-card small{display:block;color:#bdd0e8;font-size:12px;line-height:1.35;margin-top:4px}
+.featured-card a{grid-column:1/-1;padding:10px;text-align:center;border-radius:8px;background:#096dd5;color:#fff;text-decoration:none;font-size:12px;font-weight:950}
+.progress-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:12px}
+.progress-grid .panel{min-height:190px}
+.progress-grid .progress{padding-top:34px}
+.progress-grid .rewards,.progress-grid .leaderboard{padding-top:34px}
+.bottom-stats{margin-top:14px;padding-left:0;padding-right:0}
+@media(max-width:900px){.section-learn,.section-adventures,.section-progress{padding:32px 18px}.featured-row,.progress-grid{grid-template-columns:1fr}.learn-highlight{flex-direction:column;align-items:flex-start}}
+@media(max-width:560px){.section-heading h2{font-size:34px}.section-heading p{font-size:15px}.learning-strip article{min-height:120px}.learn-highlight .primary-btn{width:100%;text-align:center}.featured-card{grid-template-columns:54px 1fr}.featured-card>span{width:54px;height:54px;font-size:32px}}
