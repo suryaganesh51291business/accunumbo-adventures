@@ -46,6 +46,55 @@
 .adventure-note{margin-top:24px;padding:18px 20px;border-radius:16px;border:1px dashed #2878b7;color:#c7d9f4;background:#061a35;font-size:13px;line-height:1.6}
 @media(max-width:1050px){.mission-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.adventure-section{padding:38px 20px}.stage-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:22px 0 34px}.stage:last-child{grid-column:1/-1}.mission-grid{grid-template-columns:1fr}.mission-card{min-height:0}}
+\n
+/* Blueprint-faithful Learning Journey and dashboard panels */
+.blueprint-dashboard{padding:20px 12px 30px;display:grid;grid-template-columns:minmax(0,2.05fr) minmax(300px,1fr);gap:14px;background:radial-gradient(ellipse at 40% 0%,#0a3671 0%,#03152f 62%,#020b20 100%);border-top:1px solid #114577}
+.journey-panel,.progress-panel,.featured-panel,.rewards-panel,.leaderboard-panel{position:relative;min-width:0;overflow:hidden;border:1px solid #174a80;border-radius:18px;background:linear-gradient(145deg,#06234b,#03132b);box-shadow:0 10px 26px #0003;padding:16px}
+.bp-ribbon{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;margin:-1px 0 10px;border-radius:8px 0 15px 0;font-weight:950;font-size:12px;letter-spacing:.04em}
+.blue-ribbon{background:linear-gradient(100deg,#087ce8,#1935bd);border-bottom:2px solid #32d5ff}.green-ribbon{background:linear-gradient(100deg,#00a866,#00623f);border-bottom:2px solid #44ffc0}.red-ribbon{background:linear-gradient(100deg,#f02b46,#9d1537);border-bottom:2px solid #ff7483}.purple-ribbon{background:linear-gradient(100deg,#7227e9,#35118a);border-bottom:2px solid #c7a0ff}
+.bp-subtitle{font-size:12px;color:#c0d4f1;margin:3px 0 20px}
+.journey-path{display:flex;align-items:stretch;gap:4px}
+.journey-stop{flex:1;min-width:0;text-align:center;position:relative}
+.journey-art{height:76px;width:76px;max-width:100%;margin:0 auto 8px;border:2px solid #18caff;border-radius:50%;display:grid;place-items:center;font-size:40px;background:radial-gradient(circle at 30% 20%,#245c99,#07172e 72%);box-shadow:0 0 0 4px #0b5da355,inset 0 0 18px #17bfff22}
+.business-art{border-color:#ffb52b}.trail-art{border-color:#2be0ad}.detective-art{border-color:#c17aff}.arena-art{border-color:#ffce41}
+.journey-number{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;border-radius:50%;margin-top:-22px;position:relative;background:#061b3b;border:2px solid #1cc8ff;font-size:11px;font-weight:950}
+.journey-stop h3{font-size:12px;line-height:1.3;margin:6px 0;color:#fff}.journey-stop p{font-size:10px;line-height:1.45;color:#b9cce8;margin:0 auto;max-width:130px}
+.journey-arrow{color:#18d7ff;font-size:23px;font-weight:900;align-self:flex-start;margin-top:24px}
+.bp-button{display:inline-flex;justify-content:center;align-items:center;gap:6px;text-align:center;padding:11px 13px;border-radius:10px;font-size:10px;font-weight:950;letter-spacing:.025em;transition:filter .15s,transform .15s;border:1px solid transparent}
+.bp-button:hover{filter:brightness(1.13);transform:translateY(-1px)}
+.journey-panel>.bp-button{margin-top:18px}
+.blue-button{background:linear-gradient(180deg,#087ce8,#06449b);border-color:#24bfff;color:#fff}.green-button{background:linear-gradient(180deg,#00c77b,#00834f);border-color:#39ffae;color:#fff}.yellow-button{background:linear-gradient(180deg,#ffe45c,#ffb900);border-color:#ffe56b;color:#09172d}.purple-button{background:linear-gradient(180deg,#852cff,#4c14a5);border-color:#c291ff;color:#fff}
+.progress-panel{border-color:#14774f;background:linear-gradient(145deg,#062e32,#03172a)}
+.player-card{display:flex;align-items:center;gap:10px;margin:14px 0 18px;padding:12px;border-radius:13px;background:#061c31;border:1px solid #165a5b}
+.player-avatar{display:grid;place-items:center;flex:none;width:58px;height:58px;border-radius:50%;font-size:35px;background:radial-gradient(circle at 30% 20%,#c9fff0,#087b77);border:2px solid #3affb8}
+.player-details{flex:1;min-width:0}.player-details strong,.player-details span{display:block}.player-details strong{font-size:14px}.player-details span{font-size:11px;color:#c1d9e5;margin-top:4px}
+.xp-track{height:9px;border-radius:99px;background:#102d4b;overflow:hidden;margin-top:9px}.xp-track span{display:block;width:61.7%;height:100%;border-radius:99px;background:linear-gradient(90deg,#00b879,#47ffc0)}
+.xp-value{font-size:10px;white-space:nowrap;color:#d4ffe9}
+.player-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:16px}.player-stats>div{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:6px;padding:10px 6px;border-right:1px solid #15505a}.player-stats>div:last-child{border:0}.player-stats span{grid-row:span 2;font-size:22px}.player-stats small{font-size:10px;color:#c3d7e9}.player-stats strong{font-size:14px}
+.progress-panel>.bp-button{width:100%}.demo-note{font-size:9px;line-height:1.4;color:#8faac8;margin:10px 0 0}
+.featured-panel{grid-column:1;grid-row:2}.featured-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.adventure-card{min-width:0;overflow:hidden;border:1px solid #2765a0;border-radius:13px;background:linear-gradient(160deg,#0c2d55,#04152b);padding:10px;display:flex;flex-direction:column;align-items:flex-start}
+.business-card{border-color:#a56817}.ledger-card{border-color:#1d70b6}.detective-card{border-color:#8750c9}
+.adventure-illustration{width:100%;height:84px;border-radius:9px;display:grid;place-items:center;font-size:53px;background:radial-gradient(circle at 50% 30%,#235d8b,#06172f 75%);border:1px solid #245280}
+.business-card .adventure-illustration{background:linear-gradient(145deg,#64451b,#1a2e45)}.ledger-card .adventure-illustration{background:linear-gradient(145deg,#133f7d,#07182e)}.detective-card .adventure-illustration{background:linear-gradient(145deg,#4b247a,#101a3c)}
+.adventure-card h3{font-size:12px;line-height:1.35;margin:11px 0 6px}.adventure-card p{font-size:10px;line-height:1.5;color:#c1d2e8;margin:0 0 12px;flex:1}.adventure-card .bp-button{width:100%;font-size:9px;padding:10px 4px}
+.rewards-panel{grid-column:1;grid-row:3}.reward-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.reward-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:12px 5px;border:1px solid #735a13;border-radius:11px;background:linear-gradient(160deg,#302b13,#0b1a2c);min-width:0}
+.reward-item>span{font-size:28px;margin-bottom:6px}.reward-item strong{font-size:11px}.reward-item small{font-size:9px;line-height:1.4;color:#c2d2e6;margin-top:5px}
+.reward-item.silver{border-color:#77849a}.reward-item.gold{border-color:#d7a32a}.reward-item.platinum{border-color:#4d7bde}
+.leaderboard-panel{grid-column:2;grid-row:2 / span 2;background:linear-gradient(145deg,#191447,#07142e);border-color:#6343ad}
+.leaderboard-panel>p{font-size:11px;color:#c9c5ee;line-height:1.5;margin:6px 0 15px}
+.leader-row{display:grid;grid-template-columns:27px minmax(0,1fr) auto auto;align-items:center;gap:7px;padding:12px 0;border-bottom:1px solid #383364;font-size:10px}
+.leader-row strong{font-size:10px}.leader-row>span:nth-child(3){white-space:nowrap;color:#d0c9f6}.leader-row b{white-space:nowrap;color:#ffda64}
+.rank{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-weight:950;background:#1a5bb0}.rank-one{background:linear-gradient(145deg,#ffe980,#c18a13);color:#1c1931}.rank-two{background:linear-gradient(145deg,#e9f4ff,#657c9c);color:#151e37}.rank-three{background:linear-gradient(145deg,#e9a46e,#8b492b);color:#fff}
+.leaderboard-panel>.bp-button{width:100%;margin-top:15px}
+.community-stats{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:12px;border:1px solid #144879;border-radius:15px;background:#03152d}
+.community-stats>div{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:10px;padding:12px;border-radius:10px;background:linear-gradient(145deg,#092750,#04152c)}
+.community-stats span{grid-row:span 2;font-size:28px}.community-stats strong{font-size:19px}.community-stats small{font-size:11px;color:#b9cde8}
+.adventure-cta{grid-column:1 / -1;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px;padding:20px 24px;border:1px solid #14528a;border-radius:17px;background:linear-gradient(100deg,#062c54,#08163b 65%,#11194b)}
+.cta-art{font-size:43px;white-space:nowrap}.cta-copy h2{font-size:clamp(20px,2.2vw,30px);margin:0 0 6px}.cta-copy p{font-size:12px;line-height:1.5;color:#c3d4ee;margin:0;max-width:480px}.cta-actions{display:flex;flex-direction:column;gap:8px}.cta-actions .bp-button{white-space:nowrap}
+@media(max-width:1100px){.blueprint-dashboard{grid-template-columns:minmax(0,1.4fr) minmax(270px,1fr)}.journey-path{gap:2px}.journey-art{width:62px;height:62px;font-size:32px}.journey-arrow{font-size:17px;margin-top:20px}.journey-stop h3{font-size:11px}.journey-stop p{font-size:9px}.featured-cards{gap:7px}.adventure-card{padding:7px}.leader-row{grid-template-columns:24px minmax(0,1fr) auto;}.leader-row b{grid-column:2/-1}.adventure-cta{grid-template-columns:auto 1fr}.cta-actions{grid-column:2;flex-direction:row;flex-wrap:wrap}}
+@media(max-width:760px){.blueprint-dashboard{grid-template-columns:minmax(0,1fr);padding:16px 10px}.journey-panel,.progress-panel,.featured-panel,.rewards-panel,.leaderboard-panel{grid-column:1;grid-row:auto;padding:12px}.journey-path{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.journey-stop{padding:8px}.journey-arrow{display:none}.journey-art{width:78px;height:78px;font-size:40px}.journey-stop h3{font-size:13px}.journey-stop p{font-size:11px}.journey-stop:last-child{grid-column:1/-1}.player-card{flex-wrap:wrap}.xp-value{width:100%;text-align:right}.featured-cards{grid-template-columns:1fr}.adventure-card{display:grid;grid-template-columns:90px minmax(0,1fr);column-gap:12px;align-items:start}.adventure-illustration{grid-row:1/4;height:90px}.adventure-card h3{font-size:13px;margin:4px 0}.adventure-card p{font-size:11px;margin-bottom:8px}.adventure-card .bp-button{grid-column:1/-1}.reward-list{grid-template-columns:repeat(3,minmax(0,1fr))}.community-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.community-stats strong{font-size:16px}.adventure-cta{grid-template-columns:1fr;padding:18px}.cta-art{font-size:35px}.cta-actions{grid-column:1;flex-direction:column}.cta-actions .bp-button{white-space:normal;width:100%}}
 \n</style>
 </head>
 <body>
@@ -92,61 +141,76 @@
 <div class="how-footer"><div><strong>Ready to turn learning into an adventure?</strong><span>Your next accounting mission starts with one step.</span></div><a class="btn btn-primary" href="#home">🚀 START YOUR ADVENTURE</a></div>
 <div id="master"></div><div id="leaderboard"></div><div id="badges"></div><div id="feedback"></div><div id="teacher-login"></div><div id="student-login"></div>
 </section>\n
-<section class="adventure-section" id="learning-adventures">
-  <div class="adventure-heading">
-    <div>
-      <div class="section-label">LEARNING ADVENTURES</div>
-      <h2>Choose your next mission.</h2>
-      <p>Every great accountant starts with curiosity. Follow the learning path, take on practical accounting missions, and build your skills one challenge at a time.</p>
+<section class="blueprint-dashboard" id="learning-adventures">
+  <div class="journey-panel">
+    <div class="bp-ribbon blue-ribbon">🧭 YOUR LEARNING JOURNEY</div>
+    <p class="bp-subtitle">Progress through exciting worlds and build your accounting knowledge.</p>
+    <div class="journey-path">
+      <article class="journey-stop"><div class="journey-art village-art">🏡</div><span class="journey-number">01</span><h3>Accounting Village</h3><p>Start your journey and discover the foundations of accounting.</p></article>
+      <span class="journey-arrow">➜</span>
+      <article class="journey-stop"><div class="journey-art business-art">🏪</div><span class="journey-number">02</span><h3>Build Your Business</h3><p>Run a business and experience accounting decisions.</p></article>
+      <span class="journey-arrow">➜</span>
+      <article class="journey-stop"><div class="journey-art trail-art">🪧</div><span class="journey-number">03</span><h3>Transaction Trail</h3><p>Follow transactions and discover where every number goes.</p></article>
+      <span class="journey-arrow">➜</span>
+      <article class="journey-stop"><div class="journey-art detective-art">🕵️</div><span class="journey-number">04</span><h3>Accounting Detective</h3><p>Investigate accounting mysteries and solve the challenge.</p></article>
+      <span class="journey-arrow">➜</span>
+      <article class="journey-stop"><div class="journey-art arena-art">🏛️</div><span class="journey-number">05</span><h3>Debit &amp; Credit Arena</h3><p>Master debit, credit and the accounting equation.</p></article>
     </div>
+    <a class="bp-button blue-button" href="#featured-adventures">📖 VIEW ALL ADVENTURES ↗</a>
   </div>
-  <div class="stage-track" aria-label="Five-stage learning journey">
-    <div class="stage"><span class="stage-icon">🧭</span><strong>EXPLORE</strong><small>Pick a path</small></div>
-    <div class="stage"><span class="stage-icon">📘</span><strong>LEARN</strong><small>Discover concepts</small></div>
-    <div class="stage"><span class="stage-icon">🧩</span><strong>SOLVE</strong><small>Try challenges</small></div>
-    <div class="stage"><span class="stage-icon">🪙</span><strong>EARN</strong><small>Celebrate progress</small></div>
-    <div class="stage"><span class="stage-icon">⭐</span><strong>MASTER</strong><small>Grow your confidence</small></div>
+  <aside class="progress-panel">
+    <div class="bp-ribbon green-ribbon">🏆 YOUR PROGRESS</div>
+    <div class="player-card">
+      <div class="player-avatar">🧑🏻‍🎓</div>
+      <div class="player-details"><strong>AccuAdventurer</strong><span>Level 3 Adventurer</span><div class="xp-track"><span></span></div></div>
+      <strong class="xp-value">740 / 1200 XP</strong>
+    </div>
+    <div class="player-stats">
+      <div><span>🪙</span><small>Coins</small><strong>520</strong></div>
+      <div><span>🛡️</span><small>Badges</small><strong>12</strong></div>
+      <div><span>🔥</span><small>Streak</small><strong>7 Days</strong></div>
+    </div>
+    <a class="bp-button green-button" href="#featured-adventures">CONTINUE ADVENTURE ➜</a>
+    <p class="demo-note">Illustrative preview — connect a student account to show personal progress.</p>
+  </aside>
+  <section class="featured-panel" id="featured-adventures">
+    <div class="bp-ribbon red-ribbon">⭐ FEATURED ADVENTURES</div>
+    <div class="featured-cards">
+      <article class="adventure-card business-card"><div class="adventure-illustration">🏘️</div><h3>Your First Business</h3><p>Start a business, understand capital and make your first accounting decisions.</p><a class="bp-button yellow-button" href="#home">🎮 PLAY MISSION ➜</a></article>
+      <article class="adventure-card ledger-card"><div class="adventure-illustration">📖</div><h3>The Ledger Expedition</h3><p>Explore transactions and discover how they travel through the accounting system.</p><a class="bp-button blue-button" href="#home">EXPLORE QUEST ➜</a></article>
+      <article class="adventure-card detective-card"><div class="adventure-illustration">🕵️‍♂️</div><h3>Accounting Detective</h3><p>Investigate accounting clues, identify mistakes and solve financial mysteries.</p><a class="bp-button blue-button" href="#home">EXPLORE QUEST ➜</a></article>
+    </div>
+  </section>
+  <section class="rewards-panel">
+    <div class="bp-ribbon purple-ribbon">🏅 YOUR PROGRESS, YOUR REWARDS</div>
+    <div class="reward-list">
+      <div class="reward-item"><span>⭐</span><strong>XP</strong><small>Earn experience from successful tasks.</small></div>
+      <div class="reward-item"><span>🪙</span><strong>Coins</strong><small>Collect coins throughout your journey.</small></div>
+      <div class="reward-item silver"><span>🛡️</span><strong>Silver</strong><small>500+ XP</small></div>
+      <div class="reward-item gold"><span>🌟</span><strong>Golden</strong><small>1000+ XP</small></div>
+      <div class="reward-item platinum"><span>💎</span><strong>Platinum</strong><small>2000+ XP</small></div>
+    </div>
+  </section>
+  <section class="leaderboard-panel" id="leaderboard">
+    <div class="bp-ribbon purple-ribbon">🏆 WHO WILL BECOME THE TOP EXPLORER?</div>
+    <p>Complete quests, earn XP and climb the AccuNumbo leaderboard.</p>
+    <div class="leader-row"><span class="rank rank-one">1</span><strong>Top Explorer</strong><span>1000 XP</span><b>🪙 500</b></div>
+    <div class="leader-row"><span class="rank rank-two">2</span><strong>Rising Explorer</strong><span>850 XP</span><b>🪙 420</b></div>
+    <div class="leader-row"><span class="rank rank-three">3</span><strong>Accounting Adventurer</strong><span>720 XP</span><b>🪙 350</b></div>
+    <a class="bp-button purple-button" href="#leaderboard">🏆 VIEW FULL LEADERBOARD ➜</a>
+    <p class="demo-note">Sample leaderboard values for the design preview.</p>
+  </section>
+  <div class="community-stats">
+    <div><span>👥</span><strong>10,000+</strong><small>Adventurers</small></div>
+    <div><span>📋</span><strong>50+</strong><small>Challenges</small></div>
+    <div><span>🏆</span><strong>100+</strong><small>Badges to Earn</small></div>
+    <div><span>⭐</span><strong>Endless</strong><small>Learning Fun!</small></div>
   </div>
-  <h3 class="mission-title">✨ Featured accounting missions</h3>
-  <div class="mission-grid">
-    <article class="mission-card">
-      <div class="mission-top"><span class="mission-icon">📒</span><span class="mission-tag">FOUNDATION</span></div>
-      <h4>Ledger Legends</h4>
-      <p>Meet debit and credit, record transactions, and discover how entries flow into ledger accounts.</p>
-      <div class="mission-meta"><span>Journal entries</span><span>Ledgers</span></div>
-    </article>
-    <article class="mission-card">
-      <div class="mission-top"><span class="mission-icon">⚖️</span><span class="mission-tag">LOGIC QUEST</span></div>
-      <h4>Trial Balance Trek</h4>
-      <p>Sort balances, check the totals, and investigate what it means when the numbers do not agree.</p>
-      <div class="mission-meta"><span>Balances</span><span>Accuracy</span></div>
-    </article>
-    <article class="mission-card">
-      <div class="mission-top"><span class="mission-icon">📦</span><span class="mission-tag">REAL-WORLD SKILLS</span></div>
-      <h4>Inventory Island</h4>
-      <p>Follow stock in and stock out, compare inventory valuation methods, and see how closing stock affects accounts.</p>
-      <div class="mission-meta"><span>Stock records</span><span>Valuation</span></div>
-    </article>
-    <article class="mission-card">
-      <div class="mission-top"><span class="mission-icon">🧾</span><span class="mission-tag">BUSINESS BASICS</span></div>
-      <h4>GST Detective</h4>
-      <p>Examine sample invoices and practise identifying taxable value, GST components, and input tax credit concepts.</p>
-      <div class="mission-meta"><span>Invoices</span><span>GST concepts</span></div>
-    </article>
-    <article class="mission-card">
-      <div class="mission-top"><span class="mission-icon">🏦</span><span class="mission-tag">PROBLEM SOLVING</span></div>
-      <h4>Bank Reconciliation Bay</h4>
-      <p>Compare cash-book and bank-statement entries to track timing differences and reconcile the balances.</p>
-      <div class="mission-meta"><span>Cash book</span><span>Bank statement</span></div>
-    </article>
-    <article class="mission-card">
-      <div class="mission-top"><span class="mission-icon">🏁</span><span class="mission-tag">CAPSTONE</span></div>
-      <h4>Final Accounts Expedition</h4>
-      <p>Bring the pieces together by classifying items and exploring how trading, profit and loss, and balance sheet statements connect.</p>
-      <div class="mission-meta"><span>Adjustments</span><span>Final accounts</span></div>
-    </article>
+  <div class="adventure-cta">
+    <div class="cta-art">🎒🧭✨</div>
+    <div class="cta-copy"><h2>Ready to Begin Your Adventure?</h2><p>Step into the world of AccuNumbo and discover a new way to understand accounting.</p></div>
+    <div class="cta-actions"><a class="bp-button yellow-button" href="#home">🚀 START YOUR ADVENTURE ➜</a><a class="bp-button blue-button" href="#student-login">♟ CREATE YOUR ACCOUNT ➜</a></div>
   </div>
-  <div class="adventure-note">🚧 <strong>Adventure preview:</strong> These cards introduce the planned learning missions. The interactive activities, scoring, and rewards can be connected as each mission is developed.</div>
 </section>
 </main>\n<footer>© AccuNumbo Adventures · Learn · Play · Grow</footer>
 </div>
