@@ -3,18 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AccuNumbo Adventures</title>
+<meta name="theme-color" content="#03112f">
+<meta name="description" content="AccuNumbo Adventures turns accounting into an exciting learning experience. Explore, learn, solve, earn and master accounting.">
+<title>AccuNumbo Adventures | Accounting is an Experience</title>
 <style>
+:root{--navy:#020b20;--panel:#041638;--blue:#087ce8;--cyan:#18d7ff;--gold:#ffd52a;--white:#f7f9ff;--muted:#bfd0ee}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;width:100%}
-body{min-height:100vh;display:grid;place-items:center;background:#020817}
-main{display:grid;place-items:center;width:100%;min-height:100vh;padding:24px}
-img{display:block;width:min( min(72vw, 520px), 90%);height:auto;max-height:80vh;object-fit:contain}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+.site-shell{min-height:100vh;display:grid;grid-template-columns:260px minmax(0,1fr)}
+.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:18px 16px 24px;background:linear-gradient(180deg,#061a40,#020b20);border-right:1px solid #124b8b;display:flex;flex-direction:column;gap:22px}
+.brand{display:flex;align-items:center;justify-content:center;min-height:190px}
+.brand img{width:100%;max-width:232px;height:auto;max-height:190px;object-fit:contain;filter:drop-shadow(0 8px 18px #00102c)}
+.path-nav{display:grid;gap:12px}
+.path-link{min-height:74px;display:flex;align-items:center;gap:14px;padding:10px 14px;border:1px solid #1b5aa1;border-radius:18px;background:linear-gradient(120deg,#0b3270,#061b43);box-shadow:inset 0 1px 0 #ffffff18;transition:transform .18s,border-color .18s}
+.path-link:hover{transform:translateX(3px);border-color:var(--cyan)}
+.path-link .symbol{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:#ffffff12;font-size:29px;flex:none}
+.path-link strong{font-size:17px;letter-spacing:.045em}
+.path-link:nth-child(2){background:linear-gradient(120deg,#4220a3,#201052);border-color:#8c62ff}
+.path-link:nth-child(3){background:linear-gradient(120deg,#007e69,#064b4c);border-color:#11d5ac}
+.path-link:nth-child(4){background:linear-gradient(120deg,#a45105,#633008);border-color:#ffb32c}
+.path-link:nth-child(5){background:linear-gradient(120deg,#a31643,#510f35);border-color:#ff527b}
+.side-note{margin-top:auto;padding:16px;border:1px solid #16487b;border-radius:16px;background:#06132c;color:var(--muted);font-size:13px;line-height:1.55}
+.side-note b{display:block;color:var(--gold);font-size:14px;margin-bottom:5px}
+.main{min-width:0}
+.topbar{position:sticky;top:0;z-index:10;min-height:102px;padding:12px 20px;display:flex;align-items:center;gap:16px;background:#03112fee;backdrop-filter:blur(16px);border-bottom:1px solid #15508d}
+.main-nav{display:flex;align-items:stretch;justify-content:space-between;gap:4px;flex:1}
+.nav-link{min-width:76px;padding:10px 11px;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;font-size:12px;font-weight:900;letter-spacing:.035em;color:#e7f1ff;border:1px solid transparent}
+.nav-link .nav-icon{font-size:25px;line-height:1}
+.nav-link:hover,.nav-link.active{background:linear-gradient(180deg,#0c4b9d,#07295e);border-color:#187be4;color:white}
+.nav-link.active{box-shadow:inset 0 -3px 0 var(--gold)}
+.login-group{display:flex;gap:8px;flex:none}
+.login{display:flex;align-items:center;gap:8px;padding:12px 13px;border:1px solid #148fe9;border-radius:14px;background:linear-gradient(135deg,#0b4d9c,#06224f);font-size:12px;font-weight:900;white-space:nowrap}
+.login span{font-size:21px}
+.login:hover{border-color:var(--cyan);box-shadow:0 0 18px #00baff20}
+.hero{position:relative;isolation:isolate;min-height:calc(100vh - 102px);display:flex;align-items:center;overflow:hidden;padding:clamp(32px,5vw,76px);background:#03132e}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(90deg,rgba(2,11,32,.96) 0%,rgba(2,11,32,.83) 36%,rgba(2,11,32,.15) 78%,rgba(2,11,32,.15) 100%),url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=90");background-position:center;background-size:cover;transform:scale(1.015)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(2,11,32,.45),transparent 35%),radial-gradient(circle at 18% 20%,#0756b522,transparent 38%)}
+.hero-copy{max-width:690px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid #1d76c4;border-radius:999px;background:#061d43dd;color:#bfefff;font-size:12px;font-weight:900;letter-spacing:.13em}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+h1{font-size:clamp(42px,5.5vw,82px);line-height:.99;letter-spacing:-.045em;margin:26px 0 20px;max-width:760px}
+h1 em{font-style:normal;color:var(--gold);text-shadow:0 4px 22px #ffbb2b25}
+.hero-copy p{font-size:clamp(17px,1.8vw,23px);line-height:1.55;color:#e3ecff;max-width:520px;margin:0}
+.hero-copy p b{color:var(--gold)}
+.actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+.btn{min-height:54px;padding:15px 21px;border-radius:13px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:950;font-size:13px;letter-spacing:.04em}
+.btn-primary{background:linear-gradient(180deg,#ffe45f,#ffbd08);color:#07142b;box-shadow:0 8px 24px #ffca2530}
+.btn-secondary{border:1px solid #2b8fe7;background:#061b3bd9;color:white}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.below{padding:54px clamp(24px,4vw,64px) 64px;background:linear-gradient(180deg,#04132c,#020b20)}
+.section-label{color:var(--cyan);font-size:12px;font-weight:900;letter-spacing:.16em}
+.below h2{font-size:clamp(28px,3vw,42px);margin:10px 0 24px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.feature{padding:22px;border:1px solid #174777;border-radius:18px;background:linear-gradient(160deg,#09234b,#04132c)}
+.feature .emoji{font-size:31px}
+.feature h3{margin:12px 0 7px}
+.feature p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}
+footer{padding:20px 28px;border-top:1px solid #123a66;color:#8fa9ce;font-size:12px;text-align:center;background:#020b20}
+@media(max-width:1180px){.site-shell{grid-template-columns:220px minmax(0,1fr)}.sidebar{padding:14px 12px}.brand{min-height:160px}.topbar{flex-wrap:wrap}.main-nav{order:1;flex-basis:100%;overflow-x:auto;justify-content:flex-start}.login-group{margin-left:auto}.hero{min-height:680px}.nav-link{min-width:100px}}
+@media(max-width:760px){.site-shell{display:block}.sidebar{position:relative;height:auto;overflow:visible;border-right:0;border-bottom:1px solid #124b8b;padding:10px 14px;gap:10px}.brand{min-height:0;height:100px}.brand img{max-width:150px;max-height:100px}.path-nav{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.path-link{min-height:70px;justify-content:center;flex-direction:column;gap:3px;padding:7px 3px;border-radius:12px}.path-link .symbol{width:auto;height:auto;background:transparent;font-size:22px}.path-link strong{font-size:9px}.side-note{display:none}.topbar{position:relative;padding:8px 10px}.main-nav{gap:3px}.nav-link{min-width:88px;padding:8px 6px;font-size:10px}.nav-link .nav-icon{font-size:21px}.login-group{width:100%;margin:0}.login{flex:1;justify-content:center;padding:10px 6px}.hero{min-height:650px;padding:34px 22px;align-items:flex-start}.hero::before{background-image:linear-gradient(90deg,rgba(2,11,32,.91),rgba(2,11,32,.6)),url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85");background-position:center}.eyebrow{font-size:9px;letter-spacing:.08em}h1{font-size:clamp(42px,12vw,62px)}.feature-grid{grid-template-columns:1fr}.below{padding:38px 20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 </style>
 </head>
 <body>
-<main aria-label="AccuNumbo Adventures">
-<img src="/accunumbo-logo.png" alt="AccuNumbo Adventures logo">
+<div class="site-shell">
+<aside class="sidebar">
+<a class="brand" href="#home" aria-label="AccuNumbo Adventures home"><img src="/accunumbo-logo.png" alt="AccuNumbo Adventures logo"></a>
+<nav class="path-nav" aria-label="Learning journey">
+<a class="path-link" href="#adventures"><span class="symbol" aria-hidden="true">🧭</span><strong>EXPLORE</strong></a>
+<a class="path-link" href="#learn"><span class="symbol" aria-hidden="true">📚</span><strong>LEARN</strong></a>
+<a class="path-link" href="#solve"><span class="symbol" aria-hidden="true">🔎</span><strong>SOLVE</strong></a>
+<a class="path-link" href="#rewards"><span class="symbol" aria-hidden="true">🪙</span><strong>EARN</strong></a>
+<a class="path-link" href="#master"><span class="symbol" aria-hidden="true">⭐</span><strong>MASTER</strong></a>
+</nav>
+<div class="side-note"><b>LEARN · PLAY · GROW</b>Every accounting concept is a new adventure. Build skills one challenge at a time.</div>
+</aside>
+<div class="main">
+<header class="topbar">
+<nav class="main-nav" aria-label="Main menu">
+<a class="nav-link active" href="#home"><span class="nav-icon">🏠</span><span>HOME</span></a>
+<a class="nav-link" href="#adventures"><span class="nav-icon">🗺️</span><span>ADVENTURES</span></a>
+<a class="nav-link" href="#leaderboard"><span class="nav-icon">🏆</span><span>LEADER BOARD</span></a>
+<a class="nav-link" href="#badges"><span class="nav-icon">🛡️</span><span>BADGES</span></a>
+<a class="nav-link" href="#teachers"><span class="nav-icon">👩‍🏫</span><span>FOR TEACHERS</span></a>
+<a class="nav-link" href="#feedback"><span class="nav-icon">💬</span><span>FEEDBACK</span></a>
+</nav>
+<div class="login-group"><a class="login" href="#teacher-login"><span>👩‍🏫</span><span>LOGIN<br>(TEACHERS)</span></a><a class="login" href="#student-login"><span>🎓</span><span>LOGIN<br>(STUDENTS)</span></a></div>
+</header>
+<main>
+<section class="hero" id="home">
+<div class="hero-copy">
+<div class="eyebrow"><i></i> EXPERIENTIAL ACCOUNTING LEARNING PLATFORM</div>
+<h1>Accounting<br>isn’t a chapter.<br>It’s an <em>experience.</em></h1>
+<p>Where <b>Adventure</b> turns accounting into <b>understanding.</b></p>
+<div class="actions"><a class="btn btn-primary" href="#adventures">🚀 START YOUR ADVENTURE</a><a class="btn btn-secondary" href="#learn">EXPLORE ACCUNUMBO ↗</a></div>
+</div>
+</section>
+<section class="below" id="adventures">
+<div class="section-label">YOUR LEARNING JOURNEY</div>
+<h2>Big adventures. Real accounting skills.</h2>
+<div class="feature-grid">
+<article class="feature" id="learn"><div class="emoji">📚</div><h3>Learn the concepts</h3><p>Make accounting ideas easier to understand with clear, guided learning.</p></article>
+<article class="feature" id="solve"><div class="emoji">🧩</div><h3>Solve challenges</h3><p>Practice what you learn through interactive questions and problem-solving missions.</p></article>
+<article class="feature" id="rewards"><div class="emoji">🏅</div><h3>Earn your rewards</h3><p>Celebrate progress, build confidence and keep moving towards mastery.</p></article>
+</div>
+<div id="master"></div><div id="leaderboard"></div><div id="badges"></div><div id="teachers"></div><div id="feedback"></div><div id="teacher-login"></div><div id="student-login"></div>
+</section>
 </main>
+<footer>© AccuNumbo Adventures · Learn · Play · Grow</footer>
+</div>
+</div>
 </body>
 </html>
