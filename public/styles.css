@@ -90,3 +90,124 @@ body{font-size:16px}
 .hero-art{width:100%;height:100%;min-height:300px;object-fit:contain!important;object-position:center!important;border-radius:22px;filter:saturate(1.02);box-shadow:inset 0 0 40px rgba(2,13,36,.35)}
 @media(max-width:900px){.hero-art{min-height:240px}}
 @media(max-width:560px){.hero-art{min-height:220px;border-radius:18px}}
+
+
+/* AccuNumbo Adventures — unified deep midnight-blue theme */
+:root{
+  color-scheme: dark;
+  --an-bg:#020817;
+  --an-sidebar:#030d22;
+  --an-surface:#061633;
+  --an-surface-raised:#0a2145;
+  --an-surface-hover:#0d2b57;
+  --an-border:#164878;
+  --an-cyan:#19cfff;
+  --an-gold:#ffd21a;
+  --an-text:#f5f8ff;
+  --an-muted:#c2d3ec;
+}
+html,body,.app,.content,main{
+  background:var(--an-bg);
+  color:var(--an-text);
+}
+body{background:var(--an-bg)!important;color:var(--an-text)}
+.app{background:var(--an-bg)!important}
+.sidebar{
+  background:linear-gradient(180deg,#061633 0%,#030b1d 100%)!important;
+  border-color:var(--an-border)!important;
+}
+.topbar{
+  background:linear-gradient(180deg,#061632 0%,#030c20 100%)!important;
+  border-color:var(--an-border)!important;
+}
+.topbar nav a{border-color:#102d50!important}
+.topbar nav a:hover,.topbar nav a.active{
+  background:linear-gradient(135deg,#0758a8,#07316a)!important;
+  box-shadow:inset 0 -3px 0 var(--an-cyan);
+}
+.side-nav,.side-nav a{border-color:#12365c!important}
+.side-nav a{background:#04122b}
+.side-nav a:hover,.side-nav a:focus-visible{
+  background:#0a2a52!important;
+  outline-color:var(--an-cyan);
+}
+.teacher-card{
+  background:linear-gradient(180deg,#0a2145,#06132d)!important;
+  border-color:#15508a!important;
+}
+.hero{
+  background:
+    radial-gradient(circle at 75% 55%,rgba(0,149,255,.18),transparent 25%),
+    radial-gradient(circle at 85% 10%,rgba(105,48,210,.12),transparent 22%),
+    linear-gradient(135deg,#061633 0%,#020817 62%,#080f2a 100%)!important;
+  border-color:var(--an-border)!important;
+}
+.hero-scene{background:#020817!important}
+.pill{background:linear-gradient(90deg,#10275c,#21145b)!important;border:1px solid #28539b}
+.learning-strip{background:#030d22!important}
+.learning-strip article,.panel,.cards article,.featured-card,.bottom-stats>div{
+  background:linear-gradient(180deg,#081b39 0%,#041128 100%)!important;
+  border-color:#153e68!important;
+  color:var(--an-text);
+}
+.step-icon,.avatar,.cards article>span,.featured-card>span{
+  background:#0a2b54!important;
+  border-color:#169ee9!important;
+}
+.section-learn,.section-adventures,.section-progress{
+  background:linear-gradient(180deg,#030e23 0%,#020817 100%)!important;
+  border-color:#12365c!important;
+}
+.section-adventures{background:linear-gradient(180deg,#04132b 0%,#020817 100%)!important}
+.section-progress{background:linear-gradient(180deg,#030f26 0%,#020817 100%)!important}
+.learn-highlight{
+  background:linear-gradient(90deg,#092248,#06152e)!important;
+  border-color:#164878!important;
+}
+.hero h1 em,.hero p b,.brand-wrap b,.section-kicker{color:var(--an-gold)!important}
+.hero h1,.section-heading h2,.section-heading p{color:var(--an-text)}
+.hero p,.teacher-card p,.learning-strip small,.steps small,.profile p,
+.cards small,.featured-card small,.leaderboard p,.bottom-stats>div small,
+.section-heading p,.learn-highlight span{color:var(--an-muted)!important}
+.primary-btn,.signup,.cards article:first-child a,.bottom-stats aside a{
+  background:linear-gradient(180deg,#ffe05a 0%,#ffc400 100%)!important;
+  color:#07142b!important;
+  border:1px solid #ffe47a;
+  box-shadow:0 3px 0 rgba(116,75,0,.35);
+}
+.secondary-btn{
+  background:#061a37!important;
+  border-color:#168fe5!important;
+  color:#f5f8ff!important;
+}
+.teacher-card a,.cards a,.featured-card a{
+  background:linear-gradient(180deg,#0878dc,#0754ad)!important;
+  color:#fff!important;
+}
+.continue{
+  background:linear-gradient(180deg,#08b982,#00875f)!important;
+  color:#fff!important;
+}
+.ribbon{background:#123d83!important}
+.ribbon.green{background:#087b55!important}
+.ribbon.red{background:#8e2735!important}
+.ribbon.purple{background:#3d278c!important}
+.small-btn{background:linear-gradient(180deg,#5731bd,#341b82)!important;color:#fff!important}
+.reward-row span{background:#061a37!important;border-color:#31547c!important}
+.xp div{background:#14345c!important}
+.xp i{background:linear-gradient(90deg,#19cfff,#12cf9a)!important}
+.stats span,.leaderboard li{border-color:#153657!important}
+.bottom-stats aside{
+  background:linear-gradient(135deg,#0a2145,#06142c)!important;
+  border:1px solid #1c4a78!important;
+  color:var(--an-text)!important;
+}
+.bottom-stats aside b{color:var(--an-text)!important}
+.topbar nav a:hover img,.side-nav a:hover img{filter:drop-shadow(0 0 5px rgba(25,207,255,.4))}
+:focus-visible{outline:2px solid var(--an-cyan);outline-offset:3px}
+@media(prefers-reduced-motion:no-preference){
+  .primary-btn,.secondary-btn,.signup,.side-nav a,.topbar nav a,.cards a,.featured-card a{
+    transition:background-color .18s ease,filter .18s ease,transform .18s ease;
+  }
+  .primary-btn:hover,.signup:hover,.cards a:hover,.featured-card a:hover{filter:brightness(1.06);transform:translateY(-1px)}
+}
