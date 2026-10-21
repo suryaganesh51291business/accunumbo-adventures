@@ -213,6 +213,22 @@ body{font-size:16px}
  .bp-button{font-size:14px}
 }
 
+
+/* HD vector hero artwork: crisp at every screen size */
+.hero::before{
+ background-image:linear-gradient(90deg,rgba(2,11,32,1) 0%,rgba(2,11,32,.97) 32%,rgba(2,11,32,.78) 48%,rgba(2,11,32,.18) 70%,rgba(2,11,32,.02) 100%),url("/accunumbo-hero-hd.svg");
+ background-position:center,right center;
+ background-size:auto,cover;
+ background-repeat:no-repeat,no-repeat;
+}
+@media(max-width:760px){
+ .hero::before{
+  background-image:linear-gradient(90deg,rgba(2,11,32,.95),rgba(2,11,32,.78)),url("/accunumbo-hero-hd.svg");
+  background-position:center,right bottom;
+  background-size:auto,cover;
+ }
+}
+
 </style>
 </head>
 <body>
